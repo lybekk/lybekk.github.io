@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: lybekk.github.io
+Token: 54593f6ae39230f37982f459ae502103e2479ff08acfe4124d1eb96edcf985e0

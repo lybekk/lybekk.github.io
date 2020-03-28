@@ -1,0 +1,19 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+header h1 {
+  color: gold;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1), 0 0 5px rgba(181,232,83,0.1), 0 0 10px #ffd70021;
+}
+
+h2 {
+  color: gold;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1), 0 0 5px rgba(181,232,83,0.1), 0 0 10px #ffd70021;
+}
+
+a {
+  color: gold;
+  text-shadow: 0 0 5px rgba(255, 243, 106, 0.5);
+}

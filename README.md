@@ -1,4 +1,4 @@
 
 ## Projects
-[pimpim](https://lybekk.github.io/pimpim/)
+[offPIM](https://lybekk.github.io/offPIM/)
 

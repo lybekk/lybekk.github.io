@@ -1,0 +1,96 @@
+@keyframes spinVertical {
+    from {
+        transform: rotateY(90deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+.spinVertical {
+    animation-name: spinVertical;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+@keyframes attentionBlink {
+    0% {
+        box-shadow: 0 0 0rem 0px #ccc;
+        filter: brightness(1);
+    }
+    15% {
+        box-shadow: 0 0 4rem 1rem #559cad4f;
+        filter: brightness(1.1);
+    }
+    100% {
+        box-shadow: 0 0 8rem 4rem transparent;
+        filter: brightness(1);
+    }
+}
+
+.attentionBlinkTriple {
+    animation-name: attentionBlink;
+    animation-duration: 0.6s;
+    animation-iteration-count: 3;
+}
+
+.attentionBlinkOnce {
+    animation-name: attentionBlink;
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+@keyframes slideInBottomUp {
+    from {
+        bottom: -25vh;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+.slideInBottomUp {
+    position: relative;
+    animation-name: slideInBottomUp;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+@keyframes slideInRightToLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.slideInRightToLeft {
+    position: relative;
+    animation-name: slideInRightToLeft;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}

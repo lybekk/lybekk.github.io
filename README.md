@@ -1,4 +1,6 @@
+## Lybekk portfolio site source repository
 
-## Projects
-[offPIM](https://lybekk.github.io/offPIM/)
-
+**Stack:**
+  * Gatsby
+  * Bulma
+  * GitHub Pages

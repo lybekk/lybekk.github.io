@@ -1,0 +1,46 @@
+@charset "utf-8";
+// Colors
+$liberty: #4A5899;
+$pacific-blue: #559CAD;
+$light-cyan: #80DEEA;
+$steel-teal: #508991;
+$emerald: #0CCE6B; // Undecided
+$gold-metallic: #DEB841;
+$ultra-red: #F76F8E;
+
+/* 
+ * Theme colors
+*/
+
+$primary: $liberty;
+$link: $pacific-blue;
+$info: $light-cyan;
+$success: $emerald;
+$warning: $gold-metallic;
+$danger: $ultra-red;
+
+/*
+ * Misc.
+*/
+
+$scheme-invert: hsl(0, 0%, 4%);
+$card-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, 0.1),
+0 0px 0 1px rgba($scheme-invert, 0.02);
+$menu-item-color: $link;
+@import "~bulma/bulma.sass";
+
+/*
+ * Necessary for blogposts
+ */
+
+@media screen and (min-width: 480px) {
+    .content blockquote,
+    .content .gatsby-highlight {
+        width: 45vw;
+    }
+}
+
+.content pre[class*="language-"] {
+    background: darken($info, 55%);
+    border-radius: 8px;
+}

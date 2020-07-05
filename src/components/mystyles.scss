@@ -24,16 +24,19 @@ $danger: $ultra-red;
 */
 
 $scheme-invert: hsl(0, 0%, 4%);
-$card-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, 0.1),
-0 0px 0 1px rgba($scheme-invert, 0.02);
+$card-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .15),
+0 0px 0 1px rgba($scheme-invert, .01);
 $menu-item-color: $link;
+$box-radius: 4px;
+$box-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .1),
+0 0px 0 1px rgba($scheme-invert, .03);
 @import "~bulma/bulma.sass";
 
 /*
  * Necessary for blogposts
  */
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 780px) {
     .content blockquote,
     .content .gatsby-highlight {
         width: 45vw;
@@ -41,6 +44,51 @@ $menu-item-color: $link;
 }
 
 .content pre[class*="language-"] {
+    background-color: darken($info, 55%);
+    border-radius: 8px;
+}
+
+.content ul {
+    margin-left: 2em;
+    margin-top: 0;
+}
+
+.content li {
+    list-style: none;
+}
+
+.content ul>li a::before {
+    content: '>';
+    background-color: $primary;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin-right: .5rem;
+    top: .5rem;
+    position: relative;
+}
+
+.token.tag {
     background: darken($info, 55%);
     border-radius: 8px;
+}
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    border-radius: 2rem;
+    margin: 1vw;
+    z-index: 1000;
+    background-color: #00000008;
+    padding: 1vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bottom-navigation>div {
+    margin: 0.3rem;
 }

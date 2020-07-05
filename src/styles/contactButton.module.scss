@@ -1,0 +1,50 @@
+.interaction {
+    transition: all .4s ease;
+    color: inherit;
+}
+
+.interaction:hover {
+    padding-bottom: 3rem;
+    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01);
+}
+
+.interaction>svg {
+    color: inherit;
+    transition: all .4s ease;
+}
+
+.interaction:hover>svg[data-icon="envelope"] {
+    color: #a9a9a9 !important;
+}
+
+.interaction:hover>svg[data-icon="github"] {
+    color: #24292e !important;
+}
+
+.interaction:hover>svg[data-icon="linkedin"] {
+    color: #0077b5;
+}
+
+.interaction::before {
+    content: attr(data-text);
+    transform: scale(.5);
+    position: absolute;
+    top: 1.4rem;
+    opacity: 0;
+    font-size: smaller;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    transition-delay: .1s;
+}
+
+.interaction:hover::before {
+    content: attr(data-text);
+    transform: scale(1);
+    position: absolute;
+    top: 1rem;
+    opacity: 1;
+    font-size: smaller;
+}

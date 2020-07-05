@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { globalHistory } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import BottomNavigation from "./bottomNavigation"
 import "./mystyles.scss"
 
 const Layout = ({ children }) => {
@@ -24,14 +24,25 @@ const Layout = ({ children }) => {
     }
   `)
 
+  /* Keep for now
   const isIndex = globalHistory.location.pathname === "/";
+  */
 
   return (
     <>
+    {/* 
       {!isIndex &&
         <Header siteTitle={data.site.siteMetadata.title} />
       }
-      <main>{children}</main>
+    */}
+      <section className="section">
+      {children}
+      </section>
+      {/* 
+      {!isIndex &&
+      }
+      */}
+      < BottomNavigation siteTitle={data.site.siteMetadata.title} />
     </>
   )
 }

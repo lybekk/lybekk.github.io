@@ -23,8 +23,7 @@ const TagsPage = ({
   return (
     <Layout>
       <Helmet title={title} />
-      <section className="section">
-        <div className="container" style={{ marginTop: '15vh' }}>
+        <div className="container">
           <div className="columns is-centered is-vcentered">
             <div className="column is-narrow">
               <h2 className="title is-2">Tags
@@ -43,7 +42,7 @@ const TagsPage = ({
                         key={tag.fieldValue} 
                         activeStyle={{ color: "cyan" }}
                       >
-                        <span className="has-text-weight-normal is-size-5 is-capitalized">
+                        <span className="has-text-weight-normal is-size-5">
                           {tag.fieldValue}
                         </span>
                         <span className="ml-1 is-italic	has-text-grey-light has-text-weight-semibold">
@@ -57,7 +56,6 @@ const TagsPage = ({
             </div>
           </div>
         </div>
-      </section>
     </Layout >
   )
 }

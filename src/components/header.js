@@ -24,6 +24,7 @@ const feedbackItems = [
 ]
 
 const Header = ({ siteTitle }) => (
+  <>
   <nav
     className="navbar is-fixed-bottom "
     role="navigation"
@@ -34,18 +35,20 @@ const Header = ({ siteTitle }) => (
     COLOR NAVBAR if on posts, else not?
   */}
     <div className="navbar-brand">
-      <h1 className="navbar-item title is-2 has-text-weight-light">
         <Link
           to="/"
-        >
-          {siteTitle}
+          className="navbar-item"
+          >
+            <h2 className="title is-2 has-text-link has-text-weight-light">
+              {siteTitle}
+            </h2>
         </Link>
-      </h1>
     </div>
+
     <div className="navbar-menu">
       <div className="navbar-start">
         <div className="navbar-item has-dropdown has-dropdown-up is-hoverable">
-          <a className="navbar-link has-text-primary is-arrowless">
+          <a href="" className="navbar-link has-text-primary is-arrowless">
             <span className="ml-1">
               <FontAwesomeIcon icon={faPaperPlane} />
             </span>
@@ -74,6 +77,7 @@ const Header = ({ siteTitle }) => (
       </div>
     </div>
   </nav>
+</>
 )
 
 Header.propTypes = {

@@ -2,9 +2,11 @@ module.exports = {
     siteMetadata: {
         title: `Lybekk`,
         description: `Portfolio site.`,
-        author: `@gatsbyjs`,
+        author: `@lybekk`,
+        siteUrl: `https://lybekk.tech`,
     },
     plugins: [
+        `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,

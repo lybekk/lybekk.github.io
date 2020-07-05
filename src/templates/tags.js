@@ -18,7 +18,7 @@ const Tags = ({ pageContext, data }) => {
   return (
     <Layout>
       <section className="section">
-      <div className="container" style={{ marginTop: '15vh' }}>
+        <div className="container">
         <div className="columns is-centered is-vcentered">
           <div className="column is-narrow">
             <h2 className="title is-2">

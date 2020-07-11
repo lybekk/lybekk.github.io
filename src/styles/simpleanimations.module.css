@@ -96,7 +96,7 @@
     animation-duration: 0.4s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
-    animation-delay: 0.3s;
+    animation-delay: 0.8s;
     animation-fill-mode: backwards;
 }
 
@@ -116,7 +116,7 @@
     animation-name: slideInTopDown;
     animation-duration: 0.4s;
     animation-iteration-count: 1;
-    animation-timing-function: ease;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes slideInRightToLeft {
@@ -139,4 +139,49 @@
     animation-duration: 0.6s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
+}
+
+@keyframes unCollapseVertical {
+    from {
+        max-height: 0vh;
+        background-color: whitesmoke;
+    }
+    to {
+        max-height: 100vh;
+        background-color: inherit;
+    }
+}
+
+.unCollapseVertical {
+    overflow: hidden;
+    animation-name: unCollapseVertical;
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-delay: .6s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes attentionShimmer {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    75% {
+        opacity: .6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.attentionShimmer {
+    animation-name: attentionShimmer;
+    animation-duration: .6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: .6s;
 }

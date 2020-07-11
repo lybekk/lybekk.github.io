@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-//import React, { useEffect } from 'react';
 import React from 'react';
 import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
@@ -58,7 +57,7 @@ const IndexPage = () => {
       </Helmet>
 
       <SEO
-        title="Lybekk"
+        title="Home"
         description="A web developer's portfolio site"
       />
       <section className="hero is-fullheight">
@@ -77,11 +76,9 @@ const IndexPage = () => {
           <div className="container">
             <div className="columns is-centered is-vcentered is-mobile">
               <div className="column is-narrow">
-                <div className={`card ${simpleanimationsStyles.slideInBottomUp}`}>
-                  <div className="card-content">
-                    <aside className="menu">
+                    <aside className={`menu ${simpleanimationsStyles.slideInBottomUp}`}>
                       <p className="menu-label">Projects</p>
-                      <ul className="menu-list">
+                      <ul className={`menu-list ${simpleanimationsStyles.unCollapseVertical}`}>
                         <li>
                           <a href="https://offpim.app" target="_blank" rel="noreferrer">offPIM</a>
                           <ul>
@@ -113,10 +110,21 @@ const IndexPage = () => {
                       <p className="menu-label">
                         Code snippets
                       </p>
-                      <ul className="menu-list">
+                      <ul className="menu-list"
+                        style={{
+                          overflow: 'hidden',
+                          animationName: simpleanimationsStyles.unCollapseVertical,
+                          animationDuration: '.8s',
+                          animationIterationCount: 1,
+                          //animationTimingFunction: 'ease-out',
+                          animationTimingFunction: 'ease-in-out',
+                          animationDelay: '.9s',
+                          animationFillMode: 'backwards',
+                        }}
+                      >
                         <li>
-                          <Link to="/tags">
-                            Tags
+                          <Link to="/tags/guide/">
+                            Guides
                           </Link>
                         </li>
                         <li>
@@ -124,10 +132,13 @@ const IndexPage = () => {
                             Cheatsheets
                           </Link>
                         </li>
+                        <li>
+                          <Link to="/tags">
+                            Tags
+                          </Link>
+                        </li>
                       </ul>
                     </aside>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -142,6 +153,8 @@ const IndexPage = () => {
                       <a
                         href={x.url}
                         key={i}
+                        rel="noopener"
+                        aria-label={x.text}
                         data-text={x.text}
                         className={`button 
                                     is-link 
@@ -155,7 +168,7 @@ const IndexPage = () => {
                           animationName: simpleanimationsStyles.attentionBlink,
                           animationIterationCount: 1,
                           animationDuration: '1.4s',
-                          animationDelay: `${0.8 + i / 4}s`,
+                          animationDelay: `${0.4 + i / 6}s`,
                           animationFillMode: 'backwards',
                           backgroundColor: 'rgba(255, 255, 255, 0)',
                         }}

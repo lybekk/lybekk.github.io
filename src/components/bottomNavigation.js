@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import simpleanimationsStyles from "../styles/simpleanimations.module.css"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane, faEnvelope, faFileAlt, faHome } from "@fortawesome/free-solid-svg-icons"
 
@@ -24,7 +26,7 @@ const feedbackItems = [
 ]
 
 const Header = ({ siteTitle }) => (
-    <div className="bottom-navigation">
+    <div className={`bottom-navigation ${simpleanimationsStyles.attentionShimmer}`}>
       <div>
         <Link to="/">
     <button

@@ -1,5 +1,5 @@
 @charset "utf-8";
-// Colors
+// Colors / Themes
 $liberty: #4A5899;
 $pacific-blue: #559CAD;
 $light-cyan: #80DEEA;
@@ -7,29 +7,65 @@ $steel-teal: #508991;
 $emerald: #0CCE6B; // Undecided
 $gold-metallic: #DEB841;
 $ultra-red: #F76F8E;
+$milk-white: #FEFCFF;
+$gunmetal: #2C3539;
+$dark-slate-grey: #25383C;
+$blue-jay: #2B547E;
+$blueberry-blue: #0041C2;
+$glacial-blue-ice: #368BC1;
+$royal-blue: #4169E1;
+$navy-blue: #000080;
+$steel-blue: #87CEEB;
+$cadet-blue: #5f9ea0;
+$pure-white: #edece6;
+$juneberry: #854158;
+$eros-pink: #c84f68;
+$gambol-gold: #e1b047;
+$oceanside: #015a6b;
+$rock-candy: #dee1df;
+$auric: #c48919;
+$aquarium: #3aa9ae;
+$caviar: #313031;
 
 /* 
- * Theme colors
+ * Theme Colors
 */
 
-$primary: $liberty;
-$link: $pacific-blue;
-$info: $light-cyan;
-$success: $emerald;
-$warning: $gold-metallic;
-$danger: $ultra-red;
+$white: $milk-white;
+$black: $caviar;
+$yellow: $gambol-gold;
+$green: $emerald;
+$cyan: $aquarium;
+
+/*
+*/
+
+$blue: $cadet-blue;
+$red: $juneberry;
+$grey: $gunmetal;
+
+/* 
+ * Theme derived
+ $link: lighten($blue, 15%);
+*/
+
+$link: darken($blue, 10%);
+$primary: $blue;
 
 /*
  * Misc.
 */
 
-$scheme-invert: hsl(0, 0%, 4%);
-$card-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .15),
-0 0px 0 1px rgba($scheme-invert, .01);
 $menu-item-color: $link;
+$card-shadow: 0 0.2em 0.6em -0.125em rgba($black, .15),
+0 0px 0 1px rgba($black, .01);
 $box-radius: 4px;
-$box-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .1),
-0 0px 0 1px rgba($scheme-invert, .03);
+$box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
+0 0px 0 1px rgba($black, .03);
+
+/* Bulma modules
+*/
+
 @import "~bulma/bulma.sass";
 
 /*
@@ -44,7 +80,7 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .1),
 }
 
 .content pre[class*="language-"] {
-    background-color: darken($info, 55%);
+    background-color: $grey;
     border-radius: 8px;
 }
 
@@ -72,7 +108,7 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($scheme-invert, .1),
 }
 
 .token.tag {
-    background: darken($info, 55%);
+    background: $grey;
     border-radius: 8px;
 }
 

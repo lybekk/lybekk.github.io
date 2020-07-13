@@ -1,9 +1,3 @@
-# Markdown drafts
-src/drafts
-
-# Posts published & kept away from Git/src
-src/markdown-pages/content-off-git
-
 # Logs
 logs
 *.log

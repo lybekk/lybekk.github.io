@@ -72,10 +72,10 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
  * Necessary for blogposts
  */
 
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 1025px) {
     .content blockquote,
     .content .gatsby-highlight {
-        width: 45vw;
+        width: 55vw;
     }
 }
 
@@ -127,4 +127,24 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
 
 .bottom-navigation>div {
     margin: 0.3rem;
+}
+
+
+/*
+ * Used for negating Bulma's number sass in Prismic snippets
+*/
+
+.token.number {
+    align-items: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+    display: initial;
+    font-size: inherit;
+    height: inherit;
+    justify-content: initial;
+    margin-right: inherit;
+    min-width: inherit;
+    padding: inherit;
+    text-align: inherit;
+    vertical-align: initial;
 }

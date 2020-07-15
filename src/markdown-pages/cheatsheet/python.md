@@ -6,6 +6,18 @@ description: "Cheatsheet for Python"
 tags: ["Python", "Syntax", "Cheatsheet"]
 ---
 
+## Collection types
+```python
+my_list = ["an item", "another item", "A third item. Can you believe it?"]
+my_tuple = ("this", "will be", "unchangeable")
+my_set = {"the order", "of these", "are not guaranteed"}
+my_dictionary = { "key1": "Value 1", "Key 2": 42 }
+```
+
+>*Lists and Tuples are 'ordered'. Items will appear as they are inserted*
+>
+>*Sets and Dictionaries are not ordered collection types*
+
 ## Retrieving device hostname
 ```python
 import socket

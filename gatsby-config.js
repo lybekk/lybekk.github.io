@@ -85,5 +85,13 @@ module.exports = {
                 ],
             },
         },
+        {
+            resolve: 'gatsby-plugin-matomo',
+            options: {
+              siteId: '2',
+              matomoUrl: 'https://www.analytics.lybekk.tech/',
+              siteUrl: 'https://lybekk.tech'
+            }
+          },
     ],
 }

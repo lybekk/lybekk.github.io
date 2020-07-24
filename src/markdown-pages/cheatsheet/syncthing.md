@@ -6,6 +6,8 @@ description: "Syncthing tip snippets"
 tags: ["Syncthing", "Linux","Cheatsheet"]
 ---
 
+## Syncthing on a LAN
+
 Allowing Syncthing through the firewall enables sync between devices on a Local network (LAN) directly, 
 instead of having to make roundtrips to Syncthing's Discovery servers.
 
@@ -17,7 +19,7 @@ digraph graphname {
 }
 ```
 
-## Linux
+### Linux
 
 *Tested on Ubuntu and Raspbian*
 
@@ -32,4 +34,13 @@ Verfiy that firewall rules were added
 
 ```bash
 sudo ufw status verbose
+```
+
+## Ignore Node Modules
+
+Put these in the folders `.stignore`:
+
+```
+node_modules
+**node_modules
 ```

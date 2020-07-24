@@ -112,24 +112,6 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
     border-radius: 8px;
 }
 
-.bottom-navigation {
-    position: fixed;
-    bottom: 0px;
-    right: 0;
-    border-radius: 2rem;
-    margin: 1vw;
-    z-index: 1000;
-    background-color: #00000008;
-    padding: 1vh;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.bottom-navigation>div {
-    margin: 0.3rem;
-}
-
-
 /*
  * Used for negating Bulma's number sass in Prismic snippets
 */
@@ -147,4 +129,30 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
     padding: inherit;
     text-align: inherit;
     vertical-align: initial;
+}
+
+/*
+ * Scrollbars (Global)
+ */
+
+$scrollThumb: rgba($grey, 0.1);
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollThumb $white;
+}
+  
+  /* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 1vw;
+}
+*::-webkit-scrollbar-track {
+    background: $white;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $scrollThumb;
+    border-radius: 1rem;
+    /*
+    border: 3px solid $scrollThumb;
+    */
 }

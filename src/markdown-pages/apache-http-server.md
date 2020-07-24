@@ -11,6 +11,11 @@ tags: ["Apache HTTP Server", "Linux","Cheatsheet"]
 In Debian/Ubuntu distros: 
 <code>/etc/apache2/apache2.conf</code>
 
+## Error log location
+
+Debian/Ubuntu:
+`/var/log/apache2/error.log`
+
 ## Restarting
 
 ```shell

@@ -61,22 +61,26 @@
 
 @keyframes blurIn {
     0% {
-        filter: blur(4rem);
+        filter: blur(1.6rem);
         opacity: 0;
     }
     50% {
         opacity: 1;
     }
-    100% {
+    75% {
         filter: blur(0rem);
+    }
+    100% {
+        opacity: .4;
     }
 }
 
 .blurIn {
     animation-name: blurIn;
-    animation-duration: 0.4s;
+    animation-duration: 0.6s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
+    animation-fill-mode: forwards;  
 }
 
 @keyframes slideInBottomUp {
@@ -141,6 +145,17 @@
     animation-timing-function: ease;
 }
 
+@keyframes unCollapseVerticalEdit {
+    from {
+        max-height: 100vh;
+        background-color: inherit;
+    }
+    to {
+        max-height: 0vh;
+        background-color: whitesmoke;
+    }
+}
+
 @keyframes unCollapseVertical {
     from {
         max-height: 0vh;
@@ -152,15 +167,17 @@
     }
 }
 
+/* Remove after testing
 .unCollapseVertical {
     overflow: hidden;
     animation-name: unCollapseVertical;
     animation-duration: 1.4s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-delay: .6s;
+    animation-delay: 1.2s;
     animation-fill-mode: backwards;
 }
+*/
 
 @keyframes attentionShimmer {
     0% {

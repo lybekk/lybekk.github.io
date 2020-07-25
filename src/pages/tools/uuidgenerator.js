@@ -1,18 +1,20 @@
 import React from "react"
-
-import Layout from "../../components/layout"
 import { Helmet } from "react-helmet"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCode } from "@fortawesome/free-solid-svg-icons"
+import Layout from "../../components/layout"
+
+import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup';
+import { TextField ,MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { CompoundButton, Stack, MessageBar, MessageBarType, DefaultButton } from 'office-ui-fabric-react';
+import { ProgressIndicator } from 'office-ui-fabric-react/lib/ProgressIndicator';
 
 import { saveAs } from 'file-saver';
 
-const outputButtons = [
-    ['text', faCode],
-    ['csv', faCode],
-    ['json', faCode],
-]
+const outputOptions = [
+    { key: 'text', text: 'Text', iconProps: { iconName: 'NumberedListText' } },
+    { key: 'csv', text: 'CSV', iconProps: { iconName: 'NumberSequence' } },
+    { key: 'json', text: 'JSON', iconProps: { iconName: 'Code' } },
+];
 
 function generateUUID() {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -32,16 +34,9 @@ class ToolsPage extends React.Component {
             uuidCount: 1,
             uuidArray: [],
             activeOutputButton: 'text',
+            showResults: false,
+            progressIsActive: 0, // 0 stops indeterminate animation
         };
-    }
-
-    componentDidMount() {
-        this.handleButtonGenerateUUID()
-    }
-
-    handleUUIDCountChange(e) {
-        this.setState({ uuidCount: e.target.value });
-
     }
 
     handleButtonGenerateUUID() {
@@ -70,6 +65,37 @@ class ToolsPage extends React.Component {
         saveAs(blob, `generated_uuids.${fileExtension}`);
     }
 
+    changeOutput(unused, option) {
+        this.setState({ activeOutputButton: option.key })
+    }
+
+    handleUUIDCountChange(unused, value) {
+        if (typeof value === 'string') {
+            value = value.replace(/_/g, "");
+        }
+        this.setState({ uuidCount: Number(value) });
+    }
+
+    animateProgressIndicator() {
+        this.setState({ progressIsActive: true });
+        setTimeout(() => {
+            this.setState({ progressIsActive: 0 });
+        }, 2500);
+    }
+
+    handleButtonGenerateUUIDShow() {
+        this.animateProgressIndicator();
+        this.setState({ showResults: true });
+        this.handleButtonGenerateUUID()
+    }
+
+    handleButtonGenerateUUIDDownload() {
+        this.animateProgressIndicator();
+        this.setState({ showResults: false });
+        this.handleButtonGenerateUUID();
+        this.downloadResults();
+    }
+
     render() {
         return (
             <Layout>
@@ -78,51 +104,53 @@ class ToolsPage extends React.Component {
                     <div className="columns is-centered is-vcentered">
                         <div className="column is-narrow">
                             <h2 className="title is-2">UUID Generator</h2>
-                            <label className="label">1. Choose output format</label>
-                            <div className="field has-addons">
-                                {outputButtons.map((btn) =>
-                                    <p className="control" key={btn[0]}>
-                                        <button
-                                            className={`button is-small ${this.state.activeOutputButton === btn[0] ? 'is-selected is-info' : ''}`}
-                                            onClick={() => this.setState({ activeOutputButton: btn[0] })}
-                                        >
-                                            <span className="icon is-small mr-1">
-                                                <FontAwesomeIcon icon={btn[1]} />
-                                            </span>
-                                            <span className="is-uppercase">{btn[0]}</span>
-                                        </button>
-                                    </p>
-                                )
-                                }
-                            </div>
-                            <label className="label">2. Enter amount of UUIDs to generate </label>
-                            <div className="field has-addons ">
-                                <div className="control">
-                                    <input
-                                        className="input"
-                                        type="number"
-                                        min={1}
-                                        max={5000}
-                                        placeholder="1?"
-                                        onChange={this.handleUUIDCountChange.bind(this)}
-                                    />
-                                </div>
-                                <div className="control">
-                                    <a className="button is-primary" onClick={this.handleButtonGenerateUUID.bind(this)}>
-                                        Generate
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="control is-centered">
-                                <label className="label">3. Download (or just copy results)</label>
-                                <a className="button is-primary" onClick={this.downloadResults.bind(this)}>
-                                    Download
-                                </a>
-                            </div>
-                            <hr />
+                            <ChoiceGroup
+                                label="Choose output format"
+                                defaultSelectedKey="text"
+                                options={outputOptions}
+                                onChange={this.changeOutput.bind(this)}
+                            />
+                            <br />
+                            <MaskedTextField
+                                label="Amount of UUIDs to generate"
+                                value={String(this.state.uuidCount)}
+                                mask="999999"
+                                borderless
+                                underlined
+                                onChange={this.handleUUIDCountChange.bind(this)}
+                            />
                             {this.state.uuidCount > 1000 &&
-                                <p className="help">May slow down your browser.</p>
+                                <MessageBar
+                                    messageBarType={MessageBarType.warning}
+                                    isMultiline={false}
+                                >
+                                    A high number of UUIDs may slow down your browser.
+                                </MessageBar>
                             }
+                            <br />
+                            <Stack horizontal tokens={{ childrenGap: 40 }}>
+                                <CompoundButton
+                                    primary
+                                    secondaryText="Displays the results below"
+                                    iconProps={{ iconName: 'TextBox' }}
+                                    onClick={this.handleButtonGenerateUUIDShow.bind(this)}
+                                >
+                                    Show
+                                </CompoundButton>
+                                <CompoundButton
+                                    primary
+                                    secondaryText="Create a file in the chosen output format"
+                                    iconProps={{ iconName: 'Download' }}
+                                    onClick={this.handleButtonGenerateUUIDDownload.bind(this)}
+                                >
+                                    Download
+                                </CompoundButton>
+                            </Stack>
+                            <br />
+                            <ProgressIndicator percentComplete={this.state.progressIsActive} />
+                            <div style={{
+                                display: this.state.uuidArray.length && this.state.showResults ? '' : 'none',
+                            }}>
                             <h2 className="subtitle">Results</h2>
                             <pre>{
                                 this.state.activeOutputButton === 'json' ?
@@ -131,15 +159,27 @@ class ToolsPage extends React.Component {
                                         return `${uuid}\n`
                                     })
                             }</pre>
+                            </div>
                         </div>
                     </div>
                     <div className="columns is-centered is-vcentered">
                         <div className="column is-narrow">
-                            <article className="message is-info is-light">
-                                <div className="message-body">
-                                    * Produces UUID V4.
-                                </div>
-                            </article>
+                            <MessageBar>
+                                This tool produces UUID V4.
+                            </MessageBar>
+                        </div>
+                    </div>
+                    <div className="columns is-centered is-vcentered">
+                        <div className="column is-narrow">
+                            <hr />
+                            <DefaultButton
+                                href="https://github.com/lybekk/lybekk.github.io/blob/source/src/pages/tools/uuidgenerator.js"
+                                target="_blank"
+                                title="UUID Generator source code"
+                                iconProps={{ iconName: 'FileCode' }}
+                            >
+                                Source code
+                        </DefaultButton>
                         </div>
                     </div>
                 </div>

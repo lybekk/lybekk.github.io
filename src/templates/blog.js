@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
 import seoPerson from "../components/seo/person"
 import seoOrganization from "../components/seo/organization"
+import CheatsheetNotice from "../components/cheatsheetNotice"
+import ArticleAuthor from "../components/articleAuthor"
 
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
 
@@ -15,6 +17,27 @@ export default function Template({
 
   const { markdownRemark } = data // data.markdownRemark holds post data
   const { frontmatter, html, tableOfContents, wordCount, timeToRead } = markdownRemark
+
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: frontmatter.title,
+    name: frontmatter.title,
+    description: frontmatter.description,
+    editor: "Christoffer Lybekk",
+    genre: "programming",
+    keywords: frontmatter.tags.join(),
+    wordcount: wordCount.words,
+    url: `https://lybekk.tech${frontmatter.slug}`,
+    image: "https://lybekk.tech/lybekk.png",
+    datePublished: frontmatter.date,
+    dateCreated: frontmatter.date,
+    dateModified: frontmatter.date,
+    author: seoPerson,
+    publisher: seoOrganization,
+    mainEntityOfPage: "https://lybekk.tech",
+  }
 
   const postStats = {
     'Word count': wordCount.words,
@@ -26,28 +49,7 @@ export default function Template({
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "headline": "${frontmatter.title}",
-              "editor": "Christoffer Lybekk",
-              "genre": "programming",
-              "keywords": "${frontmatter.tags.join()}",
-              "wordcount": "${wordCount.words}",
-              "url": "https://lybekk.tech${frontmatter.slug}",
-              "image": "https://lybekk.tech/lybekk.png",
-              "datePublished": "${frontmatter.date}",
-              "dateCreated": "${frontmatter.date}",
-              "dateModified": "${frontmatter.date}",
-              "description": "${frontmatter.description}",
-              "author": ${JSON.stringify(seoPerson, null, 2)},
-              "publisher": ${JSON.stringify(seoOrganization, null, 2)},
-              "mainEntityOfPage": "https://lybekk.tech"
-            }
-          `}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <Layout>
@@ -64,6 +66,7 @@ export default function Template({
               </div>
             </div>
           </div>
+          <CheatsheetNotice tags={frontmatter.tags} />
           <div className="content">
             <div
               dangerouslySetInnerHTML={{ __html: html }}
@@ -80,6 +83,8 @@ export default function Template({
               </div>
             )}
           </div>
+          <br />
+          <ArticleAuthor />
         </div>
       </Layout>
     </>

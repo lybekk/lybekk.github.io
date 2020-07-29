@@ -1,66 +1,57 @@
 const path = require("path")
 const _ = require("lodash")
 
-exports.createPages = async({ actions, graphql, reporter }) => {
-    const { createPage } = actions
-    const blogPostTemplate = path.resolve("src/templates/blog.js")
-    const tagTemplate = path.resolve("src/templates/tags.js")
-    const result = await graphql(`
-    {
-      postsRemark: allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 2000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              tags
-              slug
-            }
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+  const tagTemplate = path.resolve("src/templates/tags.js")
+  const result = await graphql(`
+  {
+    postsMdx: allMdx(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 2000
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            tags
+            slug
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
+    }
+    tagsGroup: allMdx(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
       }
     }
-  `)
-        // handle errors
-    if (result.errors) {
-        reporter.panicOnBuild(`Error while running GraphQL query.`)
-        return
-    }
-    const posts = result.data.postsRemark.edges
-        // Create post detail pages
-    posts.forEach(({ node }) => {
-        createPage({
-            path: node.frontmatter.slug,
-            component: blogPostTemplate,
-            context: {
-                slug: node.frontmatter.slug,
-            },
-        })
-    })
-    const tags = result.data.tagsGroup.group
-    tags.forEach(tag => {
-        createPage({
-            path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-            component: tagTemplate,
-            context: {
-                tag: tag.fieldValue,
-            },
-        })
-    })
-}
+  }
+`)
 
+  // handle errors
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+  }
 
-exports.onCreateNode = ({ node }) => {
-    if (node.internal.type === `MarkdownRemark`) {
-        console.log('CREATING NODE:')
-        console.log(node.internal.type)
-        const fields = ['slug', 'title', 'tags']
-        fields.forEach(f => console.log(node.frontmatter[f]))
-    }
+  const posts = result.data.postsMdx.edges
+
+  // Create post detail pages
+  posts.forEach(({ node }, index) => {
+    createPage({
+      path: node.frontmatter.slug,
+      component: path.resolve(`./src/components/posts-page-layout.js`),
+      context: { id: node.id },
+    })
+  })
+
+  const tags = result.data.tagsGroup.group
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
+  })
 }

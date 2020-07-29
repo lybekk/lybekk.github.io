@@ -38,7 +38,7 @@ const offpimList = [
 ]
 
 const whiteBackgroundShadow = {
-  backgroundColor: '#fefcff',
+  //backgroundColor: '#fefcff',
   backgroundColor: 'rgb(254 252 255 / 90%)',
   boxShadow: 'rgb(254 252 255 / 82%) 0px 0.2em 2em 3em, rgb(254 252 255 / 85%) 0px 0px 7px 3px',
 }
@@ -61,7 +61,6 @@ const IndexPage = () => {
 
   return (
     <>
-
       <Helmet>
         <script type="application/ld+json">
           {`{
@@ -157,6 +156,11 @@ const IndexPage = () => {
                   <li>
                     <Link to="/tools/uuidgenerator/">
                       UUID Generator
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/guide/get-netlify-bandwidth-usage#netlify-bandwidth-checker-tool">
+                      Netlify Bandwidth Checker
                     </Link>
                   </li>
                 </ul>

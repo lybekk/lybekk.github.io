@@ -11,14 +11,15 @@ import { useStaticQuery, graphql } from "gatsby"
 
 
 import BottomNavigation from "./bottomNavigation"
-import "./mystyles.scss"
+import "./styling/mystyles.scss"
 
 /**
  * Fluent UI
  */
 import { initializeIcons } from '@uifabric/icons';
 import { loadTheme } from 'office-ui-fabric-react';
-initializeIcons();
+initializeIcons('https://lybekk.tech/fluenticons/');
+
 loadTheme({
   palette: {
     themePrimary: 'teal',
@@ -59,24 +60,11 @@ const Layout = ({ children }) => {
     }
   `)
 
-  /* Keep for now
-  const isIndex = globalHistory.location.pathname === "/";
-  */
-
   return (
     <>
-    {/* 
-      {!isIndex &&
-        <Header siteTitle={data.site.siteMetadata.title} />
-      }
-    */}
       <section className="section">
-      {children}
+        {children}
       </section>
-      {/* 
-      {!isIndex &&
-      }
-      */}
       < BottomNavigation siteTitle={data.site.siteMetadata.title} />
     </>
   )

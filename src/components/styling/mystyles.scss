@@ -66,7 +66,31 @@ $box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
 /* Bulma modules
 */
 
+/* All modules
 @import "~bulma/bulma.sass";
+*/
+
+/* Selective import
+*/
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/helpers/_all.sass";
+@import "bulma/sass/base/_all.sass";
+@import "bulma/sass/layout/section.sass";
+@import "bulma/sass/components/menu.sass";
+@import "bulma/sass/components/dropdown.sass";
+@import "bulma/sass/components/navbar.sass";
+@import "bulma/sass/components/media.sass";
+@import "bulma/sass/components/panel.sass";
+@import "bulma/sass/elements/title.sass";
+@import "bulma/sass/elements/button.sass";
+@import "bulma/sass/elements/tag.sass";
+@import "bulma/sass/elements/content.sass";
+@import "bulma/sass/elements/container.sass";
+@import "bulma/sass/form/shared.sass";
+@import "bulma/sass/form/tools.sass";
+//@import "bulma/sass/utilities/mixins.sass";
+@import "bulma/sass/grid/columns.sass";
+
 
 /*
  * Necessary for blogposts
@@ -156,3 +180,4 @@ $scrollThumb: rgba($grey, 0.1);
     border: 3px solid $scrollThumb;
     */
 }
+

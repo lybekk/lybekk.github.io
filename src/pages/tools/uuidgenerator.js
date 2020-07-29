@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 import Layout from "../../components/layout"
 
 import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup';
-import { TextField ,MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
 import { CompoundButton, Stack, MessageBar, MessageBarType, DefaultButton } from 'office-ui-fabric-react';
 import { ProgressIndicator } from 'office-ui-fabric-react/lib/ProgressIndicator';
 
@@ -99,7 +99,9 @@ class ToolsPage extends React.Component {
     render() {
         return (
             <Layout>
-                <Helmet title="Tools" />
+                <Helmet title="Tools">
+                    <meta name="description" content="Generate UUIDs (universally unique identifier) and download as a text file, CSV or JSON." />
+                </Helmet>
                 <div className="container">
                     <div className="columns is-centered is-vcentered">
                         <div className="column is-narrow">
@@ -151,14 +153,14 @@ class ToolsPage extends React.Component {
                             <div style={{
                                 display: this.state.uuidArray.length && this.state.showResults ? '' : 'none',
                             }}>
-                            <h2 className="subtitle">Results</h2>
-                            <pre>{
-                                this.state.activeOutputButton === 'json' ?
-                                    JSON.stringify(this.state.uuidArray, null, 2)
-                                    : this.state.uuidArray.map((uuid) => {
-                                        return `${uuid}\n`
-                                    })
-                            }</pre>
+                                <h2 className="subtitle">Results</h2>
+                                <pre>{
+                                    this.state.activeOutputButton === 'json' ?
+                                        JSON.stringify(this.state.uuidArray, null, 2)
+                                        : this.state.uuidArray.map((uuid) => {
+                                            return `${uuid}\n`
+                                        })
+                                }</pre>
                             </div>
                         </div>
                     </div>
@@ -179,7 +181,7 @@ class ToolsPage extends React.Component {
                                 iconProps={{ iconName: 'FileCode' }}
                             >
                                 Source code
-                        </DefaultButton>
+                            </DefaultButton>
                         </div>
                     </div>
                 </div>

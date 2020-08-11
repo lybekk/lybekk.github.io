@@ -110,6 +110,7 @@ module.exports = {
                 siteUrl: 'https://lybekk.tech'
             }
         },
-        `gatsby-plugin-typescript`
+        `gatsby-plugin-typescript`,
+        'gatsby-plugin-robots-txt',
     ],
 }

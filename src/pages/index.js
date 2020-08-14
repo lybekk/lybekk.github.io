@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import React from 'react';
+import React, { useEffect } from 'react'
 import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
 
@@ -58,6 +58,21 @@ const unCollapseVerticalDefaults = {
 }
 
 const IndexPage = () => {
+
+  useEffect(() => {
+    let timer = 2400;
+    heroBottomButtons.forEach(element => {
+      let btn = document.querySelector(`[data-text="${element.text}"]`);
+      setTimeout(() => {
+        btn.classList.add(contactButtonStyles.attention)
+      }, timer);
+      setTimeout(() => {
+        btn.classList.remove(contactButtonStyles.attention)
+      }, 4000);
+      timer = timer + 200;
+    });
+
+  }, []);
 
   return (
     <>
@@ -215,14 +230,14 @@ const IndexPage = () => {
                                     is-rounded 
                                     is-large 
                                     is-inverted ` +
-                contactButtonStyles.interaction
+                contactButtonStyles.interaction 
               }
               target={x.target}
               style={{
                 animationName: simpleanimationsStyles.attentionBlink,
                 animationIterationCount: 1,
-                animationDuration: '1.4s',
-                animationDelay: `${0.4 + i / 6}s`,
+                animationDuration: '.8s',
+                animationDelay: `${1.4 + i / 6}s`,
                 animationFillMode: 'backwards',
                 backgroundColor: 'rgba(255, 255, 255, 0)',
               }}

@@ -1,11 +1,45 @@
+/*
+.button-base {
+
+}
+*/
+
+/*
+.attention {
+}
+.attention::after {
+
+}
+*/
+
+
+/*
+.attention::before {
+    content: attr(data-text);
+    transform: scale(1);
+    position: absolute;
+    top: 1rem;
+    opacity: 1;
+    font-size: smaller;
+}
+*/
+
 .interaction {
     transition: all .4s ease;
     color: inherit;
 }
 
 .interaction:hover {
+    /*
+    @extend .attention;
+    */
+    transition: all .4s ease;
+    padding-bottom: 3rem !important;
+    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01) !important;
+    /* remove after extend is OK
     padding-bottom: 3rem;
     box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01);
+    */
 }
 
 .interaction>svg {
@@ -13,15 +47,21 @@
     transition: all .4s ease;
 }
 
-.interaction:hover>svg[data-icon="envelope"] {
-    color: #a9a9a9 !important;
+.interaction:hover>svg[data-icon="envelope"], 
+.attention>svg[data-icon="envelope"] 
+{
+    color: #a9a9a9;
 }
 
-.interaction:hover>svg[data-icon="github"] {
-    color: #24292e !important;
+.interaction:hover>svg[data-icon="github"],
+.attention>svg[data-icon="github"] 
+{
+    color: #24292e;
 }
 
-.interaction:hover>svg[data-icon="linkedin"] {
+.interaction:hover>svg[data-icon="linkedin"],
+.attention>svg[data-icon="linkedin"] 
+{
     color: #0077b5;
 }
 
@@ -41,6 +81,30 @@
 }
 
 .interaction:hover::before {
+    /*
+    @extend .attention::after;
+    */
+    content: attr(data-text);
+    transform: scale(1);
+    position: absolute;
+    top: 1rem;
+    opacity: 1;
+    font-size: smaller;
+}
+
+.attention {
+    opacity: .9;
+    padding-bottom: 3rem !important;
+    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01) !important;
+    transition: all .4s ease;
+}
+
+/*
+.interaction.attention {
+}
+*/
+
+.interaction.attention::before {
     content: attr(data-text);
     transform: scale(1);
     position: absolute;

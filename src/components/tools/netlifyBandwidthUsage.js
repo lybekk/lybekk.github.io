@@ -6,7 +6,7 @@ import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 
 const columnProps = {
     tokens: { childrenGap: 5 },
-    styles: { root: { width: 300 } },
+    styles: { root: { minWidth: 240 } },
 };
 
 const commandBarItems = [

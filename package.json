@@ -34,15 +34,18 @@
         "gatsby-source-google-docs": "^2.0.0-beta.13",
         "gatsby-transformer-sharp": "^2.5.5",
         "gsap": "^3.3.4",
+        "node-fetch": "^2.6.0",
         "node-sass": "^4.14.1",
         "prismjs": "^1.20.0",
         "prop-types": "^15.7.2",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
-        "react-helmet": "^6.1.0"
+        "react-helmet": "^6.1.0",
+        "xml2js": "^0.4.23"
     },
     "devDependencies": {
         "gh-pages": "^3.0.0",
+        "lighthouse": "^6.2.0",
         "prettier": "2.0.5"
     },
     "keywords": [

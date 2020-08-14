@@ -1,3 +1,6 @@
+# Lighthouse reports
+reports/
+
 # Logs
 logs
 *.log

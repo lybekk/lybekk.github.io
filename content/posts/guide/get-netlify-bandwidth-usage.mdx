@@ -14,12 +14,16 @@ import NetlifyBandwidthUsage from '../../../src/components/tools/netlifyBandwidt
 
 *In the script below, replace the following variable's values*
 
-Setting                     | Explanation
---------------------------- | ---
-**ACCOUNT_NAME**            | The account name associated with the account.
-**SITE_NAME**               | The site name can be found in 'Site information' in the project's settings, or at the top in the overview.
-**EMAIL**                   | The email used during account registration.
-**PERSONAL_ACCESS_TOKEN**   | Created at https://app.netlify.com/user/applications
+<dl>
+    <dt style="font-weight: bold;">ACCOUNT_NAME</dt>
+    <dd>The account name associated with the account.</dd>
+    <dt style="font-weight: bold;">SITE_NAME</dt>
+    <dd>The site name can be found in 'Site information' in the project's settings, or at the top in the overview.</dd>
+    <dt style="font-weight: bold;">EMAIL</dt>
+    <dd>The email used during account registration.</dd>
+    <dt style="font-weight: bold;">PERSONAL_ACCESS_TOKEN</dt>
+    <dd>Created at https://app.netlify.com/user/applications</dd>        
+</dl>
 
 ### Full Python script
 
@@ -64,5 +68,7 @@ for item in print_list.items():
 
 If you are comfortable pasting your **Personal Access Token** in a web form, try this tool, which does the same as the Python script, only in JavaScript.
 One way to mitigate risk is to create a token, and revoke it just after using this tool.
+
+*Note: The script is executed client-side* 
 
 <NetlifyBandwidthUsage />

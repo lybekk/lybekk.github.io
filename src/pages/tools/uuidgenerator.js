@@ -5,8 +5,10 @@ import Layout from "../../components/layout"
 
 import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup';
 import { MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { CompoundButton, Stack, MessageBar, MessageBarType, DefaultButton } from 'office-ui-fabric-react';
 import { ProgressIndicator } from 'office-ui-fabric-react/lib/ProgressIndicator';
+import { Text } from 'office-ui-fabric-react/lib/Text';
 
 import { saveAs } from 'file-saver';
 
@@ -26,12 +28,16 @@ function generateUUID() {
         })
 }
 
+const pageDescriptionLine1 = "This simple tool generates UUIDs (universally unique identifier) (V4).";
+const pageDescriptionLine2 = "The result will be available for download or direct output to screen in CSV, JSON or line-by-line.";
+
 class ToolsPage extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            uuidCount: 1,
+            uuidCount: 42,
+            isInvalidAmount: false,
             uuidArray: [],
             activeOutputButton: 'text',
             showResults: false,
@@ -70,6 +76,12 @@ class ToolsPage extends React.Component {
     }
 
     handleUUIDCountChange(unused, value) {
+        if (isNaN(value)) {
+            value = 0;
+            this.setState({ isInvalidAmount: true })
+        } else {
+            this.setState({ isInvalidAmount: false })
+        }
         if (typeof value === 'string') {
             value = value.replace(/_/g, "");
         }
@@ -100,12 +112,18 @@ class ToolsPage extends React.Component {
         return (
             <Layout>
                 <Helmet title="Tools">
-                    <meta name="description" content="Generate UUIDs (universally unique identifier) and download as a text file, CSV or JSON." />
+                    <meta name="description" content={pageDescriptionLine1 + ' ' + pageDescriptionLine2} />
                 </Helmet>
                 <div className="container">
                     <div className="columns is-centered is-vcentered">
                         <div className="column is-narrow">
                             <h2 className="title is-2">UUID Generator</h2>
+                            <div className="columns is-centered is-vcentered">
+                        <div className="column is-narrow">
+                            <Text block>{pageDescriptionLine1}</Text>
+                            <Text block>{pageDescriptionLine2}</Text>
+                        </div>
+                    </div>
                             <ChoiceGroup
                                 label="Choose output format"
                                 defaultSelectedKey="text"
@@ -113,10 +131,9 @@ class ToolsPage extends React.Component {
                                 onChange={this.changeOutput.bind(this)}
                             />
                             <br />
-                            <MaskedTextField
-                                label="Amount of UUIDs to generate"
+                            <TextField
+                                label="Amount of UUIDs to generate:"
                                 value={String(this.state.uuidCount)}
-                                mask="999999"
                                 borderless
                                 underlined
                                 onChange={this.handleUUIDCountChange.bind(this)}
@@ -127,6 +144,14 @@ class ToolsPage extends React.Component {
                                     isMultiline={false}
                                 >
                                     A high number of UUIDs may slow down your browser.
+                                </MessageBar>
+                            }
+                            {this.state.isInvalidAmount &&
+                                <MessageBar
+                                    messageBarType={MessageBarType.error}
+                                    isMultiline={false}
+                                >
+                                    Must be a number.
                                 </MessageBar>
                             }
                             <br />
@@ -162,13 +187,6 @@ class ToolsPage extends React.Component {
                                         })
                                 }</pre>
                             </div>
-                        </div>
-                    </div>
-                    <div className="columns is-centered is-vcentered">
-                        <div className="column is-narrow">
-                            <MessageBar>
-                                This tool produces UUID V4.
-                            </MessageBar>
                         </div>
                     </div>
                     <div className="columns is-centered is-vcentered">

@@ -44,9 +44,16 @@
         "xml2js": "^0.4.23"
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^5.11.3",
+        "@testing-library/react": "^10.4.8",
+        "babel-jest": "^26.3.0",
+        "babel-preset-gatsby": "^0.5.5",
         "gh-pages": "^3.0.0",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^26.4.0",
         "lighthouse": "^6.2.0",
-        "prettier": "2.0.5"
+        "prettier": "2.0.5",
+        "react-test-renderer": "^16.13.1"
     },
     "keywords": [
         "gatsby"
@@ -60,7 +67,7 @@
         "start": "npm run develop",
         "serve": "gatsby serve",
         "clean": "gatsby clean",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",

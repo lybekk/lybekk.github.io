@@ -6,12 +6,19 @@ description: ""
 tags: ["Bash", "Syntax", "Cheatsheet"]
 ---
 
-### Read x last lines from a file
+## Read x last lines from a file
 ```bash
 # example
 tail -100 /var/log/apache2/error.log
 ```
 
-### Copy a file
+## Copy a file
 sudo cp /path/to/source/file.txt /path/for/destination/file.txt
 
+## Recursively search for filename
+```bash
+find . -name "proguard*"
+
+# Case insensitive
+find . -iname "proguard*"
+```

@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* 
+ * Theme Colors
+ */
+
+$nord10: #5e81ac;
+$primary: $nord10;
+
+/*
+ * Misc.
+ */
+
+$card-shadow: 0 0.2em 0.6em -0.125em rgba($black, .15),
+0 0px 0 1px rgba($black, .01);
+$box-radius: 4px;
+$box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
+0 0px 0 1px rgba($black, .03);
+
+/*
+ * Necessary for blogposts
+ */
+
+@media screen and (min-width: 1025px) {
+    blockquote,
+    .gatsby-highlight {
+        width: 55vw;
+    }
+}
+
+a {
+    color: $primary;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.gatsby-highlight {
+    box-shadow: $box-shadow;
+    border-radius: 8px;
+}
+
+.list-generic {
+    list-style: none;
+}
+
+/*
+ * Scrollbars (Global)
+ */
+
+$scrollThumb: rgba($grey, 0.1);
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollThumb $white;
+}
+  
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 1vw;
+}
+*::-webkit-scrollbar-track {
+    background: $white;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $scrollThumb;
+    border-radius: 1rem;
+}

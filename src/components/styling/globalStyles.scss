@@ -1,11 +1,18 @@
 @charset "utf-8";
 
+$milk-white: #FEFCFF;
+$gunmetal: #2C3539;
+$caviar: #313031;
+$nord10: #5e81ac;
+
 /* 
  * Theme Colors
  */
 
-$nord10: #5e81ac;
 $primary: $nord10;
+$white: $milk-white;
+$grey: $gunmetal;
+$black: $caviar;
 
 /*
  * Misc.

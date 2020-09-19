@@ -13,6 +13,9 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { FontWeights, Fabric, Nav, INavLink, INavStyles, INavLinkGroup } from "@fluentui/react/"
 import { FontSizes } from "@uifabric/fluent-theme"
 
+import { initializeIcons } from "@uifabric/icons"
+initializeIcons(`https://lybekk.tech/fluenticons/`)
+
 const heroBottomButtons = [
   {
     text: `Email`,
@@ -105,10 +108,12 @@ const navLinkGroups: INavLinkGroup[] = [
       {
         name: `UUID Generator`,
         url: `/tools/uuidgenerator/`,
+        icon: `NumberSequence`,
       },
       {
         name: `Netlify Bandwidth Checker`,
         url: `/guide/get-netlify-bandwidth-usage#netlify-bandwidth-checker-tool`,
+        icon: `ExploreData`,
       },
     ],
   },
@@ -120,14 +125,17 @@ const navLinkGroups: INavLinkGroup[] = [
       {
         name: `Guides`,
         url: `/tags/guide/`,
+        icon: `LearningTools`,
       },
       {
         name: `Cheatsheets`,
         url: `/tags/cheatsheet/`,
+        icon: `CustomList`,
       },
       {
         name: `Tags`,
         url: `/tags`,
+        icon: `Tag`,
       },
     ],
   },

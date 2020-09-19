@@ -19,15 +19,18 @@
         box-shadow: 0 0 0rem 0px #ccc;
         filter: brightness(1);
         opacity: 0;
+        border-radius: 2rem;
     }
     15% {
-        box-shadow: 0 0 4rem 1rem #559cad4f;
+        box-shadow: 0 0.6em 0.4em -0.225em rgba(10, 10, 10, 0.15), 0 0px 0 0px rgba(10, 10, 10, 0.01) !important;
         filter: brightness(1.1);
         opacity: 1;
+        border-radius: 3rem;
     }
     100% {
         box-shadow: 0 0 8rem 4rem transparent;
         filter: brightness(1);
+        border-radius: 0rem;
     }
 }
 
@@ -61,20 +64,30 @@
 
 @keyframes blurIn {
     0% {
-        filter: blur(1.6rem);
         opacity: 0;
-        letter-spacing: -0.2rem;
+        letter-spacing: 2vw;
+        margin-left: 4vw;
     }
-    50% {
+    35% {
+        letter-spacing: 3.2vw;
         opacity: .8;
-        letter-spacing: 0rem;
     }
-    75% {
-        filter: blur(0rem);
+    55% {
+        margin-left: 0vw;
+    }
+    65% {
+        opacity: .4;
+        letter-spacing: .6rem;
+        margin-left: -0.3vw;
+    }
+    85% {
+        opacity: .4;
+        letter-spacing: .5rem;
     }
     100% {
         opacity: .4;
         letter-spacing: .6rem;
+        margin-left: 0vw;
     }
 }
 
@@ -83,17 +96,18 @@
     animation-duration: 0.6s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;  
+    animation-fill-mode: both;
+    animation-delay: .3s;
 }
 
 @keyframes slideInBottomUp {
     from {
         bottom: -25vh;
-        opacity: 0
+        opacity: 0;
     }
     to {
         bottom: 0;
-        opacity: 1
+        opacity: 1;
     }
 }
 
@@ -169,18 +183,6 @@
         background-color: inherit;
     }
 }
-
-/* Remove after testing
-.unCollapseVertical {
-    overflow: hidden;
-    animation-name: unCollapseVertical;
-    animation-duration: 1.4s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-    animation-delay: 1.2s;
-    animation-fill-mode: backwards;
-}
-*/
 
 @keyframes attentionShimmer {
     0% {

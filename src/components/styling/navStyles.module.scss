@@ -1,0 +1,13 @@
+$semi-white: rgb(254, 252, 255);
+$semi-white-opaque: transparentize($semi-white, .1);
+$semi-white-semi-opaque: transparentize($semi-white, .4);
+
+.whiteBackgroundShadow {
+    background-color: $semi-white-opaque;
+    box-shadow: $semi-white-semi-opaque 0px 0.2em 2em 3em, $semi-white-semi-opaque 0px 0px 7px 3px;
+}
+
+.navStyle {
+    position: fixed;
+    @extend .whiteBackgroundShadow;
+}

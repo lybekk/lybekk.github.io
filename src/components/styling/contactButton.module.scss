@@ -1,45 +1,35 @@
-/*
-.button-base {
-
-}
-*/
-
-/*
-.attention {
-}
-.attention::after {
-
-}
-*/
-
-
-/*
-.attention::before {
-    content: attr(data-text);
-    transform: scale(1);
-    position: absolute;
-    top: 1rem;
-    opacity: 1;
-    font-size: smaller;
-}
-*/
-
 .interaction {
     transition: all .4s ease;
-    color: inherit;
+    padding: calc(.5em - 1px) 1em;
+    color: #4c7e80;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: #4c7e80;
+    border-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .4rem;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    align-items: center;
+    box-shadow: none;
+    display: inline-flex;
+    height: 2.5em;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
 }
 
 .interaction:hover {
-    /*
-    @extend .attention;
-    */
     transition: all .4s ease;
     padding-bottom: 3rem !important;
-    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01) !important;
-    /* remove after extend is OK
-    padding-bottom: 3rem;
-    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01);
-    */
+    box-shadow: 0 0.6em 0.4em -0.225em rgba(10, 10, 10, 0.15), 0 0px 0 0px rgba(10, 10, 10, 0.01) !important;
+    border-radius: 1rem;
 }
 
 .interaction>svg {
@@ -81,13 +71,10 @@
 }
 
 .interaction:hover::before {
-    /*
-    @extend .attention::after;
-    */
     content: attr(data-text);
     transform: scale(1);
     position: absolute;
-    top: 1rem;
+    top: 3rem;
     opacity: 1;
     font-size: smaller;
 }
@@ -95,20 +82,14 @@
 .attention {
     opacity: .9;
     padding-bottom: 3rem !important;
-    box-shadow: 0 0.2em 0.6em -0.125em rgba(10, 10, 10, 0.15), 0 0px 0 1px rgba(10, 10, 10, 0.01) !important;
     transition: all .4s ease;
 }
-
-/*
-.interaction.attention {
-}
-*/
 
 .interaction.attention::before {
     content: attr(data-text);
     transform: scale(1);
     position: absolute;
-    top: 1rem;
+    top: 3rem;
     opacity: 1;
     font-size: smaller;
 }

@@ -1,14 +1,11 @@
 import { Link } from "gatsby"
-//import PropTypes from "prop-types"
 import React from "react"
 
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
-//import bottomNavigationStyles from "../components/styling/bottomnavigation.module.css"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaperPlane, faEnvelope, faFileAlt, faHome } from "@fortawesome/free-solid-svg-icons"
 
-//import { Stack } from "@fluentui/react/"
 import {
   getTheme,
   IconButton,
@@ -19,6 +16,7 @@ import {
   DirectionalHint,
   IStackStyles,
 } from "@fluentui/react/"
+import { FontSizes } from "@uifabric/fluent-theme"
 
 const theme = getTheme()
 
@@ -45,7 +43,6 @@ const stackStyles: IStackStyles = {
   root: {
     boxShadow: theme.effects.elevation8,
     marginBottom: `2vh`,
-
     position: `fixed`,
     bottom: `0px`,
     right: 0,
@@ -58,8 +55,11 @@ const stackStyles: IStackStyles = {
   },
 }
 
-const homeIcon: IIconProps = { iconName: `Home` }
-const sendIcon: IIconProps = { iconName: `Send` }
+const iconSize = { styles: { root: { fontSize: `28px` } } }
+const homeIcon: IIconProps = { iconName: `Home`, ...iconSize }
+const sendIcon: IIconProps = { iconName: `Send`, ...iconSize }
+//const homeIcon: IIconProps = { iconName: `Home`, styles: { root: { fontSize: `28px` } } }
+//const sendIcon: IIconProps = { iconName: `Send`, styles: { root: { fontSize: `28px` } } }
 
 const menuProps: IContextualMenuProps = {
   items: [

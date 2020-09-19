@@ -1,36 +1,34 @@
-const path = require("path")
-const _ = require("lodash")
+const path = require(`path`)
+const _ = require(`lodash`)
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
-  const tagTemplate = path.resolve("src/templates/tags.js")
+  //const tagTemplate = path.resolve("src/templates/tags.js")
+  const tagTemplate = path.resolve(`src/templates/tags.tsx`)
   const result = await graphql(`
-  {
-    postsMdx: allMdx(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 2000
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            tags
-            slug
+    {
+      postsMdx: allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 2000) {
+        edges {
+          node {
+            id
+            frontmatter {
+              tags
+              slug
+            }
           }
         }
       }
-    }
-    tagsGroup: allMdx(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
+      tagsGroup: allMdx(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
       }
     }
-  }
-`)
+  `)
 
   // handle errors
   if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+    reporter.panicOnBuild(`🚨  ERROR: Loading "createPages" query`)
   }
 
   const posts = result.data.postsMdx.edges
@@ -39,7 +37,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   posts.forEach(({ node }, index) => {
     createPage({
       path: node.frontmatter.slug,
-      component: path.resolve(`./src/components/posts-page-layout.js`),
+      component: path.resolve(`./src/components/posts-page-layout.tsx`),
       context: { id: node.id },
     })
   })

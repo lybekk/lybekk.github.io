@@ -64,24 +64,9 @@ loadTheme({
   },
 })
 
-const stackStyles: IStackStyles = {
-  root: {
-    "@media screen and (min-width: 1216px)": {
-      maxWidth: `1152px`,
-    },
-    "@media screen and (min-width: 1024px)": {
-      maxWidth: `960px`,
-    },
-    flexGrow: 1,
-    margin: `0 auto`,
-    position: `relative`,
-    width: `auto`,
-  },
-}
-
 const itemStyles: React.CSSProperties = {
   alignItems: `center`,
-  display: `flex`,
+  //display: `flex`,
   minHeight: `95vh`,
   minWidth: `35vw`,
   justifyContent: `center`,
@@ -107,9 +92,7 @@ const Layout = ({ children }: Children): ReactElement => {
    */
   return (
     <Fabric>
-      <Stack horizontalAlign="center" styles={stackStyles}>
-        <main style={itemStyles}>{children}</main>
-      </Stack>
+      <main style={itemStyles}>{children}</main>
       <BottomNavigation />
     </Fabric>
   )

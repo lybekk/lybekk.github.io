@@ -11,7 +11,7 @@ const stackTokens: IStackTokens = {
 
 const navStyles: Partial<INavStyles> = {
   root: {
-    width: 550,
+    width: `auto`,
     boxSizing: `border-box`,
   },
 }

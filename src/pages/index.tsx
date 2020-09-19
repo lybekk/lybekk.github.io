@@ -125,7 +125,7 @@ const navLinkGroups: INavLinkGroup[] = [
       {
         name: `Guides`,
         url: `/tags/guide/`,
-        icon: `LearningTools`,
+        icon: `Education`,
       },
       {
         name: `Cheatsheets`,

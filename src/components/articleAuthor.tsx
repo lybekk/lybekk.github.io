@@ -1,24 +1,11 @@
 import React, { ReactElement } from "react"
+import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Persona, PersonaSize } from "office-ui-fabric-react/lib/Persona"
-import { getTheme, Stack, IStackStyles } from "@fluentui/react/"
+import authorCard from "./styling/authorCard.module.scss"
 
-const theme = getTheme()
-
-const thisPersona = {
-  text: `Christoffer Lybekk`,
-  secondaryText: `Developer under development`,
-  showSecondaryText: true,
-}
-
-const stackStyles: IStackStyles = {
-  root: {
-    boxShadow: theme.effects.elevation8,
-    display: `inline-block`,
-    padding: `1rem`,
-    marginBottom: `2vh`,
-  },
+const authorContainer = {
+  display: `inline-flex`,
 }
 
 export default (): ReactElement => {
@@ -38,25 +25,18 @@ export default (): ReactElement => {
   `)
 
   return (
-    <Stack tokens={{ childrenGap: 10 }} styles={stackStyles}>
-      {/**
-        <Card aria-label="Author contact card" horizontal tokens={cardTokens}>
-          <Card.Section>
-            <Persona
-                {...thisPersona}
-                size={PersonaSize.size72}
-                imageUrl={data.profileImage.childImageSharp.fluid.src}
-                imageAlt="Christoffer Lybekk"
-            />
-          </Card.Section>
-        </Card>
-        */}
-      <Persona
-        {...thisPersona}
-        size={PersonaSize.size72}
-        imageUrl={data.profileImage.childImageSharp.fluid.src}
-        imageAlt="Christoffer Lybekk"
-      />
-    </Stack>
+    <div className="l-card">
+      <div style={authorContainer}>
+        <Img
+          fluid={data.profileImage.childImageSharp.fluid}
+          className={`${authorCard.avatar}`}
+          alt="Author Christoffer Lybekk"
+        />
+        <div>
+          <h3 className={`${authorCard.title}`}>Christoffer Lybekk</h3>
+          <h4 className={`${authorCard.subtitle}`}>Developer under development</h4>
+        </div>
+      </div>
+    </div>
   )
 }

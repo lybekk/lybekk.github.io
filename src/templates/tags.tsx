@@ -65,7 +65,7 @@ const Tags = ({ pageContext, data }: SourceProps): ReactElement => {
             </article>
           )
         })}
-        <hr></hr>
+        <hr className="inset" />
         <ActionButton href="/tags" iconProps={chevronIcon} allowDisabledFocus>
           Tags
         </ActionButton>

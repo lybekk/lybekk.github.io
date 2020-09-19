@@ -36,7 +36,7 @@ function _onLinkClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink): void
     setTimeout(() => {
       x.style.color = `inherit`
       x.style.backgroundColor = `initial`
-    }, 400)
+    }, 600)
   }
 }
 

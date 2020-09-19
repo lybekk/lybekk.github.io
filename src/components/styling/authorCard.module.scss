@@ -1,0 +1,35 @@
+/*
+.avatarContainer {}
+*/
+
+.avatar {
+    border-radius: 50%;
+    min-width: 8vw;
+    max-width: 15vw;
+    /* Possibly container properties?
+    color: #2e3440;
+    text-align: center;
+    font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    */
+}
+
+.title {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.subtitle {
+    margin-top: 0;
+    font-weight: 300;
+}

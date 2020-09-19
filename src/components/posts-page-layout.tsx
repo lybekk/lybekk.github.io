@@ -24,13 +24,6 @@ import simpleanimationsStyles from "../styles/simpleanimations.module.css"
 
 const shortcodes = { Link } // Provide common components to mxd files here
 
-const styleHrInset = {
-  opacity: `.4`,
-  width: `66%`,
-  marginTop: `3vw`,
-  marginBottom: `3vw`,
-}
-
 const stackTokens: IStackTokens = {
   childrenGap: 20,
   maxWidth: 550,
@@ -93,7 +86,7 @@ export default function PageTemplate({ data: { mdx } }) {
           <h1 style={{ fontSize: FontSizes.size28, fontWeight: FontWeights.semibold }}>{frontmatter.title}</h1>
           <p style={{ fontSize: FontSizes.size16, fontWeight: FontWeights.regular }}>{frontmatter.date}</p>
           <p style={{ fontSize: FontSizes.size18, fontWeight: FontWeights.regular }}>{frontmatter.description}</p>
-          <hr style={styleHrInset} />
+          <hr className="inset" />
           <Stack
             horizontal
             tokens={stackTokens}
@@ -105,7 +98,7 @@ export default function PageTemplate({ data: { mdx } }) {
           <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
-          <hr style={styleHrInset} />
+          <hr className="inset" />
           <footer>
             <Stack styles={stackStylesInlineCard}>
               <p style={{ fontSize: FontSizes.size16, fontWeight: FontWeights.regular, margin: 0 }}>

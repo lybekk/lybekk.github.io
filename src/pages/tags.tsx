@@ -4,30 +4,11 @@ import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 // Components
 import { Helmet } from "react-helmet"
-import {
-  Link,
-  graphql,
-  GatsbySSR,
-  GatsbyNode,
-  GatsbyGraphQLType,
-  GatsbyGraphQLObjectType,
-  GatsbyGraphQLEnumType,
-} from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 // Styles
 
-import { Stack, FontWeights, Text, ITextProps, Icon, IStackTokens, IStackStyles } from "@fluentui/react/"
-//import { Text, ITextProps } from 'office-ui-fabric-react/lib/Text';
-import { FontSizes } from "@uifabric/fluent-theme"
-
-const stackStyles: IStackStyles = {
-  root: {},
-}
-
-const verticalGapStackTokens: IStackTokens = {
-  childrenGap: 10,
-  padding: 10,
-}
+import { Stack, Text, ITextProps, Icon, IStackTokens, IStackStyles } from "@fluentui/react/"
 
 type Tag = {
   fieldValue: string
@@ -63,20 +44,22 @@ const TagsPage = ({
   return (
     <Layout>
       <Helmet title={title} />
-      <Stack styles={stackStyles} tokens={verticalGapStackTokens}>
-        <h2 style={{ fontSize: FontSizes.size42, fontWeight: FontWeights.regular }}>
-          Tags
-          <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
-        </h2>
-        {group.map((tag: Tag, i: number) => (
-          <Text variant={`large` as ITextProps["variant"]} key={i} block>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue}
-              <span style={{ marginLeft: `.4rem`, opacity: 0.4 }}>({tag.totalCount})</span>
-            </Link>
-          </Text>
-        ))}
-      </Stack>
+      <div className="l-grid-center-list">
+        <div /* Extra div for left text alignment */>
+          <h2>
+            Tags
+            <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
+          </h2>
+          {group.map((tag: Tag, i: number) => (
+            <Text variant={`large` as ITextProps["variant"]} key={i} block>
+              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                {tag.fieldValue}
+                <span style={{ marginLeft: `.4rem`, opacity: 0.4 }}>({tag.totalCount})</span>
+              </Link>
+            </Text>
+          ))}
+        </div>
+      </div>
     </Layout>
   )
 }

@@ -20,12 +20,7 @@ $black: $caviar;
 
 $card-shadow: 0 0.2em 0.6em -0.125em rgba($black, .15),
 0 0px 0 1px rgba($black, .01);
-
 $box-radius: 4px;
-/*
-$box-shadow: 0 0.2em 0.6em -0.125em rgba($black, .1),
-0 0px 0 1px rgba($black, .03);
-*/
 $box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
 
 /*
@@ -50,6 +45,16 @@ main {
     margin: 0 auto;
     position: relative;
     width: auto;
+}
+
+h1 {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: x-large;
+    font-weight: 400;
 }
 
 a {
@@ -77,6 +82,13 @@ a {
     box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
     padding: 1rem;
     margin-bottom: 2vh;
+}
+
+.l-grid-center-list {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding-top: 8vh;
 }
 
 hr.inset {

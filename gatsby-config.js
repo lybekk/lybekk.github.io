@@ -34,6 +34,15 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      // Needed for MDX in pages-dir
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+      },
+    },
     {
       // Enables MDX in pages-dir
       resolve: `gatsby-plugin-mdx`,

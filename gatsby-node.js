@@ -1,5 +1,22 @@
 const path = require(`path`)
 const _ = require(`lodash`)
+const cheatsheetData = require('./src/data/cheatsheet/cheatsheetData.js')
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  cheatsheetData.forEach(item => {
+    const node = {
+      name: item.name,
+      sections: item.sections,
+      language: item.language,
+      id: createNodeId(`cheatsheet-${item.name}`),
+      internal: {
+        type: "Cheatsheet",
+        contentDigest: createContentDigest(item),
+      },
+    }
+    actions.createNode(node)
+  })
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions

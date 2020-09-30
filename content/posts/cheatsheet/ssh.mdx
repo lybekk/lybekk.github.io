@@ -23,3 +23,8 @@ ssh -L 65432:localhost:80 user@111.222.333.444 -p 54321 -i .ssh/id_rsa_selected_
 `user@111.222.333.444 -p 54321` The remote's user, IP-address and SSH port (if port is not specifiec in remote's settings, defaults to 22)
 
 `-i .ssh/id_rsa_selected_key` '-i' is used when a specific SSH key is needed
+
+## Creating a key
+```bash
+ssh-keygen -t rsa -C "some.identifier@name.com"
+```

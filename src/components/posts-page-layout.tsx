@@ -40,6 +40,7 @@ const stackStylesInlineCard: IStackStyles = {
     display: `inline-block`,
     padding: `1rem`,
     marginBottom: `2vh`,
+    height: `fit-content`,
   },
 }
 
@@ -99,7 +100,7 @@ export default function PageTemplate({ data: { mdx } }) {
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
           <hr className="inset" />
-          <footer>
+          <footer style={{ display: `flex`, flexWrap: `wrap`, gap: `.5vw` }}>
             <Stack styles={stackStylesInlineCard}>
               <p style={{ fontSize: FontSizes.size16, fontWeight: FontWeights.regular, margin: 0 }}>
                 Explore more articles with similar tags

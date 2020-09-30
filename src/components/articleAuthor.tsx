@@ -25,7 +25,7 @@ export default (): ReactElement => {
   `)
 
   return (
-    <div className="l-card">
+    <div className="l-card" style={{ height: `fit-content` }}>
       <div style={authorContainer}>
         <Img
           fluid={data.profileImage.childImageSharp.fluid}

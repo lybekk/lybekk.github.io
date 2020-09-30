@@ -36,39 +36,41 @@ const Tags = ({ pageContext, data }: SourceProps): ReactElement => {
   const tagHeader = ` post${totalCount === 1 ? `` : `s`} tagged with `
   return (
     <Layout>
-      <section>
-        <h2>
-          <div style={{ display: `inline-block` }} className={`${simpleanimationsStyles.zoomIn}`}>
-            {totalCount}
-          </div>
-          {tagHeader}
-          <span>
-            {tag}
+      <section className="l-grid-center-list">
+        <div /* Extra div for left text alignment */>
+          <h2>
+            <div style={{ display: `inline-block` }} className={`${simpleanimationsStyles.zoomIn}`}>
+              {totalCount}
+            </div>
+            {tagHeader}
             <span>
-              <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
+              {tag}
+              <span>
+                <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
+              </span>
             </span>
-          </span>
-        </h2>
-        {edges.map(({ node }) => {
-          const { slug } = node.frontmatter
-          const { title } = node.frontmatter
-          const { description } = node.frontmatter
-          return (
-            <article key={slug}>
-              <p>
-                <strong>
-                  <Link to={slug}>{title}</Link>
-                </strong>
-                <br />
-                {description}
-              </p>
-            </article>
-          )
-        })}
-        <hr className="inset" />
-        <ActionButton href="/tags" iconProps={chevronIcon} allowDisabledFocus>
-          Tags
-        </ActionButton>
+          </h2>
+          {edges.map(({ node }) => {
+            const { slug } = node.frontmatter
+            const { title } = node.frontmatter
+            const { description } = node.frontmatter
+            return (
+              <article key={slug}>
+                <p>
+                  <strong>
+                    <Link to={slug}>{title}</Link>
+                  </strong>
+                  <br />
+                  {description}
+                </p>
+              </article>
+            )
+          })}
+          <hr className="inset" />
+          <ActionButton href="/tags" iconProps={chevronIcon} allowDisabledFocus>
+            Tags
+          </ActionButton>
+        </div>
       </section>
     </Layout>
   )

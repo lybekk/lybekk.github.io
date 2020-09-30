@@ -1,0 +1,38 @@
+ {
+    "sections":[
+        {
+            "heading": "General",
+            "language": "bash",
+            "items": [
+                {
+                    "cmd": "git init",
+                    "txt": "Creates new repository"
+                },
+                {
+                    "cmd": "git clone",
+                    "txt": "Clone a repository into current working directory"
+                },
+                {
+                    "cmd": "git add <filename>",
+                    "txt": ""
+                },
+                {
+                    "cmd": "git commit –m \"message describing commit\"",
+                    "txt": ""
+                },
+                {
+                    "cmd": "git commit -a",
+                    "txt": "Commits all edits"
+                },
+                {
+                    "cmd": "git push origin master",
+                    "txt": "send master branch to remote repository"
+                },
+                {
+                    "cmd": "git pull",
+                    "txt": "Update local repository with master branch"
+                }
+             ]
+         }
+     ]
+ }

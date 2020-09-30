@@ -198,14 +198,7 @@ const IndexPage = (): ReactElement => {
           <h1 style={{ fontSize: FontSizes.size42, fontWeight: FontWeights.regular, margin: 0 }}>Lybekk</h1>
         </div>
       </header>
-      <section
-        style={{
-          display: `grid`,
-          placeItems: `center`,
-          height: `100vh`,
-          paddingTop: `15vh`,
-        }}
-      >
+      <section className="l-grid-center-list">
         <aside className={`${simpleanimationsStyles.slideInBottomUp} ${navStyles.whiteBackgroundShadow}`}>
           <Nav
             onLinkClick={_onLinkClick}

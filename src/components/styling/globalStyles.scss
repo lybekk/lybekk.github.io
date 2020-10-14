@@ -63,6 +63,16 @@ a {
     text-decoration: none;
 }
 
+blockquote {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    border-left: 3px solid $primary;
+    background-color: lighten($primary, 45%);
+    display: inline-block;
+}
+
 .gatsby-highlight {
     box-shadow: $box-shadow;
     border-radius: 8px;

@@ -2,6 +2,7 @@
 slug: "/cheatsheet/python"
 title: "Python cheatsheet"
 date: 2020-07-09
+updated: 2020-10-14
 description: "Python cheatsheet. I.E. setting up a provisionary HTTP Server."
 tags: ["Python", "Syntax", "Cheatsheet"]
 ---
@@ -70,4 +71,70 @@ exec(open("script2.py").read())
 Establish a provisionary web server
 ```python
 python -m http.server # for Python 3
+```
+
+## Quick HTTP server (Script)
+
+```python
+import http.server
+import socketserver
+import cgi
+import webbrowser
+
+PORT = 8787
+# Binds to localhost only. "" for exposing this to network interfaces
+HOST = "localhost" 
+
+# Launches the default web browser Opens the directory
+url = 'http://' + HOST + ":" + str(PORT)
+webbrowser.open_new_tab(url)
+
+# Magic
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer((HOST, PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()
+```
+
+## Convert CSV to JSON
+```python
+import csv
+import json
+
+csvfile = open('file.csv', 'r')
+jsonfile = open('file.json', 'w')
+
+fieldnames = ("FirstName","LastName","IDNumber","Message")
+reader = csv.DictReader( csvfile, fieldnames)
+for row in reader:
+    json.dump(row, jsonfile)
+    jsonfile.write('\n')
+```
+
+## Generate uuids
+```python
+import uuid
+
+nbr = int(input("How many? "))
+
+for _ in range(nbr):
+    print(uuid.uuid4())
+```
+
+## Token authorization with Requests
+
+```python
+import requests
+import json
+
+TOKEN = "1234longtoken"
+URL= "https://api.github.com/repos/user/repo/releases/latest"
+
+headers_dict = {'Authorization': 'token %s' % TOKEN}
+r = requests.get(URL, headers=headers_dict)
+r_dict = r.json()
+r_json = json.dumps(r_dict)
+
+print(r_json)
 ```

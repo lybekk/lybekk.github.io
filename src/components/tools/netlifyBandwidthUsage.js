@@ -11,10 +11,10 @@ const columnProps = {
 
 const commandBarItems = [
     {
-        key: 'viewsourcecode',
-        text: 'View source code',
+        key: 'viewtoolsourcecode',
+        text: 'View tool source code',
         iconProps: { iconName: 'FileCode' },
-        href: 'https://github.com/lybekk/lybekk.github.io/blob/source/content/posts/guide/get-netlify-bandwidth-usage.mdx',
+        href: 'https://github.com/lybekk/lybekk.github.io/blob/source/src/components/tools/netlifyBandwidthUsage.js',
     },
     /* TODO: Implement saving details to local storage for easier rechecks
     {

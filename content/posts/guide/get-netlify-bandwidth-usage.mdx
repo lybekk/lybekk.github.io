@@ -2,11 +2,14 @@
 slug: "/guide/get-netlify-bandwidth-usage"
 title: "How to: Get Netlify Bandwith Usage Programatically For Free"
 date: 2020-07-27
-description: "A how-to on getting your account bandwidth usage on Netlify for free, either using Javascript or Python"
+updated: 2020-10-14
+description: "A how-to on getting your account bandwidth usage on Netlify for free, either using Javascript or Python."
 tags: ["Netlify", "Python", "JavaScript", "Guide"]
 ---
 
 import NetlifyBandwidthUsage from '../../../src/components/tools/netlifyBandwidthUsage'
+
+Netlify's Analytics feature, at the time of writing, costs 9$. This may be a bit steep if all you need is to measure your site's traffic. This is an attempt on a livable compromise.
 
 ## Using Python
 
@@ -69,6 +72,6 @@ for item in print_list.items():
 If you are comfortable pasting your **Personal Access Token** in a web form, try this tool, which does the same as the Python script, only in JavaScript.
 One way to mitigate risk is to create a token, and revoke it just after using this tool.
 
-*Note: The script is executed client-side* 
+*Note: The script is executed client-side. No information is exchanged with lybekk.tech*
 
 <NetlifyBandwidthUsage />

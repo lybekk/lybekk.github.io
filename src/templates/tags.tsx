@@ -4,9 +4,8 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
-import { Icon, IIconProps, ActionButton } from "@fluentui/react/"
-
-const chevronIcon: IIconProps = { iconName: `ChevronLeft` }
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHashtag, faStepBackward } from "@fortawesome/free-solid-svg-icons"
 
 type SourceProps = {
   pageContext: {
@@ -46,7 +45,7 @@ const Tags = ({ pageContext, data }: SourceProps): ReactElement => {
             <span>
               {tag}
               <span>
-                <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
+                <FontAwesomeIcon icon={faHashtag} style={{ marginLeft: `.4rem`, opacity: `.4` }} />
               </span>
             </span>
           </h2>
@@ -67,9 +66,10 @@ const Tags = ({ pageContext, data }: SourceProps): ReactElement => {
             )
           })}
           <hr className="inset" />
-          <ActionButton href="/tags" iconProps={chevronIcon} allowDisabledFocus>
-            Tags
-          </ActionButton>
+          <Link className="icon-button" to="/tags" title="Tags" aria-label="Tags">
+            <FontAwesomeIcon icon={faStepBackward} />
+            <span style={{ paddingLeft: `.2rem` }}>Tags</span>
+          </Link>
         </div>
       </section>
     </Layout>

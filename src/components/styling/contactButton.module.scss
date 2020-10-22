@@ -1,13 +1,14 @@
+@import "../styling/variables.scss";
+
 .interaction {
     transition: all .4s ease;
     padding: calc(.5em - 1px) 1em;
-    color: #4c7e80;
+    color: $primary;
     margin-bottom: .5rem;
     margin-right: .5rem;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.5rem;
-    background-color: #4c7e80;
     border-color: transparent;
     border: 1px solid transparent;
     border-radius: .4rem;

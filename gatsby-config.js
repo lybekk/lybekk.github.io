@@ -6,7 +6,7 @@ module.exports = {
     author: `Christoffer Lybekk`,
     siteUrl: `https://lybekk.tech`,
     imageUrl: `https://www.lybekk.tech/lybekk.png`,
-    keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, CSS3, HTML5`,
+    keywords: `Web developer, Web, Developer, CSS, HTML, JS, JavaScript, Gatsby, CSS3, HTML5, Python, React`,
     twitter: `https://twitter.com/chrislyb`,
     github: `https://github.com/lybekk/`,
   },
@@ -28,8 +28,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#151515`,
-        theme_color: `#151515`,
+        background_color: `#2e3440`,
+        theme_color: `#2e3440`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`,
       },
@@ -124,5 +124,58 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: `/rss.xml`,
+            title: `Lybekk Portfolio RSS Feed`,
+          },
+        ],
+      },
+    },
   ],
 }

@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const path = require(`path`)
 const _ = require(`lodash`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 /**
  * Work in progress
@@ -73,4 +76,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
+}
+
+/**
+ * For RSS Feed plugin
+ * @param {*} param0
+ */
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  //if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
 }

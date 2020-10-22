@@ -1,0 +1,56 @@
+$milk-white: #FEFCFF;
+$gunmetal: #2C3539;
+$caviar: #313031;
+
+$nord0: #2E3440; // Polar Night "1"
+$nord1: #3B4252; // Polar Night "2"
+$nord2: #434C5E; // Polar Night "3"
+$nord3: #4C566A; // Polar Night "4"
+$nord4: #D8DEE9; // Snow Storm "1"
+$nord5: #E5E9F0; // Snow Storm "2"
+$nord6: #ECEFF4; // Snow Storm "3"
+$nord7: #8FBCBB; // Frost "1"
+$nord8: #88C0D0; // Frost "2"
+$nord9: #81A1C1; // Frost "3"
+$nord10: #5e81ac; // Frost "4"
+$nord13: #EBCB8B; // Aurora "3"
+
+
+
+/* 
+ * Theme Colors
+ */
+
+$primary: $nord10;
+$secondary: $nord8;
+$info: $nord9;
+$warning: $nord13;
+$on-warning: $nord3;
+$white: $milk-white;
+$grey: $gunmetal;
+$black: $caviar;
+$dark: $nord3;
+$background: $nord5;
+
+/*
+ * Misc.
+ */
+
+$card-shadow: 0 0.2em 0.6em -0.125em rgba($black, .15),
+0 0px 0 1px rgba($black, .01);
+$box-radius: 4px;
+$box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+
+/* TODO: Use CSS variables, for easier theming data-attribute on html/body */
+
+/*
+ * Theme - CSS Variables
+ */
+ :root {
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --card-shadow: #{$card-shadow};
+    --text-color: #{$dark};
+    --background: #{$background};
+    --surface: #{$nord6};
+}

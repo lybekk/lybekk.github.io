@@ -1,0 +1,228 @@
+@charset "utf-8";
+@import "../styling/variables.scss";
+@import "../styling/typography.css";
+
+/*
+ * Necessary for blogposts
+ */
+
+@media screen and (min-width: 1025px) {
+    blockquote,
+    .gatsby-highlight {
+        width: 55vw;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", 'Open Sans', sans-serif;
+    font-weight: normal;
+    word-wrap: break-word;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-color);
+    background-color: var(--background);
+}
+
+main {
+    @media screen and (min-width: 1216px) {
+        max-width: 1152px;
+    }
+    @media screen and (min-width: 1024px) {
+        max-width: 960px;
+    }
+    flex-grow: 1;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+}
+
+h1 {
+    font-size: xxx-large;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: xx-large;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: x-large;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: large;
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+    border-color: transparent;
+    border-width: medium;
+    border-style: solid;
+}
+
+p {
+ font-weight: 400;
+}
+
+a {
+    color: $primary;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: .3rem;
+}
+
+a:hover {
+    color: lighten($primary, 10%);
+    background-color: var(--primary);
+    color: var(--background);
+    transition: all .2s ease-in-out;
+    box-shadow: $box-shadow;
+}
+
+blockquote {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-left: 15px;
+    border-left: 3px solid $primary;
+    background-color: lighten($primary, 45%);
+    display: inline-block;
+}
+
+blockquote.warning {
+    padding: .8rem;
+    border-left-color: transparent;
+    background-color: $warning;
+    color: $on-warning;
+}
+
+th {
+    font-weight: 400;
+    font-size: large;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.active-link {
+    //border-radius: 5px;
+    background-color: var(--primary);
+    color: var(--background);
+    transition: all 1s ease-in-out;
+    box-shadow: $box-shadow;
+    border-bottom-width: .2rem;
+    border-bottom-style: solid;
+    border-bottom-color: var(--primary);
+}
+
+.icon-button {
+    font-size: xx-large;
+    padding: .2rem;
+}
+
+.gatsby-highlight {
+    box-shadow: $box-shadow;
+    border-radius: 8px;
+}
+
+.list-generic {
+    list-style: none;
+}
+
+.card {
+    display: inline-block;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+    padding: 1rem;
+    margin-bottom: 2vh;
+    background-color: var(--surface);
+}
+
+.l-grid-center-list {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding-top: 8vh;
+    margin-bottom: 45vh;
+}
+
+hr.inset {
+    opacity: .4;
+    width: 66%;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    border-radius: 45%;
+}
+
+.dense {
+    margin: .8vh !important;
+}
+
+/*
+ * Scrollbars (Global)
+ */
+
+$scrollThumb: rgba($grey, 0.1);
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollThumb var(--background);
+}
+  
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 1vw;
+}
+*::-webkit-scrollbar-track {
+    background: var(--background);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $scrollThumb;
+    border-radius: 1rem;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--surface);
+    min-width: 160px;
+    box-shadow: var(--card-shadow);
+    z-index: 1;
+}
+
+.dropdown-content span,
+.dropdown-content a {
+    padding: .2rem .3rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown.dropup>.dropdown-content {bottom: 1.8rem;}
+
+.right {
+    right: 0;
+}

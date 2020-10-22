@@ -2,23 +2,10 @@ import { Link } from "gatsby"
 import React from "react"
 
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
+import nav from "./styling/bottomnavigation.module.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPaperPlane, faEnvelope, faFileAlt, faHome } from "@fortawesome/free-solid-svg-icons"
-
-import {
-  getTheme,
-  IconButton,
-  IIconProps,
-  IContextualMenuProps,
-  ContextualMenuItemType,
-  Stack,
-  DirectionalHint,
-  IStackStyles,
-} from "@fluentui/react/"
-import { FontSizes } from "@uifabric/fluent-theme"
-
-const theme = getTheme()
+import { faComment, faEnvelope, faFileAlt, faHome } from "@fortawesome/free-solid-svg-icons"
 
 const mailToString = (): string => {
   const url =
@@ -26,77 +13,39 @@ const mailToString = (): string => {
   return `mailto:feedback@lybekk.tech?subject=Hi!${url}`
 }
 
-const feedbackItems = [
+const menuProps = [
   {
-    href: mailToString(),
-    icon: faEnvelope,
     text: `Email`,
+    icon: faEnvelope,
+    href: mailToString(),
   },
   {
-    href: `https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed`,
-    icon: faFileAlt,
     text: `Contact form`,
+    icon: faFileAlt,
+    href: `https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed`,
   },
 ]
 
-const stackStyles: IStackStyles = {
-  root: {
-    boxShadow: theme.effects.elevation8,
-    marginBottom: `2vh`,
-    position: `fixed`,
-    bottom: `0px`,
-    right: 0,
-    margin: `1vw`,
-    zIndex: 1000,
-    backgroundColor: theme.palette.neutralLighterAlt,
-    padding: `1vh`,
-    display: `flex`,
-    justifyContent: `flex-end`,
-  },
-}
-
-const iconSize = { styles: { root: { fontSize: `28px` } } }
-const homeIcon: IIconProps = { iconName: `Home`, ...iconSize }
-const sendIcon: IIconProps = { iconName: `Send`, ...iconSize }
-//const homeIcon: IIconProps = { iconName: `Home`, styles: { root: { fontSize: `28px` } } }
-//const sendIcon: IIconProps = { iconName: `Send`, styles: { root: { fontSize: `28px` } } }
-
-const menuProps: IContextualMenuProps = {
-  items: [
-    {
-      key: `section1`,
-      itemType: ContextualMenuItemType.Section,
-      sectionProps: {
-        topDivider: true,
-        bottomDivider: true,
-        title: `Give feedback`,
-        items: [
-          {
-            key: `emailMessage`,
-            text: `Email`,
-            iconProps: { iconName: `Mail` },
-            href: mailToString(),
-          },
-          {
-            key: `formEvent`,
-            text: `Contact form`,
-            iconProps: { iconName: `PageHeaderEdit` },
-            href: `https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed`,
-          },
-        ],
-      },
-    },
-  ],
-  directionalHint: DirectionalHint.topCenter,
-  directionalHintFixed: true,
-}
-
 const BottomNav: React.FunctionComponent = () => (
-  <div className={`${simpleanimationsStyles.attentionShimmer}`}>
-    <Stack tokens={{ childrenGap: 8 }} horizontal styles={stackStyles}>
-      <IconButton href="/" iconProps={homeIcon} title="Home" ariaLabel="Home" />
-      <IconButton menuProps={menuProps} iconProps={sendIcon} title="Contact" ariaLabel="Contact" />
-    </Stack>
+  <div className={`card ${simpleanimationsStyles.attentionShimmer} ${nav.container}`}>
+    <Link className="icon-button" to="/" title="Home" aria-label="Home">
+      <FontAwesomeIcon icon={faHome} />
+    </Link>
+    <hr />
+    <div className="dropdown dropup">
+      <a className="icon-button" title="Home" aria-label="Home" style={{ cursor: `initial` }}>
+        <FontAwesomeIcon icon={faComment} />
+      </a>
+      <div className="dropdown-content right">
+        <span>Give feedback</span>
+        <hr className="inset dense" />
+        {menuProps.map(item => (
+          <a href={item.href} key={item.text} target="_blank">
+            <span>{item.text}</span>
+          </a>
+        ))}
+      </div>
+    </div>
   </div>
 )
 

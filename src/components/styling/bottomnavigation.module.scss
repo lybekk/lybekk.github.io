@@ -1,0 +1,12 @@
+.container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: .8rem;
+    padding: 1vh;
+    bottom: 0;
+    right: 0;
+    margin: 2vh;
+    justify-content: flex-end;
+    z-index: 1000;
+}

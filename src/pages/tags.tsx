@@ -1,14 +1,12 @@
-import React, { ReactElement, ReactNode } from "react"
+import React, { ReactElement } from "react"
 import PropTypes from "prop-types"
-// Utilities
 import kebabCase from "lodash/kebabCase"
-// Components
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-// Styles
-
-import { Stack, Text, ITextProps, Icon, IStackTokens, IStackStyles } from "@fluentui/react/"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHashtag } from "@fortawesome/free-solid-svg-icons"
+import tagStyle from "../components/styling/hoveringTag.module.css"
 
 type Tag = {
   fieldValue: string
@@ -48,15 +46,19 @@ const TagsPage = ({
         <div /* Extra div for left text alignment */>
           <h2>
             Tags
-            <Icon iconName="Tag" style={{ marginLeft: `.4rem`, opacity: `.4` }} />
+            <FontAwesomeIcon icon={faHashtag} style={{ marginLeft: `.4rem`, opacity: `.4` }} />
           </h2>
           {group.map((tag: Tag, i: number) => (
-            <Text variant={`large` as ITextProps["variant"]} key={i} block>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                {tag.fieldValue}
-                <span style={{ marginLeft: `.4rem`, opacity: 0.4 }}>({tag.totalCount})</span>
-              </Link>
-            </Text>
+            <Link
+              className={`${tagStyle.tag}`}
+              to={`/tags/${kebabCase(tag.fieldValue)}/`}
+              key={i}
+              style={{ display: `block` }}
+              data-tag={tag.fieldValue}
+            >
+              {tag.fieldValue}
+              <span style={{ marginLeft: `.4rem`, opacity: 0.4 }}>({tag.totalCount})</span>
+            </Link>
           ))}
         </div>
       </div>

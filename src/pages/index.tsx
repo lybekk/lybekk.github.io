@@ -1,20 +1,21 @@
-import React, { useEffect, useRef, ReactElement } from "react"
+import React, { useEffect, ReactElement } from "react"
 import { Helmet } from "react-helmet"
 import SEO from "../components/seo"
 
+import IndexNav from "../components/indexNav"
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
 import contactButtonStyles from "../components/styling/contactButton.module.scss"
 import navStyles from "../components/styling/navStyles.module.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope, faHashtag } from "@fortawesome/free-solid-svg-icons"
 
-import { FontWeights, Fabric, Nav, INavLink, INavStyles, INavLinkGroup } from "@fluentui/react/"
-import { FontSizes } from "@uifabric/fluent-theme"
-
-import { initializeIcons } from "@uifabric/icons"
-initializeIcons(`https://lybekk.tech/fluenticons/`)
+/* TODO: Nav effect. Appear from blur (opacity 0->1, small blur, grow)*/
+/**
+ * TODO: Implement nav expand effect
+ * https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
+ */
 
 const heroBottomButtons = [
   {
@@ -46,116 +47,21 @@ const unCollapseVerticalDefaults = {
   animationFillMode: `backwards`,
 }
 
-const navStylesCenter: Partial<INavStyles> = {
-  root: {
-    width: `auto`,
-    minWidth: 250,
-  },
-}
-
 /**
  * TODO: Create animation on navigation
  * @param ev Todo
  * @param item Todo
  */
+/*
 function _onLinkClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink): void {
   if (item && item.name === `News`) {
     alert(`News link clicked`)
   }
 }
-
-const navLinkGroups: INavLinkGroup[] = [
-  {
-    name: `Projects`,
-    expandAriaLabel: `Expand Projects section`,
-    collapseAriaLabel: `Collapse Projects section`,
-    links: [
-      {
-        name: `offPIM`,
-        url: `https://offpim.app`,
-        key: `key1`,
-        target: `_blank`,
-        isExpanded: true,
-        rel: `noreferrer`, // TODO: Test if this renders correctly
-        links: [
-          {
-            name: `Web app`,
-            url: `https://offpim.app`,
-            target: `_blank`,
-            icon: `Cloud`,
-          },
-          {
-            name: `Docs`,
-            url: `https://lybekk.tech/offPIM/`,
-            target: `_blank`,
-            icon: `Documentation`,
-          },
-          {
-            name: `Source code`,
-            url: `https://github.com/lybekk/offPIM`,
-            target: `_blank`,
-            icon: `Code`,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: `Tools`,
-    expandAriaLabel: `Expand Tools section`,
-    collapseAriaLabel: `Collapse Tools section`,
-    links: [
-      {
-        name: `UUID Generator`,
-        url: `/tools/uuidgenerator/`,
-        icon: `NumberSequence`,
-      },
-      {
-        name: `Netlify Bandwidth Checker`,
-        url: `/guide/get-netlify-bandwidth-usage#netlify-bandwidth-checker-tool`,
-        icon: `ExploreData`,
-      },
-    ],
-  },
-  {
-    name: `Code snippets`,
-    expandAriaLabel: `Expand Tools section`,
-    collapseAriaLabel: `Collapse Tools section`,
-    links: [
-      {
-        name: `Guides`,
-        url: `/tags/guide/`,
-        icon: `Education`,
-      },
-      {
-        name: `Cheatsheets`,
-        url: `/tags/cheatsheet/`,
-        icon: `CustomList`,
-      },
-      {
-        name: `Tags`,
-        url: `/tags`,
-        icon: `Tag`,
-      },
-    ],
-  },
-]
+*/
 
 const IndexPage = (): ReactElement => {
-  const testings2 = useRef(null)
-
-  /**
-   * TODO: Implement nav expand effect
-   * console.log(testings2)
-   * https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
-   */
   useEffect(() => {
-    /* TODO: Implement expand on animation end
-    setTimeout(() => {
-      testings2.current.props.groups[0].isExpanded = false
-    }, 2500)
-    */
-
     let timer = 2400
     heroBottomButtons.forEach(element => {
       const btn: HTMLButtonElement | null = document.querySelector(`[data-text="${element.text}"]`)
@@ -173,7 +79,7 @@ const IndexPage = (): ReactElement => {
   }, [])
 
   return (
-    <Fabric>
+    <>
       <Helmet>
         <script type="application/ld+json">
           {`{
@@ -195,31 +101,11 @@ const IndexPage = (): ReactElement => {
         }}
       >
         <div className={`${simpleanimationsStyles.blurIn}`}>
-          <h1 style={{ fontSize: FontSizes.size42, fontWeight: FontWeights.regular, margin: 0 }}>Lybekk</h1>
+          <h1>Lybekk</h1>
         </div>
       </header>
       <section className="l-grid-center-list">
-        <aside className={`${simpleanimationsStyles.slideInBottomUp} ${navStyles.whiteBackgroundShadow}`}>
-          <Nav
-            onLinkClick={_onLinkClick}
-            ariaLabel="Table of contents"
-            styles={navStylesCenter}
-            groups={navLinkGroups}
-            componentRef={testings2}
-          />
-        </aside>
-        {/* Enable when ready
-      <p className="menu-label">Experiments</p>
-      <ul className="menu-list">
-        <li>
-          <Link
-            to="/experiments/typewriter"
-          >
-            Typewriter
-          </Link>
-        </li>
-      </ul>
-      */}
+        <IndexNav />
       </section>
       <div
         className={`${navStyles.navStyle}`}
@@ -260,7 +146,7 @@ const IndexPage = (): ReactElement => {
           ))}
         </div>
       </div>
-    </Fabric>
+    </>
   )
 }
 

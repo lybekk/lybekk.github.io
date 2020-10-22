@@ -1,0 +1,4 @@
+{
+    "cmake.buildBeforeRun": false,
+    "dart.evaluateGettersInDebugViews": false
+}

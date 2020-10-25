@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from "react"
+import React, { ReactElement, ReactNode, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import BottomNavigation from "./bottomNavigation"
@@ -25,6 +25,13 @@ const Layout = ({ children }: Children): ReactElement => {
       }
     }
   `)
+
+  useEffect(() => {
+    const theme = localStorage.getItem(`theme`) || `default`
+    if (theme) {
+      document.documentElement.setAttribute(`data-theme`, theme)
+    }
+  })
 
   /**
    * TODO: siteTitle={data.site.siteMetadata.title}

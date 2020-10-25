@@ -4,6 +4,6 @@ export default {
   url: `https://lybekk.tech`,
   logo: {
     "@type": `ImageObject`,
-    url: `https://lybekk.tech/lybekk.png`
+    url: `https://lybekk.tech/lybekk.png`,
   },
 }

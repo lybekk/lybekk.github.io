@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Lybekk Portfolio`,
+        short_name: `Lybekk`,
         start_url: `/`,
         background_color: `#2e3440`,
         theme_color: `#2e3440`,

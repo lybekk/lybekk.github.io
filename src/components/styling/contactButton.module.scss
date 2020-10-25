@@ -3,7 +3,7 @@
 .interaction {
     transition: all .4s ease;
     padding: calc(.5em - 1px) 1em;
-    color: $primary;
+    color: var(--primary);
     margin-bottom: .5rem;
     margin-right: .5rem;
     cursor: pointer;
@@ -58,11 +58,13 @@
 
 .interaction::before {
     content: attr(data-text);
+    color: var(--primary);
     transform: scale(.5);
     position: absolute;
     top: 1.4rem;
     opacity: 0;
     font-size: smaller;
+    font-weight: 600;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
     -ms-transition: all .2s ease;
@@ -75,9 +77,9 @@
     content: attr(data-text);
     transform: scale(1);
     position: absolute;
-    top: 3rem;
+    top: 3.4rem;
     opacity: 1;
-    font-size: smaller;
+    font-size: medium;
 }
 
 .attention {
@@ -90,7 +92,8 @@
     content: attr(data-text);
     transform: scale(1);
     position: absolute;
-    top: 3rem;
+    top: 3.4rem;
     opacity: 1;
-    font-size: smaller;
+    font-size: medium;
+    font-weight: 600;
 }

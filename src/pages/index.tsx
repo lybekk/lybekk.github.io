@@ -9,7 +9,8 @@ import navStyles from "../components/styling/navStyles.module.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope, faHashtag } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import Layout from "../components/layout"
 
 /* TODO: Nav effect. Appear from blur (opacity 0->1, small blur, grow)*/
 /**
@@ -47,19 +48,6 @@ const unCollapseVerticalDefaults = {
   animationFillMode: `backwards`,
 }
 
-/**
- * TODO: Create animation on navigation
- * @param ev Todo
- * @param item Todo
- */
-/*
-function _onLinkClick(ev?: React.MouseEvent<HTMLElement>, item?: INavLink): void {
-  if (item && item.name === `News`) {
-    alert(`News link clicked`)
-  }
-}
-*/
-
 const IndexPage = (): ReactElement => {
   useEffect(() => {
     let timer = 2400
@@ -79,7 +67,7 @@ const IndexPage = (): ReactElement => {
   }, [])
 
   return (
-    <>
+    <Layout>
       <Helmet>
         <script type="application/ld+json">
           {`{
@@ -98,6 +86,7 @@ const IndexPage = (): ReactElement => {
         className={`${navStyles.navStyle}`}
         style={{
           zIndex: -9000, // <= impossibru
+          left: `4vw`,
         }}
       >
         <div className={`${simpleanimationsStyles.blurIn}`}>
@@ -146,7 +135,7 @@ const IndexPage = (): ReactElement => {
           ))}
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

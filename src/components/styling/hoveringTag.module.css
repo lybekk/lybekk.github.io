@@ -1,5 +1,5 @@
 .tag:hover {
-    outline: .4rem solid var(--secondary);
+    outline: .15rem solid var(--secondary);
     outline-offset: 6rem;
 }
 

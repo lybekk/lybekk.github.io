@@ -36,21 +36,48 @@ $background: $nord5;
  * Misc.
  */
 
-$card-shadow: 0 0.2em 0.6em -0.125em rgba($black, .15),
-0 0px 0 1px rgba($black, .01);
 $box-radius: 4px;
 $box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-
-/* TODO: Use CSS variables, for easier theming data-attribute on html/body */
 
 /*
  * Theme - CSS Variables
  */
- :root {
+
+:root { /* Default - Nord Light */
     --primary: #{$primary};
     --secondary: #{$secondary};
-    --card-shadow: #{$card-shadow};
+    --card-shadow: #{$box-shadow};
     --text-color: #{$dark};
     --background: #{$background};
     --surface: #{$nord6};
+}
+
+html[data-theme="cyberRenaissance"] {
+    --primary: #e4d3a2;
+    --secondary: #9c8b5a;
+    --text-color: #918a71;
+    --background: #1f1d1b;
+    --surface: #3f3927;
+    --warning: #f5e382;
+    --error: #c74546;
+    --success: #b0f3b3;
+
+    /* Other from palette
+    borders: c0b685
+    gray: #555758
+    white: #fcfcf9;
+    offwhite: #c8c2af
+    purple/indigo: a68bf8
+    */
+
+}
+
+/* Inspired by https://cat-street.github.io/deus-ex-ebook/# */
+html[data-theme="cyberpunk"] {
+    --primary: #133333;    
+    --secondary: #a6c9c9;
+    --text-color: #fff;
+    --text-shadow: 0 0 1rem #14c1c1, 0 0 1rem #189494, 0 0 1rem #134848;
+    --surface: #161515;
+    --background: radial-gradient(#153939 3%, transparent 3%); // #161515?    
 }

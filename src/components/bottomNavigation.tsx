@@ -6,6 +6,7 @@ import nav from "./styling/bottomnavigation.module.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faComment, faEnvelope, faFileAlt, faHome } from "@fortawesome/free-solid-svg-icons"
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 const mailToString = (): string => {
   const url =
@@ -23,6 +24,11 @@ const menuProps = [
     text: `Contact form`,
     icon: faFileAlt,
     href: `https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed`,
+  },
+  {
+    text: `LinkedIn`,
+    icon: faLinkedinIn,
+    href: `https://www.linkedin.com/in/christoffer-lybekk/`,
   },
 ]
 

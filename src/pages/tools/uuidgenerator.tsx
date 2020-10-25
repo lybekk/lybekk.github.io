@@ -305,7 +305,7 @@ class ToolsPage extends React.Component<Props, State> {
                   title="UUID Generator source code"
                   iconProps={{ iconName: `FileCode` }}
                 >
-                Source code
+                  Source code
                 </DefaultButton>
               </div>
             </div>

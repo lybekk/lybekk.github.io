@@ -115,7 +115,7 @@ export default function PageTemplate({ data: { mdx } }): ReactElement {
                     marginRight: `.3rem`,
                   }}
                 >
-                  <FontAwesomeIcon 
+                  <FontAwesomeIcon
                     style={{
                       marginRight: `.05rem`,
                       fontSize: `large`,

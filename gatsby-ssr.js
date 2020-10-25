@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /**
  * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
  *

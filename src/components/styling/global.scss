@@ -26,6 +26,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
     background-color: var(--background);
+    margin: 0;
 }
 
 main {
@@ -72,6 +73,9 @@ h6 {
     border-color: transparent;
     border-width: medium;
     border-style: solid;
+    line-height: 1.1;
+    margin-bottom: 1.45rem;
+    text-rendering: optimizeLegibility;
 }
 
 p {
@@ -79,7 +83,7 @@ p {
 }
 
 a {
-    color: $primary;
+    color: var(--primary);
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
@@ -87,11 +91,11 @@ a {
 }
 
 a:hover {
-    color: lighten($primary, 10%);
+    //color: lighten($primary, 10%);
     background-color: var(--primary);
     color: var(--background);
     transition: all .2s ease-in-out;
-    box-shadow: $box-shadow;
+    box-shadow: var(--card-shadow);
 }
 
 blockquote {
@@ -99,9 +103,11 @@ blockquote {
     margin-bottom: 10px;
     margin-left: 50px;
     padding-left: 15px;
-    border-left: 3px solid $primary;
-    background-color: lighten($primary, 45%);
+    border-left: 3px solid var(--secondary);
+    //background-color: lighten($primary, 45%);
+    background-color: var(--surface);
     display: inline-block;
+    box-shadow: var(--card-shadow);
 }
 
 blockquote.warning {
@@ -111,10 +117,80 @@ blockquote.warning {
     color: $on-warning;
 }
 
+button {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.0892857em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 64px;
+    border: none;
+    outline: none;
+    line-height: inherit;
+    user-select: none;
+    appearance: none;
+    vertical-align: middle;
+    border-radius: 4px;
+    height: 36px;
+    padding: 0px 16px;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--surface);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+input {
+    padding: 14.5px 14px;
+    background: none;
+    box-sizing: content-box;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    caret-color: var(--primary);
+    color: var(--text-color);
+    font-size: medium;
+    margin: .6rem;
+}
+
+label {
+    display: block;
+}
+
 th {
     font-weight: 400;
     font-size: large;
     border-bottom: 1px solid var(--text-color);
+}
+
+b,
+strong {
+    font-weight: inherit;
+    font-weight: bolder;
+}
+
+ul {
+    margin-left: 1.45rem;
+    padding: 0;
+    margin-bottom: 1.45rem;
+    list-style-position: outside;
+    list-style-image: none;
+}
+
+li {
+    margin-bottom: calc(1.45rem / 2);
+}
+
+table {
+    line-height: 1.45rem;
+    border-collapse: collapse;
 }
 
 .active-link {
@@ -225,4 +301,9 @@ $scrollThumb: rgba($grey, 0.1);
 
 .right {
     right: 0;
+}
+
+/* Prismjs */
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: var(--surface);
 }

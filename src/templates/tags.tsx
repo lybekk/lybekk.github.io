@@ -1,11 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { ReactElement } from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import simpleanimationsStyles from "../styles/simpleanimations.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHashtag, faStepBackward } from "@fortawesome/free-solid-svg-icons"
+import simpleanimationsStyles from "../styles/simpleanimations.module.css"
+import symbolGenerator from "../components/modules/symbolGenerator.mjs"
 
 type SourceProps = {
   pageContext: {
@@ -29,10 +30,19 @@ type SourceProps = {
   }
 }
 
+/**
+ * List all posts for the requested tag
+ * @param param0 Data from graphql query
+ */
 const Tags = ({ pageContext, data }: SourceProps): ReactElement => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMdx
   const tagHeader = ` post${totalCount === 1 ? `` : `s`} tagged with `
+
+  useEffect(() => {
+    symbolGenerator.start('#mainContainer')
+  }, [])
+
   return (
     <Layout>
       <section className="l-grid-center-list">

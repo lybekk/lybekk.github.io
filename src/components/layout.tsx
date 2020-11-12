@@ -33,12 +33,9 @@ const Layout = ({ children }: Children): ReactElement => {
     }
   })
 
-  /**
-   * TODO: siteTitle={data.site.siteMetadata.title}
-   */
   return (
     <>
-      <main style={itemStyles}>{children}</main>
+      <main id="mainContainer" style={itemStyles}>{children}</main>
       <BottomNavigation />
     </>
   )

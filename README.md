@@ -4,5 +4,4 @@
 
 **Stack:**
   * Gatsby (React)
-  * Bulma
   * GitHub Pages

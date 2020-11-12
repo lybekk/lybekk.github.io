@@ -31,6 +31,10 @@ type Data = {
   }
 }
 
+/**
+ * Lists all tags, with count aggregates
+ * @param param0 Graphql query
+ */
 const TagsPage = ({
   data: {
     allMdx: { group },
@@ -53,7 +57,7 @@ const TagsPage = ({
               className={`${tagStyle.tag}`}
               to={`/tags/${kebabCase(tag.fieldValue)}/`}
               key={i}
-              style={{ display: `block` }}
+              style={{ display: `block`, fontSize: `larger` }}
               data-tag={tag.fieldValue}
             >
               {tag.fieldValue}

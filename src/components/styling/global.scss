@@ -2,17 +2,6 @@
 @import "../styling/variables.scss";
 @import "../styling/typography.css";
 
-/*
- * Necessary for blogposts
- */
-
-@media screen and (min-width: 1025px) {
-    blockquote,
-    .gatsby-highlight {
-        width: 55vw;
-    }
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -82,6 +71,19 @@ p {
  font-weight: 400;
 }
 
+p:hover::after {
+    content: "\221F";
+    position: absolute;
+    transform: translateY(-2rem) translateX(1rem) scaleX(-1);
+}
+
+p:hover::after {
+    position: absolute;
+    content: "\221F";
+    position: absolute;
+    transform: translateY(-2rem) translateX(1rem) rotate(180deg);
+}
+
 a {
     color: var(--primary);
     cursor: pointer;
@@ -91,7 +93,6 @@ a {
 }
 
 a:hover {
-    //color: lighten($primary, 10%);
     background-color: var(--primary);
     color: var(--background);
     transition: all .2s ease-in-out;
@@ -104,7 +105,6 @@ blockquote {
     margin-left: 50px;
     padding-left: 15px;
     border-left: 3px solid var(--secondary);
-    //background-color: lighten($primary, 45%);
     background-color: var(--surface);
     display: inline-block;
     box-shadow: var(--card-shadow);
@@ -113,8 +113,8 @@ blockquote {
 blockquote.warning {
     padding: .8rem;
     border-left-color: transparent;
-    background-color: $warning;
-    color: $on-warning;
+    background-color: var(--warning);
+    color: var(--on-warning);
 }
 
 button {
@@ -198,7 +198,7 @@ table {
     background-color: var(--primary);
     color: var(--background);
     transition: all 1s ease-in-out;
-    box-shadow: $box-shadow;
+    box-shadow: var(--card-shadow);
     border-bottom-width: .2rem;
     border-bottom-style: solid;
     border-bottom-color: var(--primary);
@@ -210,8 +210,9 @@ table {
 }
 
 .gatsby-highlight {
-    box-shadow: $box-shadow;
+    box-shadow: var(--card-shadow);
     border-radius: 8px;
+    display: inline-block;
 }
 
 .list-generic {
@@ -234,17 +235,17 @@ table {
 .l-grid-center-list {
     display: grid;
     place-items: center;
-    height: 100vh;
-    padding-top: 8vh;
+    padding-top: 12vh;
     margin-bottom: 45vh;
 }
 
 hr.inset {
-    opacity: .4;
-    width: 66%;
-    margin-top: 3vw;
-    margin-bottom: 3vw;
-    border-radius: 45%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--text-color), rgba(0, 0, 0, 0));
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    width: 76%;
 }
 
 .dense {
@@ -255,11 +256,9 @@ hr.inset {
  * Scrollbars (Global)
  */
 
-$scrollThumb: rgba($grey, 0.1);
-
 * {
     scrollbar-width: thin;
-    scrollbar-color: $scrollThumb var(--background);
+    scrollbar-color: var(--text-color) var(--background);
 }
   
 /* Works on Chrome/Edge/Safari */
@@ -270,7 +269,7 @@ $scrollThumb: rgba($grey, 0.1);
     background: var(--background);
 }
 *::-webkit-scrollbar-thumb {
-    background-color: $scrollThumb;
+    background-color: var(--text-color);
     border-radius: 1rem;
 }
 
@@ -305,5 +304,10 @@ $scrollThumb: rgba($grey, 0.1);
 
 /* Prismjs */
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
-    background: var(--surface);
+    background-color: var(--text-color);
+    padding: .3em;
+}
+
+pre[class*="language-"] {
+    margin: 0 0 !important;
 }

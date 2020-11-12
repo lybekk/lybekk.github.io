@@ -1,35 +1,37 @@
  {
+    "name": "git",
+    "language": "bash",
     "sections":[
         {
-            "heading": "General",
+            "heading": "Commands",
             "language": "bash",
             "items": [
                 {
-                    "cmd": "git init",
-                    "txt": "Creates new repository"
+                    "code": "git init",
+                    "txt": "Initializes/creates a new repository"
                 },
                 {
-                    "cmd": "git clone",
+                    "code": "git clone",
                     "txt": "Clone a repository into current working directory"
                 },
                 {
-                    "cmd": "git add <filename>",
-                    "txt": ""
+                    "code": "git add <filename>",
+                    "txt": "Add file to commit"
                 },
                 {
-                    "cmd": "git commit –m \"message describing commit\"",
-                    "txt": ""
+                    "code": "git commit –m \"message describing commit\"",
+                    "txt": "Skip editor, directly adding commit message"
                 },
                 {
-                    "cmd": "git commit -a",
-                    "txt": "Commits all edits"
+                    "code": "git commit -a",
+                    "txt": "Commit all edits"
                 },
                 {
-                    "cmd": "git push origin master",
+                    "code": "git push origin master",
                     "txt": "send master branch to remote repository"
                 },
                 {
-                    "cmd": "git pull",
+                    "code": "git pull",
                     "txt": "Update local repository with master branch"
                 }
              ]

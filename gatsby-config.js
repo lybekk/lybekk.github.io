@@ -34,15 +34,6 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`,
       },
     },
-    `gatsby-transformer-json`,
-    {
-      // Needed for MDX in pages-dir
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`,
-      },
-    },
     {
       // Enables MDX in pages-dir
       resolve: `gatsby-plugin-mdx`,
@@ -118,7 +109,7 @@ module.exports = {
       resolve: `gatsby-plugin-matomo`,
       options: {
         siteId: `2`,
-        matomoUrl: `https://www.analytics.lybekk.tech/`,
+        matomoUrl: `https://www.analytics.lybekk.tech`,
         siteUrl: `https://lybekk.tech`,
       },
     },

@@ -12,6 +12,7 @@ import SEO from "../components/seo"
 import seoPerson from "../components/seo/person"
 import seoOrganization from "../components/seo/organization"
 import CheatsheetNotice from "../components/cheatsheetNotice"
+import CheatsheetData from "../components/cheatsheetData"
 import ArticleAuthor from "../components/articleAuthor"
 
 import simpleanimationsStyles from "../styles/simpleanimations.module.css"
@@ -38,7 +39,7 @@ const inlineCardStyles: css = {
   height: `fit-content`,
 }
 
-export default function PageTemplate({ data: { mdx } }): ReactElement {
+export default function PageTemplate({ data: { mdx, cheatsheetType } }): ReactElement {
   const { frontmatter, tableOfContents, wordCount, timeToRead } = mdx
 
   const structuredData = {
@@ -93,11 +94,19 @@ export default function PageTemplate({ data: { mdx } }): ReactElement {
         <div className={`${simpleanimationsStyles.slideInRightToLeft}`}>
           <SEO title={frontmatter.title} />
           <h1>{frontmatter.title}</h1>
-          <p style={{ fontStyle: `italic` }}>Published: {frontmatter.date}</p>
-          <p>{frontmatter.description}</p>
+          <p style={{ fontStyle: `italic` }}>
+            Published {frontmatter.publishedRelativeDate}: <small>{frontmatter.date}</small>
+          </p>
+          {frontmatter.updated && (
+            <p style={{ fontStyle: `italic` }}>
+              Updated {frontmatter.updatedRelativeDate}: <small>{frontmatter.updated}</small>
+            </p>
+          )}
           <hr className="inset" />
+          <p>{frontmatter.description}</p>
           <Toc />
           <CheatsheetNotice tags={frontmatter.tags} />
+          <CheatsheetData data={cheatsheetType} />
           <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
@@ -145,16 +154,20 @@ export default function PageTemplate({ data: { mdx } }): ReactElement {
 }
 
 export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
+  query BlogPostQuery($id: String, $cheatsheetDataName: String) {
     mdx(id: { eq: $id }) {
       id
       body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        publishedRelativeDate: date(fromNow: true)
+        updated(formatString: "MMMM DD, YYYY")
+        updatedRelativeDate: date(fromNow: true)
         slug
         title
         description
         tags
+        cheatsheetDataName
       }
       tableOfContents(maxDepth: 6)
       wordCount {
@@ -163,6 +176,19 @@ export const pageQuery = graphql`
         paragraphs
       }
       timeToRead
+    }
+    cheatsheetType(name: { eq: $cheatsheetDataName }) {
+      name
+      language
+      sections {
+        language
+        heading
+        items {
+          code
+          prismified
+          txt
+        }
+      }
     }
   }
 `

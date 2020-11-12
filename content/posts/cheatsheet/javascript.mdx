@@ -119,5 +119,14 @@ localStorage.setItem(
 Session storage interaction works in the same way as Local Storage. 
 Just replace `localStorage` with `sessionStorage`
 
+## Pick random item from an array
+```javascript
+const items = ["Item one", "Another item", "Item, the third"]
 
+function item() {
+    const item = items[Math.floor(Math.random() * items.length)];
+    return item
+}
 
+console.log(item())
+```

@@ -5,6 +5,7 @@ date: 2020-07-09
 updated: 2020-10-14
 description: "Python cheatsheet. I.E. setting up a provisionary HTTP Server."
 tags: ["Python", "Syntax", "Cheatsheet"]
+cheatsheetDataName: "python"
 ---
 
 ## Collection types
@@ -18,43 +19,6 @@ my_dictionary = { "key1": "Value 1", "Key 2": 42 }
 >*Lists and Tuples are 'ordered'. Items will appear as they are inserted*
 >
 >*Sets and Dictionaries are not ordered collection types*
-
-## Retrieving device hostname
-```python
-import socket
-
-HOSTNAME = socket.gethostname()
-print(HOSTNAME)
-```
-
-## Parse & Dump a JSON file
-```python
-import json
-
-with open('/path/to/file.json', "r") as f:
-    file_contents = json.loads( f.read() )
-    print( json.dumps(file_contents, indent=4) )
-```
-
-## Write to file
-```python
-with open('/path/to/file.txt', "w") as f:
-    f.write( "A string, dumped JSON or the like" )
-```
-
-## Get environment variable
-```python
-import os
-
-variable = os.environ['some_variable_name']
-```
-
-## Execute a shell script
-```python
-import subprocess
-subprocess.Popen("script2.sh", shell=True)
-```
-Note: *<code>os.system("script2.sh")</code> is not recommended*
 
 ## Run another Python script
 Runs another Python script in the same process as the script executing the command

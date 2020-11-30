@@ -5,3 +5,9 @@
 **Stack:**
   * Gatsby (React)
   * GitHub Pages
+
+## Development
+
+`npm install`
+
+`gatsby develop`

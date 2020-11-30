@@ -28,6 +28,7 @@
     --text-color: var(--nord3);
     --background: var(--nord5);
     --surface: var(--nord6);
+    --font-family: "Montserrat", 'Open Sans', sans-serif;
 }
 
 html[data-theme="cyberRenaissance"] {
@@ -51,7 +52,7 @@ html[data-theme="cyberRenaissance"] {
 }
 
 /* Inspired by https://cat-street.github.io/deus-ex-ebook/# */
-html[data-theme="cyberpunk"] {
+html[data-theme="cyberPunk"] {
     --primary: #133333;    
     --secondary: #a6c9c9;
     --text-color: #fff;
@@ -59,3 +60,21 @@ html[data-theme="cyberpunk"] {
     --surface: #161515;
     --background: radial-gradient(#153939 3%, transparent 3%); // #161515?    
 }
+
+html[data-theme="cyan"] { /* work in progress */
+    --primary: darkcyan;
+    --secondary: cyan;
+    --text-color: lightcyan;
+    --background: black;
+    --surface: #1e1e1e;
+    --font-family: 'Open Sans', monospace, sans-serif, system-ui;
+    --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+    /*
+        --shadow-cyan: #0d3939e8 0px 3.2px 7.2px 0px, #008585c4 0px 0.6px 1.8px 0px;
+    */
+}
+
+/*
+ * Suggested:
+ * solarized (dark/light),
+ */

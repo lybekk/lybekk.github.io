@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react"
 import { Helmet } from "react-helmet"
-
 /* Formerly in gatsby-ssr.js */
 /**
  * Fluent UI

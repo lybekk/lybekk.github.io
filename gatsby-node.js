@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-const fs = require(`fs`)
 const path = require(`path`)
 const _ = require(`lodash`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -31,6 +30,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           fieldValue
         }
       }
+      cheatsheets: allCheatsheetJson(limit: 2000) {
+        edges {
+          node {
+            name
+            language
+            sections {
+              language
+              heading
+              items {
+                code
+                txt
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -40,7 +55,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const posts = result.data.postsMdx.edges
-
   // Create post detail pages
   posts.forEach(({ node }, index) => {
     createPage({
@@ -79,49 +93,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
-}
 
-exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
-  const { createNode } = actions
-
-  const cheatsheetDir = `./src/data/cheatsheet`
-
-  fs.readdir(cheatsheetDir, function (err, files) {
-    if (err) {
-      console.error(`Could not list the directory.`, err)
-    }
-
-    files.forEach(function (file, index) {
-      const filePath = path.join(cheatsheetDir, file)
-      fs.readFile(filePath, `utf8`, (err, data) => {
-        if (err) {
-          console.error(err)
-          return
-        }
-        const cheatsheet = JSON.parse(data)
-        for (const section of cheatsheet.sections) {
-          for (const item of section.items) {
-            const lang = item.language || cheatsheet.language
-            const html = Prism.highlight(item.code, Prism.languages[lang], lang)
-            item.prismified = html
-          }
-        }
-        const nodeContent = JSON.stringify(cheatsheet)
-        const nodeMeta = {
-          id: createNodeId(`cheatsheet-${cheatsheet.name}`),
-          parent: null,
-          children: [],
-          internal: {
-            type: `CheatsheetType`,
-            mediaType: `application/json`,
-            content: nodeContent,
-            contentDigest: createContentDigest(cheatsheet.name),
-          },
-        }
-        const node = Object.assign({}, cheatsheet, nodeMeta)
-        console.log(`Creating ${cheatsheet.name}`)
-        createNode(node)
+  if (node.internal.type === `CheatsheetJson`) {
+    console.log(node.internal.type)
+    const value = { ...node.sections }
+    node.sections.map(section => {
+      section.items.map(item => {
+        const lang = item.language || node.language
+        const html = Prism.highlight(item.code, Prism.languages[lang], lang)
+        item.prismified = html
+        return item
       })
+      return section
     })
-  })
+  }
 }

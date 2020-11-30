@@ -39,7 +39,7 @@ const inlineCardStyles: css = {
   height: `fit-content`,
 }
 
-export default function PageTemplate({ data: { mdx, cheatsheetType } }): ReactElement {
+export default function PageTemplate({ data: { mdx, cheatsheetJson } }): ReactElement {
   const { frontmatter, tableOfContents, wordCount, timeToRead } = mdx
 
   const structuredData = {
@@ -106,7 +106,7 @@ export default function PageTemplate({ data: { mdx, cheatsheetType } }): ReactEl
           <p>{frontmatter.description}</p>
           <Toc />
           <CheatsheetNotice tags={frontmatter.tags} />
-          <CheatsheetData data={cheatsheetType} />
+          <CheatsheetData data={cheatsheetJson} />
           <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
@@ -177,7 +177,7 @@ export const pageQuery = graphql`
       }
       timeToRead
     }
-    cheatsheetType(name: { eq: $cheatsheetDataName }) {
+    cheatsheetJson(name: { eq: $cheatsheetDataName }) {
       name
       language
       sections {

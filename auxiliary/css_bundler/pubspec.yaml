@@ -1,0 +1,17 @@
+name: css_bundler
+description: Used for bundling css/scss into a single-file CSS for use in other projects.
+version: 0.1.0
+homepage: https://lybekk.tech
+repository: https://github.com/lybekk/lybekk.github.io
+publish_to: none
+
+environment:
+  sdk: '>=2.8.1 <3.0.0'
+
+dependencies:
+  path: ^1.7.0
+
+dev_dependencies:
+  sass: ^1.29.0
+  pedantic: ^1.9.0
+  test: ^1.14.4

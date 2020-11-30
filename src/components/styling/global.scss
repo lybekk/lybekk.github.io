@@ -2,12 +2,16 @@
 @import "../styling/variables.scss";
 @import "../styling/typography.css";
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Montserrat", 'Open Sans', sans-serif;
+    font-family: var(--font-family);
     font-weight: normal;
     word-wrap: break-word;
     font-kerning: normal;
@@ -302,6 +306,29 @@ hr.inset {
     right: 0;
 }
 
+/* Grid */
+
+.grid-container {
+    display: grid;
+    grid-gap: 1.4vw;
+    grid-template-rows: auto auto auto;
+}
+
+.grid-container--fill {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.grid-container--fit {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.grid-element {
+    color: #e8ffff;
+    background-color: #002727;
+    padding: 1vw;
+    box-shadow: var(--shadow-cyan);
+}
+
 /* Prismjs */
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
     background-color: var(--text-color);
@@ -311,3 +338,4 @@ hr.inset {
 pre[class*="language-"] {
     margin: 0 0 !important;
 }
+

@@ -15,6 +15,14 @@
                     "txt": "Clone a repository into current working directory"
                 },
                 {
+                    "code": "git status",
+                    "txt": "View changes since last commit"
+                },
+                {
+                    "code": "git status -u",
+                    "txt": "View untracked files, expanding subdirectories"
+                },
+                {
                     "code": "git add <filename>",
                     "txt": "Add file to commit"
                 },

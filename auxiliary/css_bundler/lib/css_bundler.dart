@@ -14,5 +14,9 @@ void generateBundle() {
   var cssFilePath = p.join(
     cssBundlerPath.path, 'build', 'lybekk.css');
   var result = sass.compile(globalScssPath);
-  File(cssFilePath.toString()).writeAsStringSync(result);
+  var topText = ''' /*
+  * Generated with css_bundler:
+  * https://github.com/lybekk/lybekk.github.io/tree/source/auxiliary/css_bundler
+  */\n''';
+  File(cssFilePath.toString()).writeAsStringSync(topText + result);
 }

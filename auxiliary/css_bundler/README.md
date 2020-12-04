@@ -11,6 +11,15 @@ Run with `dart run`
 > 1. Enable globally `pub global activate sass`
 > 2. Bundle with `sass ../../src/components/styling/global.scss build/lybekk.css`
 
+## Compiled app
+
+```bash
+dart2native bin/css_bundler.dart -o build/css_bundler
+
+./build/css_bundler
+```
+
+
 # Notes
 
 Created with `dart create -t console-full css_bundler`

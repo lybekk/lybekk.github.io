@@ -15,6 +15,7 @@ import {
   faSearchDollar,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons"
+import { faGithubSquare } from "@fortawesome/free-brands-svg-icons"
 import { Link } from "gatsby"
 
 const listStyles = {
@@ -86,6 +87,11 @@ const navLinkGroups: Array<navItem> = [
         name: `Netlify Bandwidth Checker`,
         url: `/guide/get-netlify-bandwidth-usage#netlify-bandwidth-checker-tool`,
         icon: faSearchDollar,
+      },
+      {
+        name: `GitHub Traffic Viewer`,
+        url: `https://lybekk.tech/github-stats-dashboard/`,
+        icon: faGithubSquare,
       },
     ],
   },

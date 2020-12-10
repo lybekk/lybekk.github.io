@@ -2,6 +2,7 @@
 slug: "/cheatsheet/couchbase"
 title: "Couchbase cheatsheet"
 date: 2020-06-01
+updated: 2020-12-03
 description: "Cheatsheet for Couchbase Server & Sync Gateway"
 tags: ["Couchbase", "Couchbase Server", "Couchbase Sync Gateway", "Cheatsheet"]
 ---
@@ -9,11 +10,30 @@ tags: ["Couchbase", "Couchbase Server", "Couchbase Sync Gateway", "Cheatsheet"]
 ## Couchbase Server
 
 ### Starting & stopping
+
+#### Linux (Ubuntu/Debian)
+In a terminal/console
 ```shell
 sudo systemctl start couchbase-server
 sudo systemctl stop couchbase-server
 ```
 
+#### Powershell (Windows)
+```shell
+Stop-Service "CouchbaseServer" -PassThru
+Start-Service "CouchbaseServer" -PassThru
+
+# OR
+
+Restart-Service "CouchbaseServer" -PassThru
+```
+*The -PassThru flag can be omitted. It just makes the console wait for the result before returning control of the console.*
+
+#### Windows CMD
+```shell
+net stop CouchbaseServer
+net start CouchbaseServer
+```
 ### Adjusting stats collection
 
 Log in as root or use sudo to change the Couchbase Server static configuration, which is located at: /opt/couchbase/etc/couchbase/static_config by default.

@@ -2,13 +2,14 @@
 slug: "/cheatsheet/termux"
 title: "Termux cheatsheet"
 date: 2019-05-29
+updated: 2020-12-04
 description: "Code snippets for Termux , a brilliant terminal emulator for Android."
 tags: ["Termux", "MySQL", "MariaDB","Cheatsheet"]
 ---
 
 ## Termux & MariaDB
 
-How to run MariaDB, the alternative to MySQL, on Termux
+How to run MariaDB, a drop-in alternative to MySQL, on Termux
 
 ```bash
 # Install MariaDB
@@ -19,3 +20,11 @@ cd '/data/data/com.termux/files/usr' ; \
 /data/data/com.termux/files/usr/bin/mysqld_safe \ 
 --datadir='/data/data/com.termux/files/usr/var/lib/mysql'
 ```
+
+## Open files from within Termux
+Open a file reachable by Termux, and view it in any Android app. I.E. send a file by email or view/edit an image in an editor.
+```shell
+termux-open file.jpg
+```
+This will request the "open in" prompt. 
+Handy for viewing images, PDF or any other file format not viewable in a terminal.

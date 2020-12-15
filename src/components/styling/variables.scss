@@ -26,9 +26,12 @@
     --warning: var(--nord13);
     --on-warning: var(--nord3);
     --text-color: var(--nord3);
+    --text-color: var(--nord2);
     --background: var(--nord6);
     --surface: var(--nord5);
+    --on-surface: var(--nord1);
     --font-family: "Montserrat", 'Open Sans', sans-serif;
+    --input-border-style: inset;
 }
 
 html[data-theme="cyberRenaissance"] {

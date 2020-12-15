@@ -111,7 +111,7 @@ export default function PageTemplate({ data: { mdx, cheatsheetJson } }): ReactEl
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
           <hr className="inset" />
-          <footer style={{ display: `flex`, flexWrap: `wrap`, gap: `.5vw` }}>
+          <footer style={{ display: `flex`, flexWrap: `wrap`, gap: `1.05rem` }}>
             <ArticleAuthor />
             <div className="card" style={inlineCardStyles}>
               <p style={{ margin: 0 }}>Explore more articles with similar tags</p>

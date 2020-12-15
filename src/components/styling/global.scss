@@ -156,12 +156,22 @@ input {
     padding: 14.5px 14px;
     background: none;
     box-sizing: content-box;
-    border: 1px solid var(--primary);
-    border-radius: 4px;
+    border-style: var(--input-border-style);
+    border-color: var(--primary);
+    border-radius: 8px;
+    border-width: 1px;
+    outline: none;
     caret-color: var(--primary);
     color: var(--text-color);
     font-size: medium;
     margin: .6rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="checkbox"] {
+    appearance: auto;    
 }
 
 label {

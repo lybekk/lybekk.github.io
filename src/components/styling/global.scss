@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "../styling/variables.scss";
-@import "../styling/typography.css";
 
 * {
     box-sizing: border-box;
@@ -170,8 +169,13 @@ input {
     appearance: none;
 }
 
+input[type="range"],
 input[type="checkbox"] {
     appearance: auto;    
+}
+
+textarea {
+    background-color: var(--surface);
 }
 
 label {
@@ -190,6 +194,23 @@ strong {
     font-weight: bolder;
 }
 
+code {
+    color: var(--info);
+}
+
+kbd {
+    padding: .2rem .4rem;
+    font-size: .875em;
+    color: var(--surface);
+    background-color: var(--on-surface);
+    border-radius: .2rem;
+}
+
+mark {
+    background-color: var(--warning);
+    color: var(--on-warning);
+}
+
 ul {
     margin-left: 1.45rem;
     padding: 0;
@@ -205,6 +226,18 @@ li {
 table {
     line-height: 1.45rem;
     border-collapse: collapse;
+}
+
+dialog {
+    /* TODO: Transition is not working */
+    opacity: 0;
+    border: 1px solid var(--primary);
+    box-shadow: var(--card-shadow);
+    transition: all 1s ease-in-out;
+}
+
+dialog[open] {
+    opacity: 1;
 }
 
 .active-link {

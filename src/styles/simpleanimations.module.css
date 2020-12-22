@@ -62,6 +62,7 @@
     animation-timing-function: ease;
 }
 
+/* TODO: test simple slow blur
 @keyframes blurIn {
     0% {
         opacity: 0;
@@ -90,26 +91,62 @@
         margin-left: 0vw;
     }
 }
+*/
+
+@keyframes blurIn {
+    0% {
+        opacity: 0;
+        transform: scale(.8);
+        filter: blur(.6rem);
+        /*box-shadow: 1rem 1rem 100vh 50vh var(--secondary);*/
+        box-shadow: 20px 20px 0 100vh var(--secondary);
+        background-color: var(--secondary);
+        border-radius: 50%;
+    }
+    75% {
+        box-shadow: 20px 20px 0 80vh var(--secondary);
+        /*box-shadow: 1rem 1rem 100vh 50vh var(--secondary);*/
+    }
+    100% {
+        opacity: .4;
+        transform: scale(1);
+        filter: blur(0rem);
+        box-shadow: 0rem 0rem 0vh 0vh var(--secondary);
+        /*box-shadow: 20px 20px 0 80vh var(--secondary);*/
+        background-color: inherit;
+        border-radius: 50%;
+    }
+}
 
 .blurIn {
     animation-name: blurIn;
-    /*animation-duration: 0.6s;*/
-    animation-duration: 0.3s;
+    /*animation-duration: 0.3s;*/
+    animation-duration: 1.4s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
-    animation-delay: 4.2s;
-    /*animation-delay: .3s;*/
+    animation-delay: 2s;
 }
 
 @keyframes slideInBottomUp {
-    from {
-        bottom: -25vh;
+    0% {
+        bottom: -5vh;
         opacity: 0;
+        transform: scale(0.90);
     }
-    to {
-        bottom: 0;
+    35% {
+        /*transform: scale(0.95);*/
+        transform: scale(0.95);
+
+    }
+    75% {
         opacity: 1;
+        bottom: 0;
+
+
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
@@ -119,7 +156,7 @@
     animation-duration: 0.4s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
-    animation-delay: 0.8s;
+    animation-delay: 0.2s;
     animation-fill-mode: backwards;
 }
 

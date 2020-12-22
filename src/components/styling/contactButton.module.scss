@@ -9,7 +9,6 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 1.5rem;
-    border-color: transparent;
     border: 1px solid transparent;
     border-radius: .4rem;
     justify-content: center;
@@ -38,7 +37,7 @@
     transition: all .4s ease;
 }
 
-.interaction:hover>svg[data-icon="envelope"], 
+.interaction:hover>svg[data-icon="envelope"],
 .attention>svg[data-icon="envelope"] 
 {
     color: #a9a9a9;

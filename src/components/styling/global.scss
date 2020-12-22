@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent
 }
 
 body {
@@ -32,6 +33,19 @@ main {
     margin: 0 auto;
     position: relative;
     width: auto;
+}
+
+article {
+    background-color: var(--surface);
+    margin-top: 1rem;
+    padding: .1rem .6rem;
+}
+
+section {
+    background-color: var(--surface);
+    margin-top: 1rem;
+    padding: .1rem .8rem;
+    box-shadow: var(--card-shadow);
 }
 
 h1 {
@@ -60,7 +74,6 @@ h3,
 h4,
 h5,
 h6 {
-    transition: all .6s ease-in-out;
     transition: all .6s ease-in-out;
     border-color: transparent;
     border-width: medium;
@@ -95,6 +108,7 @@ a {
     padding: .3rem;
 }
 
+summary:hover,
 a:hover {
     background-color: var(--primary);
     color: var(--background);
@@ -139,7 +153,6 @@ button {
     vertical-align: middle;
     border-radius: 4px;
     height: 36px;
-    padding: 0px 16px;
     transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     flex: 1 1 auto;
     overflow: hidden;
@@ -152,16 +165,16 @@ button {
 }
 
 input {
-    padding: 14.5px 14px;
-    background: none;
+    padding: 12.5px 14px;
+    color: var(--on-surface);
+    caret-color: var(--on-surface);
+    background-color: var(--secondary);
     box-sizing: content-box;
     border-style: var(--input-border-style);
-    border-color: var(--primary);
+    border-color: var(--secondary);
     border-radius: 8px;
     border-width: 1px;
     outline: none;
-    caret-color: var(--primary);
-    color: var(--text-color);
     font-size: medium;
     margin: .6rem;
     -webkit-appearance: none;
@@ -169,6 +182,8 @@ input {
     appearance: none;
 }
 
+input[type="submit"],
+input[type="reset"],
 input[type="range"],
 input[type="checkbox"] {
     appearance: auto;    
@@ -190,19 +205,30 @@ th {
 
 b,
 strong {
-    font-weight: inherit;
     font-weight: bolder;
 }
 
+samp,
 code {
-    color: var(--info);
+    color: var(--surface);
+    background-color: var(--text-color);
+    padding: .25rem;
+    margin-left: .25rem;
+    margin-right: .25rem;
+    border-radius: .2rem;
+}
+
+code.language-text {
+    padding: .25rem !important;
 }
 
 kbd {
-    padding: .2rem .4rem;
+    color: var(--nord2);
+    background-color: var(--info);
     font-size: .875em;
-    color: var(--surface);
-    background-color: var(--on-surface);
+    padding: .2rem .4rem;
+    margin-left: .25rem;
+    margin-right: .25rem;
     border-radius: .2rem;
 }
 
@@ -228,6 +254,36 @@ table {
     border-collapse: collapse;
 }
 
+details {
+    padding: .4vw;
+    width: fit-content;
+    transition: all .4s ease-in-out;
+}
+
+details[open] {
+    background-color: var(--surface);
+    box-shadow: var(--card-shadow);
+}
+
+details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+}
+
+summary {
+    cursor: pointer;
+    padding: .35rem;
+    color: var(--surface);
+    background-color: var(--primary);
+    width: fit-content;
+    border-radius: .2rem;
+    margin: .1rem;
+}
+
 dialog {
     /* TODO: Transition is not working */
     opacity: 0;
@@ -239,6 +295,10 @@ dialog {
 dialog[open] {
     opacity: 1;
 }
+
+/*
+ * Classes
+ */
 
 .active-link {
     //border-radius: 5px;
@@ -280,10 +340,12 @@ dialog[open] {
 }
 
 .l-grid-center-list {
+    background-color: transparent;
     display: grid;
-    place-items: center;    
+    place-items: center;
     margin-bottom: 45vh;
     padding-top: 16vh;
+    box-shadow: none;
 }
 
 hr.inset {

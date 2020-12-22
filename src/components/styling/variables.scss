@@ -22,14 +22,14 @@
     /* Default - Nord Light */
     --primary: var(--nord10);
     --secondary: var(--nord8);
-    --card-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+    --info: var(--nord7);
     --warning: var(--nord13);
     --on-warning: var(--nord3);
     --text-color: var(--nord3);
-    --text-color: var(--nord2);
     --background: var(--nord6);
     --surface: var(--nord5);
     --on-surface: var(--nord1);
+    --card-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
     --font-family: sans-serif, arial, monospace;
     --input-border-style: inset;
 }
@@ -76,6 +76,23 @@ html[data-theme="cyan"] { /* work in progress */
         --shadow-cyan: #0d3939e8 0px 3.2px 7.2px 0px, #008585c4 0px 0.6px 1.8px 0px;
     */
 }
+
+/* Inspired by https://userbase.kde.org/Welcome_to_KDE_UserBase */
+html[data-theme="kde"] { /* work in progress */
+    --primary: #54a3d8;
+    --secondary: #6c757d;
+    --success: #28a745; /* #2f4e42!important */
+    --on-success: #eff0f1!important;
+    --success-border-color: #27ae60!important;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --text-color: #eff0f1!important;
+}
+
+
 
 /*
  * Suggested:

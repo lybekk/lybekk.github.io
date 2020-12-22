@@ -50,7 +50,7 @@ const unCollapseVerticalDefaults = {
 
 const IndexPage = (): ReactElement => {
   useEffect(() => {
-    let timer = 2400
+    let timer = 1400
     heroBottomButtons.forEach(element => {
       const btn: HTMLButtonElement | null = document.querySelector(`[data-text="${element.text}"]`)
       if (!btn) {
@@ -61,7 +61,7 @@ const IndexPage = (): ReactElement => {
       }, timer)
       setTimeout(() => {
         btn.classList.remove(contactButtonStyles.attention)
-      }, 4000)
+      }, 3500)
       timer = timer + 200
     })
   }, [])
@@ -90,7 +90,7 @@ const IndexPage = (): ReactElement => {
         }}
       >
         <div className={`${simpleanimationsStyles.blurIn}`}>
-          <h1>Lybekk</h1>
+          <h1 style={{ color: `var(--secondary)`, letterSpacing: `.6rem` }}>LYBEKK</h1>
         </div>
       </header>
       <section className="l-grid-center-list">
@@ -125,7 +125,7 @@ const IndexPage = (): ReactElement => {
                 animationName: simpleanimationsStyles.attentionBlink,
                 animationIterationCount: 1,
                 animationDuration: `.8s`,
-                animationDelay: `${1.4 + i / 6}s`,
+                animationDelay: `${0.8 + i / 6}s`,
                 animationFillMode: `backwards`,
                 backgroundColor: `rgba(255, 255, 255, 0)`,
               }}

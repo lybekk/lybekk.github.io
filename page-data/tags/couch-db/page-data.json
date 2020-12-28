@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-tsx","path":"/tags/couch-db/","result":{"data":{"allMdx":{"totalCount":1,"edges":[{"node":{"frontmatter":{"title":"CouchDB cheatsheet","slug":"/cheatsheet/couchdb","description":"Cheatsheet for CouchDB"}}}]}},"pageContext":{"tag":"CouchDB"}},"staticQueryHashes":["3649515864"]}

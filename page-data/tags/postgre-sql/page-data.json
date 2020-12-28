@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-tsx","path":"/tags/postgre-sql/","result":{"data":{"allMdx":{"totalCount":1,"edges":[{"node":{"frontmatter":{"title":"Termux cheatsheet","slug":"/cheatsheet/termux","description":"Code snippets for Termux , a brilliant terminal emulator for Android."}}}]}},"pageContext":{"tag":"PostgreSQL"}},"staticQueryHashes":["3649515864"]}

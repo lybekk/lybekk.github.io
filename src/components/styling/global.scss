@@ -39,13 +39,17 @@ article {
     background-color: var(--surface);
     margin-top: 1rem;
     padding: .1rem .6rem;
+    box-shadow: var(--card-shadow);
 }
 
 section {
-    background-color: var(--surface);
+background-color: var(--surface);
     margin-top: 1rem;
-    padding: .1rem .8rem;
-    box-shadow: var(--card-shadow);
+    padding: .6rem .8rem;
+    box-shadow: 2px 2px 2px 2px;
+    margin-bottom: 1rem;
+    outline: .1rem solid var(--surface);
+    display: inline-block;
 }
 
 h1 {
@@ -117,21 +121,29 @@ a:hover {
 }
 
 blockquote {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 50px;
+    margin-top: 1rem;
+    margin-bottom: 1.4rem;
+    margin-inline-start: 1rem;
     padding-left: 15px;
-    border-left: 3px solid var(--secondary);
+    padding: .4rem .4rem .4rem .8rem;
+    border-left: .35rem solid var(--secondary);
+    border-right: .15rem solid var(--secondary);
     background-color: var(--surface);
     display: inline-block;
     box-shadow: var(--card-shadow);
 }
 
+blockquote:hover {
+    transform: rotateY(-10deg) skewY(1deg);
+}
+
 blockquote.warning {
     padding: .8rem;
     border-left-color: transparent;
+    /*
     background-color: var(--warning);
     color: var(--on-warning);
+    */
 }
 
 button {
@@ -226,12 +238,6 @@ label {
     display: block;
 }
 
-th {
-    font-weight: 400;
-    font-size: large;
-    border-bottom: 1px solid var(--text-color);
-}
-
 b,
 strong {
     font-weight: bolder;
@@ -266,6 +272,17 @@ mark {
     color: var(--on-warning);
 }
 
+time {
+    font-size: small;
+    font-weight: lighter;
+    font-family: monospace;
+    background-color: var(--surface);
+    padding: .2rem;
+    border-radius: 2px;
+    color: var( --on-surface);
+    border: 1px solid var(--info);
+}
+
 ul {
     margin-left: 1.45rem;
     padding: 0;
@@ -281,6 +298,44 @@ li {
 table {
     line-height: 1.45rem;
     border-collapse: collapse;
+    border-spacing: 0;
+}
+
+tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+th {
+    /*font-size: .875rem;*/
+    font-size: large;
+    line-height: 1.375rem;
+    font-weight: 500;
+    letter-spacing: .0071428571em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: 1px solid var(--text-color);
+}
+
+td, th {
+    padding: 15px 10px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+table>tbody>tr {
+    -webkit-transition: background-color .25s ease;
+    transition: background-color .25s ease;
+}
+
+table>tbody>tr:hover {
+    background-color: var(--text-color);
+    color: var(--surface);
 }
 
 details {
@@ -328,6 +383,21 @@ dialog[open] {
 /*
  * Classes
  */
+
+.success {
+    background-color: var(--success);
+    color: var(--on-success);
+}
+
+.error {
+    background-color: var(--error);
+    color: var(--on-error);
+}
+
+.warning {
+    background-color: var(--warning);
+    color: var(--on-warning);
+}
 
 .active-link {
     //border-radius: 5px;

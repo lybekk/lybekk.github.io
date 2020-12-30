@@ -23,8 +23,12 @@
     --primary: var(--nord10);
     --secondary: var(--nord8);
     --info: var(--nord7);
+    --success: var(--nord14);
+    --on-success: var(--text-color);
     --warning: var(--nord13);
     --on-warning: var(--nord3);
+    --error: var(--nord11);
+    --on-error: var(--text-color);
     --text-color: var(--nord3);
     --background: var(--nord6);
     --surface: var(--nord5);

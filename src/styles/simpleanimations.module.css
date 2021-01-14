@@ -62,57 +62,23 @@
     animation-timing-function: ease;
 }
 
-/* TODO: test simple slow blur
-@keyframes blurIn {
-    0% {
-        opacity: 0;
-        letter-spacing: 2vw;
-        margin-left: 4vw;
-    }
-    35% {
-        letter-spacing: 3.2vw;
-        opacity: .8;
-    }
-    55% {
-        margin-left: 0vw;
-    }
-    65% {
-        opacity: .4;
-        letter-spacing: .6rem;
-        margin-left: -0.3vw;
-    }
-    85% {
-        opacity: .4;
-        letter-spacing: .5rem;
-    }
-    100% {
-        opacity: .4;
-        letter-spacing: .6rem;
-        margin-left: 0vw;
-    }
-}
-*/
-
 @keyframes blurIn {
     0% {
         opacity: 0;
         transform: scale(.8);
         filter: blur(.6rem);
-        /*box-shadow: 1rem 1rem 100vh 50vh var(--secondary);*/
         box-shadow: 20px 20px 0 100vh var(--secondary);
         background-color: var(--secondary);
         border-radius: 50%;
     }
     75% {
         box-shadow: 20px 20px 0 80vh var(--secondary);
-        /*box-shadow: 1rem 1rem 100vh 50vh var(--secondary);*/
     }
     100% {
-        opacity: .4;
+        opacity: .3;
         transform: scale(1);
         filter: blur(0rem);
         box-shadow: 0rem 0rem 0vh 0vh var(--secondary);
-        /*box-shadow: 20px 20px 0 80vh var(--secondary);*/
         background-color: inherit;
         border-radius: 50%;
     }
@@ -120,7 +86,6 @@
 
 .blurIn {
     animation-name: blurIn;
-    /*animation-duration: 0.3s;*/
     animation-duration: 1.4s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;

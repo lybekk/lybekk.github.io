@@ -29,6 +29,7 @@ main {
     @media screen and (min-width: 1024px) {
         max-width: 960px;
     }
+    max-width: 95vw;
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
@@ -40,15 +41,17 @@ article {
     margin-top: 1rem;
     padding: .1rem .6rem;
     box-shadow: var(--card-shadow);
+    border-radius: 4px;
 }
 
 section {
-background-color: var(--surface);
+    background-color: var(--surface);
     margin-top: 1rem;
-    padding: .6rem .8rem;
-    box-shadow: 2px 2px 2px 2px;
     margin-bottom: 1rem;
-    outline: .1rem solid var(--surface);
+    padding: .6rem .8rem;
+    outline: .1rem solid var(--surface);    
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 4px;
     display: inline-block;
 }
 
@@ -131,10 +134,11 @@ blockquote {
     background-color: var(--surface);
     display: inline-block;
     box-shadow: var(--card-shadow);
+    transition: transform .2s ease-in-out;
 }
 
 blockquote:hover {
-    transform: rotateY(-10deg) skewY(1deg);
+    transform: rotateY(5deg) skewY(1deg);
 }
 
 blockquote.warning {
@@ -458,6 +462,10 @@ hr.inset {
 
 .dense {
     margin: .8vh !important;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /*

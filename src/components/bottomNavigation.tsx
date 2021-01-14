@@ -14,6 +14,13 @@ const mailToString = (): string => {
   return `mailto:feedback@lybekk.tech?subject=Hi!${url}`
 }
 
+const isHidden = (): string => {
+    const isAtIndexPage = location.pathname == "/"
+    console.log("Kewl", isAtIndexPage)
+    return isAtIndexPage ? "hidden" : ""
+}
+
+
 const menuProps = [
   {
     text: `Email`,
@@ -33,7 +40,7 @@ const menuProps = [
 ]
 
 const BottomNav: React.FunctionComponent = () => (
-  <div className={`card ${simpleanimationsStyles.attentionShimmer} ${nav.container}`}>
+  <div className={`card ${isHidden()} ${simpleanimationsStyles.attentionShimmer} ${nav.container}`}>
     <Link className="icon-button" to="/" title="Home" aria-label="Home">
       <FontAwesomeIcon icon={faHome} />
     </Link>

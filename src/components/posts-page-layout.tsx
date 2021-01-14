@@ -99,7 +99,8 @@ export default function PageTemplate({ data: { mdx, cheatsheetJson } }): ReactEl
           </p>
           {frontmatter.updated && (
             <p style={{ fontStyle: `italic` }}>
-              Updated {frontmatter.updatedRelativeDate}: <small>{frontmatter.updated}</small>
+              Updated: <small>{frontmatter.updated}</small>
+              {/* TODO: fix: {frontmatter.updatedRelativeDate} */}
             </p>
           )}
           <hr className="inset" />

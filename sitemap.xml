@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://lybekk.tech/guide/termux-install-google-cloud-cli</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/mysql</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/dart</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/guide/rip-audio-from-youtube-with-python</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/powershell</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/regex</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/windows-cmd</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/guide/rip-audio-from-youtube-with-python</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/couchdb</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/kde</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/linux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -21,13 +22,13 @@
 <url> <loc>https://lybekk.tech/cheatsheet/python</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/raspberry-pi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/guide/pouchdb-server-termux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/sqlite</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/syncthing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/cheatsheet/couchbase</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/cheatsheet/markdown</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/cheatsheet/kate</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/guide/pouchdb-server-termux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/cheatsheet/couchbase</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/cheatsheet/kate</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/cheatsheet/markdown</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/apache-http-server</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/termux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/android/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -35,6 +36,7 @@
 <url> <loc>https://lybekk.tech/tags/audio/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/bash/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/cgi/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/tags/cli/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/cmd/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/css/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/cheatsheet/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -49,6 +51,8 @@
 <url> <loc>https://lybekk.tech/tags/flutter/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/gatsby/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/tags/google/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/tags/google-cloud/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/guide/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/html/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/tags/java-script/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

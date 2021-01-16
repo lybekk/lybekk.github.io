@@ -25,8 +25,8 @@
 <url> <loc>https://lybekk.tech/cheatsheet/sqlite</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/syncthing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/guide/pouchdb-server-termux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://lybekk.tech/cheatsheet/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/couchbase</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://lybekk.tech/cheatsheet/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/kate</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/markdown</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://lybekk.tech/cheatsheet/apache-http-server</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

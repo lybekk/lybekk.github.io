@@ -81,7 +81,7 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-        "deploy": "gatsby build && gh-pages -d public -b main",
+        "deploy": "gatsby build && npx gh-pages -d public -b main -r https://github.com/lybekk/lybekk.github.io",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "start": "npm run develop",
         "serve": "gatsby serve",

@@ -15,9 +15,12 @@ const mailToString = (): string => {
 }
 
 const isHidden = (): string => {
-    const isAtIndexPage = location.pathname == "/"
-    console.log("Kewl", isAtIndexPage)
-    return isAtIndexPage ? "hidden" : ""
+    const windowAvailable = typeof window !== `undefined`
+    if (windowAvailable) {
+        return window.location.pathname == "/" ? "hidden" : ""
+    } else {
+        return ""
+    }
 }
 
 

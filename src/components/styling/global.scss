@@ -55,6 +55,10 @@ section {
     display: inline-block;
 }
 
+section > button {
+    margin: 2vw .5vw;
+}
+
 h1 {
     font-size: xxx-large;
     font-weight: 400;
@@ -115,6 +119,12 @@ a {
     padding: .3rem;
 }
 
+a[target="_blank"]::after {
+    content: "\2348";
+    position: absolute;
+    opacity: .4;
+}
+
 summary:hover,
 a:hover {
     background-color: var(--primary);
@@ -144,10 +154,11 @@ blockquote:hover {
 blockquote.warning {
     padding: .8rem;
     border-left-color: transparent;
-    /*
-    background-color: var(--warning);
-    color: var(--on-warning);
-    */
+}
+
+blockquote.error {
+    padding: .8rem;
+    border-left-color: transparent;
 }
 
 button {
@@ -234,6 +245,11 @@ input[type="checkbox"] {
     appearance: auto;    
 }
 
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--surface);
+    opacity: .6;
+}
+
 textarea {
     background-color: var(--surface);
 }
@@ -247,6 +263,11 @@ strong {
     font-weight: bolder;
 }
 
+pre {
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+}
+
 samp,
 code {
     color: var(--surface);
@@ -255,11 +276,39 @@ code {
     margin-left: .25rem;
     margin-right: .25rem;
     border-radius: .2rem;
+    line-height: 2;
 }
 
 code.language-text {
     padding: .25rem !important;
 }
+
+samp {
+    margin-left: .25rem;
+    margin-right: .25rem;
+    border-radius: .2rem;
+}
+
+samp.error {
+    /*
+     background-color: none;
+     */
+    opacity: 0.9;
+}
+
+    /*
+samp.error::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: teal;
+    opacity: 0.5; 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    z-index: -1;
+}
+    */
 
 kbd {
     color: var(--nord2);
@@ -288,6 +337,7 @@ time {
 }
 
 ul {
+    list-style-type: "\232A";
     margin-left: 1.45rem;
     padding: 0;
     margin-bottom: 1.45rem;
@@ -349,6 +399,7 @@ details {
 }
 
 details[open] {
+    padding: 2vw;
     background-color: var(--surface);
     box-shadow: var(--card-shadow);
 }
@@ -393,9 +444,15 @@ dialog[open] {
     color: var(--on-success);
 }
 
+.info {
+    color: var(--text-color);
+    background-color: var(--info);
+}
+
 .error {
     background-color: var(--error);
     color: var(--on-error);
+    /*font-weight: bold;*/
 }
 
 .warning {
@@ -451,6 +508,14 @@ dialog[open] {
     box-shadow: none;
 }
 
+section.l-grid-center-list {
+    outline: none;
+}
+
+hr {
+    opacity: .25;
+}
+
 hr.inset {
     border: 0;
     height: 1px;
@@ -458,6 +523,15 @@ hr.inset {
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
     width: 76%;
+}
+
+hr.vertical {
+    display: inline;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    background-color: currentColor;
+    margin: 0vw 1vw;
+    opacity: .1;
 }
 
 .dense {

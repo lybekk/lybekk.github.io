@@ -56,7 +56,7 @@ const BottomNav: React.FunctionComponent = () => (
         <span>Give feedback</span>
         <hr className="inset dense" />
         {menuProps.map(item => (
-          <a href={item.href} key={item.text} target="_blank">
+          <a href={item.href} key={item.text} target="_blank" rel="noopener">
             <span>{item.text}</span>
           </a>
         ))}

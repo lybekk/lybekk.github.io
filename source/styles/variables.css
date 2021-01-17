@@ -30,7 +30,7 @@
     --error: var(--nord11);
     --on-error: var(--text-color);
     --text-color: var(--nord3);
-    --background: var(ghostwhite);
+    --background: ghostwhite;
     --surface: var(--nord6);
     --on-surface: var(--nord1);
     --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
@@ -65,7 +65,7 @@ html[data-theme="cyberPunk"] { /* work in progress */
     --text-color: #fff;
     --text-shadow: 0 0 1rem #14c1c1, 0 0 1rem #189494, 0 0 1rem #134848;
     --surface: #161515;
-    --background: radial-gradient(#153939 3%, transparent 3%); // #161515?    
+    --background: radial-gradient(#153939 3%, transparent 3%); /* #161515? */
 }
 
 html[data-theme="cyan"] { /* work in progress */

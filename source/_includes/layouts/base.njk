@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://files.lybekk.tech/lybekk.min.css">
+    <title>{{ title }}</title>
+    <style>
+        #mainContainer {
+            align-items: center;
+            min-height: 95vh;
+            min-width: 35vw;
+            justify-content: center;
+        }
+        {% include "styles/modules/prismjsNord.css" %}
+    </style>
+    <script>
+        const theme = localStorage.getItem(`theme`) || `default`
+        if (theme) {
+            document.documentElement.setAttribute(`data-theme`, theme)
+        }
+    </script>
+</head>
+<body>
+    <main id="mainContainer" >
+        {{ content | safe }}
+    </main>
+    {% include "bottomNavigation.njk" %}
+</body>
+</html>

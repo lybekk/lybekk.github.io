@@ -1,0 +1,16 @@
+---
+permalink: lybekk.css
+files: [
+    "variables",
+    "htmlTags",
+    "classes",
+    "animations",
+    "global"
+]
+---
+{% set css %}
+    {% for file in files %}
+        {% include "./styles/" + file + ".css" %}
+    {% endfor %}
+{% endset %}
+{{ css | cssmin | safe }}

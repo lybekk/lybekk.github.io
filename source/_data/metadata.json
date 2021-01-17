@@ -1,0 +1,33 @@
+{
+  "title": "Lybekk",
+  "url": "https://lybekk.tech",
+  "imageUrl": "https://www.lybekk.tech/lybekk.png",
+  "description": "Portfolio site.",
+  "keywords": "Web developer, Web, Developer, CSS, HTML, JS, JavaScript, Gatsby, CSS3, HTML5, Python, React",
+  "feed": {
+    "subtitle": "Portfolio site.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://lybekk.tech"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://lybekk.tech/feed/feed.json"
+  },
+  "author": {
+    "name": "Christoffer Lybekk",
+    "email": "christoffer@lybekk.tech",
+    "url": "https://lybekk.tech",
+    "twitter": "https://twitter.com/chrislyb",
+    "github": "https://github.com/lybekk/"
+  },
+  "manifest": {
+    "name": "Lybekk Portfolio",
+    "short_name": "Lybekk",
+    "start_url": "/",
+    "background_color": "#2e3440",
+    "theme_color": "#2e3440",
+    "display": "minimal-ui",
+    "icon": "src/images/gatsby-icon.png"
+  }
+}

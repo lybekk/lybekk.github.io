@@ -1,0 +1,51 @@
+---
+menuProps: [
+  {
+    "text": "Email",
+    "icon": "&#128386;",
+    "href": "mailto:feedback@lybekk.tech",
+  },
+  {
+    "text": "Contact form",
+    "icon": "&#128462;",
+    "href": "https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed",
+  },
+  {
+    text: "LinkedIn",
+    icon: "&#128188;",
+    href: "https://www.linkedin.com/in/christoffer-lybekk/",
+  },
+]
+---
+<div id="bottomNavigation" class="card hidden attentionShimmer bottom-nav-container">
+  <a class="icon-button" href="/" title="Home" aria-label="Home">
+    &#127968;
+  </a>
+  <hr />
+  <div class="dropdown dropup">
+    <a class="icon-button" title="Home" aria-label="Home" style="cursor: initial";>
+      &#128490;
+    </a>
+    <div class="dropdown-content right">
+        <span>Give feedback</span>
+        <hr class="inset dense" />
+        {% for m in menuProps %}
+          <a id="bottomNav{{m.text}}" href="{{ m.href }}" target="_blank" rel="noopener">
+              <span>{{ m.text }}</span>
+              <span>{{ m.icon }}</span>
+          </a>
+        {% endfor %}
+
+
+    </div>
+    </div>
+</div>
+<script>
+  if (location.pathname !== "/") {
+    const bottomNavigation = document.getElementById("bottomNavigation")
+    bottomNavigation.classList.remove("hidden")
+  }
+
+  const newHref = `mailto:feedback@lybekk.tech?subject=Hi!&body=%0D%0A---%0D%0ARequest%20made%20at%3A%20` + window.location.href
+  document.querySelector("#bottomNavEmail").href = newHref
+</script>

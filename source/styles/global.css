@@ -1,0 +1,32 @@
+/*
+ * Scrollbars (Global)
+ */
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) var(--background);
+}
+  
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 1vw;
+}
+*::-webkit-scrollbar-track {
+    background: var(--background);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 1rem;
+}
+
+
+/* Prismjs */
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background-color: var(--text-color);
+    padding: .3em;
+}
+
+pre[class*="language-"] {
+    margin: 0 0 !important;
+}
+

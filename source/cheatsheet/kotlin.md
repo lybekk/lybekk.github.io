@@ -1,0 +1,29 @@
+---
+permalink: "/cheatsheet/kotlin"
+title: "Kotlin cheatsheet"
+date: 2020-08-22
+description: "Cheatsheet for Kotlin"
+tags: ["Kotlin", "Syntax", "Cheatsheet"]
+---
+
+## Create a function
+```kotlin
+fun main() {                        // 2
+    println("Hello, World!")        // 3
+}
+```
+
+## Print to console
+```kotlin
+// Print with newline, I.E. move cursor to new line.
+println("Hello Werldz!")
+// Print without adding newline
+print("Enter text: ")
+```
+
+## Prompt for input and print to console
+```kotlin
+print("Enter text: ")
+val stringInput = readLine()!!
+println("You entered: $stringInput")
+```

@@ -1,0 +1,51 @@
+---
+permalink: "/guide/rip-audio-from-youtube-with-python"
+title: "How to: Rip audio from YouTube with Python"
+date: 2020-10-14
+description: ""
+tags: ["Python", "Audio", "Music", "YouTube", "Guide"]
+---
+
+> ***Disclaimer***
+>
+> *Ripping audio from copyrighted music videos is, in most cases, not legal.*
+
+## Prerequites
+`pip3 install youtube_dl`
+
+## Script
+Save this to a file and run it with a python interpreter.
+(`python3 this_script.py`)
+
+```python
+import youtube_dl
+from pathlib import Path
+
+options = {
+  'format': 'bestaudio/best',
+  'extractaudio' : True,  # only keep the audio
+  'audioformat' : "mp3",  # convert to mp3 
+  'noplaylist' : True,    # only download single song, not playlist
+}
+
+options["artist"] = input("Artist:")
+options["track"] = input("Track:")
+options["genre"] = input("Genre:")
+
+print("Youtube video URL:")
+url = input()
+
+filename = f'{options["artist"]} - {options["track"]}.mp3'
+
+h = Path.home()
+f = 'Downloads'
+path = h.joinpath(f)
+if not path.exists():
+    path = h.joinpath(f.lower())
+path = path.joinpath(filename)
+
+options["outtmpl"] = str(path)
+
+with youtube_dl.YoutubeDL(options) as ydl:
+    ydl.download([url])
+```

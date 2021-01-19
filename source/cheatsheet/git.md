@@ -7,3 +7,7 @@ description: "Git cheatsheet"
 tags: ["Git", "Syntax","Cheatsheet"]
 cheatsheetDataName: "git"
 ---
+
+Compress all commit logs into one single log
+
+`git rebase -i --root`

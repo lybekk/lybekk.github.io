@@ -1,6 +1,6 @@
-.success {
-    background-color: var(--success);
-    color: var(--on-success);
+.primary {
+    color: var(--surface);
+    background-color: var(--primary);
 }
 
 .info {
@@ -8,10 +8,14 @@
     background-color: var(--info);
 }
 
+.success {
+    background-color: var(--success);
+    color: var(--on-success);
+}
+
 .error {
     background-color: var(--error);
     color: var(--on-error);
-    /*font-weight: bold;*/
 }
 
 .warning {
@@ -20,7 +24,6 @@
 }
 
 .active-link {
-    /*border-radius: 5px;*/
     background-color: var(--primary);
     color: var(--background);
     transition: all 1s ease-in-out;

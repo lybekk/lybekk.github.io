@@ -8,9 +8,6 @@ files: [
     "global"
 ]
 ---
-{% set css %}
-    {% for file in files %}
-        {% include "./styles/" + file + ".css" %}
-    {% endfor %}
-{% endset %}
-{{ css | cssmin | safe }}
+{% for file in files %}
+    {% include "./styles/" + file + ".css" %}
+{% endfor %}

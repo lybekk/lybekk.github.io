@@ -1,3 +1,8 @@
+.headline {
+    color: var(--secondary); 
+    letter-spacing: .6rem
+}
+
 .primary {
     color: var(--surface);
     background-color: var(--primary);

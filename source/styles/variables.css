@@ -24,6 +24,8 @@
     --secondary: var(--nord8);
     --info: var(--nord7);
     --on-info: var(--nord3);
+    --accent: var(--nord9);
+    --on-accent: var(--nord5);
     --success: var(--nord14);
     --on-success: var(--text-color);
     --warning: var(--nord13);

@@ -1,3 +1,7 @@
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
 /*
  * Scrollbars (Global)
  */
@@ -6,7 +10,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--text-color) var(--background);
 }
-  
+
 /* Works on Chrome/Edge/Safari */
 *::-webkit-scrollbar {
     width: 1vw;

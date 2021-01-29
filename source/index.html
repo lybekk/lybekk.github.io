@@ -1,154 +1,174 @@
 ---
 layout: layouts/base.njk
+title: Lybekk Tech
+description: A web developer's portfolio site
 eleventyNavigation:
-  key: Home
-  order: 1
+key: Home
+order: 1
 ---
 
-<h1>Lybekk</h1>
+{% block seo %}
+<meta property="og:title" content="{{ title }}" />
+<meta name="title" content="{{ title }}" />
 
+<meta property="og:description" content="{{ description }}" />
+<meta name="description" content="{{ description }}">
 
---------------
+<meta property="og:image" content="https://lybekk.tech/lybekk.png" />
 
-import React, { useEffect, ReactElement } from "react"
-import { Helmet } from "react-helmet"
-import SEO from "../components/seo"
+<style>
+  {% include ./styles/modules/contactButton.css %}
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
+{% endblock %}
 
-import IndexNav from "../components/indexNav"
-import simpleanimationsStyles from "../styles/simpleanimations.module.css"
-import contactButtonStyles from "../components/styling/contactButton.module.scss"
-import navStyles from "../components/styling/navStyles.module.scss"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-import Layout from "../components/layout"
-
-/* TODO: Nav effect. Appear from blur (opacity 0->1, small blur, grow)*/
-/**
- * TODO: Implement nav expand effect
- * https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
- */
-
-const heroBottomButtons = [
-  {
-    text: `Email`,
-    icon: faEnvelope,
-    url: `mailto:contact@lybekk.tech?Subject=Request`,
-    target: `_top`,
-  },
-  {
-    text: `GitHub`,
-    icon: faGithub,
-    url: `https://github.com/lybekk/`,
-    target: `_blank`,
-  },
-  {
-    text: `LinkedIn`,
-    icon: faLinkedin,
-    url: `https://www.linkedin.com/in/christoffer-lybekk/`,
-    target: `_blank`,
-  },
-]
-
-const unCollapseVerticalDefaults = {
-  overflow: `hidden`,
-  animationName: simpleanimationsStyles.unCollapseVertical,
-  animationDuration: `1.2s`,
-  animationIterationCount: 1,
-  animationTimingFunction: `ease-in-out`,
-  animationFillMode: `backwards`,
-}
-
-const IndexPage = (): ReactElement => {
-  useEffect(() => {
+<header class="navStyle" style="z-index: -9000; left: 4vw;">
+  <div class="blurIn">
+    <h1 class="headline">LYBEKK</h1>
+  </div>
+</header>
+<section class="l-grid-center-list">
+  <aside class="slideInBottomUp whiteBackgroundShadow"
+      aria-label="Main navigation list" style="width:auto;min-width:250px">
+    <h2>Projects</h2>
+    <ul style="list-style:none">
+      <li>
+        <h3>
+          <a href="https://offpim.app" target="_blank" rel="noreferrer">
+            <span>offPIM</span>
+          </a>
+        </h3>
+        <ul style="list-style:none">
+          <li style="margin-bottom:.4rem">
+            <a href="https://offpim.app" target="_blank">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud"
+                class="svg-inline--fa fa-cloud fa-w-20 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512" style="margin-right:.4rem">
+                <path fill="currentColor"
+                  d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z">
+                </path>
+              </svg>
+              <span>Web app</span>
+            </a>
+          </li>
+          <li style="margin-bottom:.4rem">
+            <a href="https://lybekk.tech/offPIM/" target="_blank">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book"
+                class="svg-inline--fa fa-book fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512" style="margin-right:.4rem">
+                <path fill="currentColor"
+                  d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z">
+                </path>
+              </svg>
+              <span>Docs</span>
+            </a>
+          </li>
+          <li style="margin-bottom:.4rem">
+            <a href="https://github.com/lybekk/offPIM" target="_blank">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="code"
+                class="svg-inline--fa fa-code fa-w-20 " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512" style="margin-right:.4rem">
+                <path fill="currentColor"
+                  d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z">
+                </path>
+              </svg><span>Source code</span></a></li>
+        </ul>
+      </li>
+    </ul>
+    <h2>Tools</h2>
+    <ul style="list-style:none">
+      <li>
+        <h3><a href="/tools/uuidgenerator/"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+              data-icon="align-justify" class="svg-inline--fa fa-align-justify fa-w-14 " role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M432 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-128H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z">
+              </path>
+            </svg><span>UUID Generator</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+      <li>
+        <h3><a href="/guide/get-netlify-bandwidth-usage#netlify-bandwidth-checker-tool"><svg aria-hidden="true"
+              focusable="false" data-prefix="fas" data-icon="search-dollar"
+              class="svg-inline--fa fa-search-dollar fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M505.04 442.66l-99.71-99.69c-4.5-4.5-10.6-7-17-7h-16.3c27.6-35.3 44-79.69 44-127.99C416.03 93.09 322.92 0 208.02 0S0 93.09 0 207.98s93.11 207.98 208.02 207.98c48.3 0 92.71-16.4 128.01-44v16.3c0 6.4 2.5 12.5 7 17l99.71 99.69c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.59.1-33.99zm-297.02-90.7c-79.54 0-144-64.34-144-143.98 0-79.53 64.35-143.98 144-143.98 79.54 0 144 64.34 144 143.98 0 79.53-64.35 143.98-144 143.98zm27.11-152.54l-45.01-13.5c-5.16-1.55-8.77-6.78-8.77-12.73 0-7.27 5.3-13.19 11.8-13.19h28.11c4.56 0 8.96 1.29 12.82 3.72 3.24 2.03 7.36 1.91 10.13-.73l11.75-11.21c3.53-3.37 3.33-9.21-.57-12.14-9.1-6.83-20.08-10.77-31.37-11.35V112c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v16.12c-23.63.63-42.68 20.55-42.68 45.07 0 19.97 12.99 37.81 31.58 43.39l45.01 13.5c5.16 1.55 8.77 6.78 8.77 12.73 0 7.27-5.3 13.19-11.8 13.19h-28.1c-4.56 0-8.96-1.29-12.82-3.72-3.24-2.03-7.36-1.91-10.13.73l-11.75 11.21c-3.53 3.37-3.33 9.21.57 12.14 9.1 6.83 20.08 10.77 31.37 11.35V304c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8v-16.12c23.63-.63 42.68-20.54 42.68-45.07 0-19.97-12.99-37.81-31.59-43.39z">
+              </path>
+            </svg><span>Netlify Bandwidth Checker</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+      <li>
+        <h3><a href="https://lybekk.tech/github-stats-dashboard/"><svg aria-hidden="true" focusable="false"
+              data-prefix="fab" data-icon="github-square" class="svg-inline--fa fa-github-square fa-w-14 " role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM277.3 415.7c-8.4 1.5-11.5-3.7-11.5-8 0-5.4.2-33 .2-55.3 0-15.6-5.2-25.5-11.3-30.7 37-4.1 76-9.2 76-73.1 0-18.2-6.5-27.3-17.1-39 1.7-4.3 7.4-22-1.7-45-13.9-4.3-45.7 17.9-45.7 17.9-13.2-3.7-27.5-5.6-41.6-5.6-14.1 0-28.4 1.9-41.6 5.6 0 0-31.8-22.2-45.7-17.9-9.1 22.9-3.5 40.6-1.7 45-10.6 11.7-15.6 20.8-15.6 39 0 63.6 37.3 69 74.3 73.1-4.8 4.3-9.1 11.7-10.6 22.3-9.5 4.3-33.8 11.7-48.3-13.9-9.1-15.8-25.5-17.1-25.5-17.1-16.2-.2-1.1 10.2-1.1 10.2 10.8 5 18.4 24.2 18.4 24.2 9.7 29.7 56.1 19.7 56.1 19.7 0 13.9.2 36.5.2 40.6 0 4.3-3 9.5-11.5 8-66-22.1-112.2-84.9-112.2-158.3 0-91.8 70.2-161.5 162-161.5S388 165.6 388 257.4c.1 73.4-44.7 136.3-110.7 158.3zm-98.1-61.1c-1.9.4-3.7-.4-3.9-1.7-.2-1.5 1.1-2.8 3-3.2 1.9-.2 3.7.6 3.9 1.9.3 1.3-1 2.6-3 3zm-9.5-.9c0 1.3-1.5 2.4-3.5 2.4-2.2.2-3.7-.9-3.7-2.4 0-1.3 1.5-2.4 3.5-2.4 1.9-.2 3.7.9 3.7 2.4zm-13.7-1.1c-.4 1.3-2.4 1.9-4.1 1.3-1.9-.4-3.2-1.9-2.8-3.2.4-1.3 2.4-1.9 4.1-1.5 2 .6 3.3 2.1 2.8 3.4zm-12.3-5.4c-.9 1.1-2.8.9-4.3-.6-1.5-1.3-1.9-3.2-.9-4.1.9-1.1 2.8-.9 4.3.6 1.3 1.3 1.8 3.3.9 4.1zm-9.1-9.1c-.9.6-2.6 0-3.7-1.5s-1.1-3.2 0-3.9c1.1-.9 2.8-.2 3.7 1.3 1.1 1.5 1.1 3.3 0 4.1zm-6.5-9.7c-.9.9-2.4.4-3.5-.6-1.1-1.3-1.3-2.8-.4-3.5.9-.9 2.4-.4 3.5.6 1.1 1.3 1.3 2.8.4 3.5zm-6.7-7.4c-.4.9-1.7 1.1-2.8.4-1.3-.6-1.9-1.7-1.5-2.6.4-.6 1.5-.9 2.8-.4 1.3.7 1.9 1.8 1.5 2.6z">
+              </path>
+            </svg><span>GitHub Traffic Viewer</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+    </ul>
+    <h2>Code snippets</h2>
+    <ul style="list-style:none">
+      <li>
+        <h3><a href="/tags/guide/"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+              data-icon="chalkboard-teacher" class="svg-inline--fa fa-chalkboard-teacher fa-w-20 " role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z">
+              </path>
+            </svg><span>Guides</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+      <li>
+        <h3><a href="/tags/cheatsheet/"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+              data-icon="file-code" class="svg-inline--fa fa-file-code fa-w-12 " role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M384 121.941V128H256V0h6.059c6.365 0 12.47 2.529 16.971 7.029l97.941 97.941A24.005 24.005 0 0 1 384 121.941zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zM123.206 400.505a5.4 5.4 0 0 1-7.633.246l-64.866-60.812a5.4 5.4 0 0 1 0-7.879l64.866-60.812a5.4 5.4 0 0 1 7.633.246l19.579 20.885a5.4 5.4 0 0 1-.372 7.747L101.65 336l40.763 35.874a5.4 5.4 0 0 1 .372 7.747l-19.579 20.884zm51.295 50.479l-27.453-7.97a5.402 5.402 0 0 1-3.681-6.692l61.44-211.626a5.402 5.402 0 0 1 6.692-3.681l27.452 7.97a5.4 5.4 0 0 1 3.68 6.692l-61.44 211.626a5.397 5.397 0 0 1-6.69 3.681zm160.792-111.045l-64.866 60.812a5.4 5.4 0 0 1-7.633-.246l-19.58-20.885a5.4 5.4 0 0 1 .372-7.747L284.35 336l-40.763-35.874a5.4 5.4 0 0 1-.372-7.747l19.58-20.885a5.4 5.4 0 0 1 7.633-.246l64.866 60.812a5.4 5.4 0 0 1-.001 7.879z">
+              </path>
+            </svg><span>Cheatsheets</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+      <li>
+        <h3><a href="/tags"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hashtag"
+              class="svg-inline--fa fa-hashtag fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512" style="margin-right:.4rem">
+              <path fill="currentColor"
+                d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z">
+              </path>
+            </svg><span>Tags</span></a></h3>
+        <ul style="list-style:none"></ul>
+      </li>
+    </ul>
+  </aside>
+</section>
+<div class="navStyle" style="bottom: 0; right: 0; z-index: 9000;">
+  <div style="align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start;">
+    {{ heroBottomButtons.html }}
+  </div>
+</div>
+<script>
+  function heroButtons() {
     let timer = 1400
+    const heroBottomButtons = document.querySelectorAll(".interaction")
     heroBottomButtons.forEach(element => {
-      const btn: HTMLButtonElement | null = document.querySelector(`[data-text="${element.text}"]`)
+      const btn = document.querySelector(`[data-text="${element.text}"]`)
       if (!btn) {
         return
       }
       setTimeout(() => {
-        btn.classList.add(contactButtonStyles.attention)
+        btn.classList.add("attention")
       }, timer)
       setTimeout(() => {
-        btn.classList.remove(contactButtonStyles.attention)
+        btn.classList.remove("attention")
       }, 3500)
       timer = timer + 200
     })
-  }, [])
-
-  return (
-    <Layout>
-      <Helmet>
-        <script type="application/ld+json">
-          {`{
-        "@context": "http://schema.org",
-        "@type": "Blog",
-        "author": {
-          "@type": "Person",
-          "name": "Christoffer Lybekk",
-          "url": "https://lybekk.tech"
-        }
-      }`}
-        </script>
-      </Helmet>
-      <SEO title="Lybekk Tech" description="A web developer's portfolio site" />
-      <header
-        className={`${navStyles.navStyle}`}
-        style={{
-          zIndex: -9000, // <= impossibru
-          left: `4vw`,
-        }}
-      >
-        <div className={`${simpleanimationsStyles.blurIn}`}>
-          <h1 style={{ color: `var(--secondary)`, letterSpacing: `.6rem` }}>LYBEKK</h1>
-        </div>
-      </header>
-      <section className="l-grid-center-list">
-        <IndexNav />
-      </section>
-      <div
-        className={`${navStyles.navStyle}`}
-        style={{
-          bottom: 0,
-          right: 0,
-          zIndex: 9000, // <= over
-        }}
-      >
-        <div
-          style={{
-            alignItems: `center`,
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `flex-start`,
-          }}
-        >
-          {heroBottomButtons.map((x, i) => (
-            <a
-              href={x.url}
-              key={i}
-              rel="noopener"
-              aria-label={x.text}
-              data-text={x.text}
-              className={contactButtonStyles.interaction}
-              target={x.target}
-              style={{
-                animationName: simpleanimationsStyles.attentionBlink,
-                animationIterationCount: 1,
-                animationDuration: `.8s`,
-                animationDelay: `${0.8 + i / 6}s`,
-                animationFillMode: `backwards`,
-                backgroundColor: `rgba(255, 255, 255, 0)`,
-              }}
-            >
-              <FontAwesomeIcon icon={x.icon} />
-            </a>
-          ))}
-        </div>
-      </div>
-    </Layout>
-  )
-}
-
-export default IndexPage
+  }
+  heroButtons()
+</script>

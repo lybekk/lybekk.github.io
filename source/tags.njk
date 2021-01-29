@@ -1,0 +1,84 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: layouts/base.njk
+eleventyComputed:
+  title: Tagged - {{ tag }}
+permalink: /tags/{{ tag | kebabCase }}/
+---
+{# List all posts for the requested tag #}
+{% block seo %}
+  <style>
+  {% set css %}
+    {% include "./styles/modules/symbolgenerator.css" %}
+  {% endset %}
+  {{ css | cssmin | safe }}
+  </style>
+{% endblock %}
+<section class="l-grid-center-list">
+  <div /* Extra div for left text alignment */>
+    <h1>
+      <ins style="display: inline-block;" class="zoomIn">
+        {{ collections[ tag ].length }}
+      </ins>
+      <small style="margin-left: .4rem; opacity: .4;">
+      post{{ "" if collections[ tag ].length === 1 else "s" }} tagged with 
+      </small>
+        {{ tag }}
+    </h1>
+    {% set postslist = collections[ tag ] %}
+    {% for post in postslist | reverse %}
+      <article >
+        <p>
+          <strong>
+            <a href="{{ post.url | url }}">
+              {% if post.data.title %}
+                {{ post.data.title }}
+              {% else %}
+                <code>
+                  {{ post.url }}
+                </code>
+              {% endif %}
+            </a>
+          </strong>
+          <br />
+          <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
+            {{ post.date | readableDate }}
+          </time>
+          <br />
+          <small>
+            {{ post.data.description }}
+          </small>
+        </p>
+        {% for tag in post.data.tags %}
+          {%- if collections.tagList.indexOf(tag) != -1 -%}
+            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+            <small>
+            <a href="{{ tagUrl | url }}">
+              #{{ tag }}
+            </a>
+            </small>
+          {%- endif -%}
+        {% endfor %}
+      </article>
+    {% endfor %}
+    <hr class="inset" />
+    <a class="icon-button" href="{{ '/tags/' | url }}" title="Tags" aria-label="Tags">
+      &#11120;
+      <span style="padding-left: .2rem;">All tags</span>
+    </a>
+  </div>
+</section>
+<script type="module">
+  import symbolGenerator from '/js/symbolGenerator.mjs';
+  symbolGenerator.start('#mainContainer')
+</script>

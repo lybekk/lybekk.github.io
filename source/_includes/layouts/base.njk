@@ -1,10 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- base.njk replaces layout.tsx (Status migrated OK) -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://files.lybekk.tech/lybekk.min.css">
+    <link rel="stylesheet" href="/lybekk.min.css">
+    <!-- 
+        <link rel="stylesheet" href="https://files.lybekk.tech/lybekk.min.css">
+    -->
     <title>{{ title }}</title>
+    {% if title %}
+        <meta property="og:title" content="{{ title }}" />
+        <meta name="title" content="{{ title }}" />
+    {% endif %}
+
+    {% block seo %}
+    {% endblock %}
+    <!-- previously used in react helmet on index-page -->
     <style>
         #mainContainer {
             align-items: center;
@@ -12,8 +24,19 @@
             min-width: 35vw;
             justify-content: center;
         }
-        {% include "styles/modules/prismjsNord.css" %}
+        {% include "../../styles/modules/prismjsNord.css" %}
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Blog",
+        "author": {
+            "@type": "Person",
+            "name": "Christoffer Lybekk",
+            "url": "https://lybekk.tech"
+        }
+    }
+    </script>
     <script>
         const theme = localStorage.getItem(`theme`) || `default`
         if (theme) {

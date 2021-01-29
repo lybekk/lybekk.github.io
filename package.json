@@ -6,14 +6,22 @@
     "author": "Christoffer Lybekk <christoffer@lybekk.tech>",
     "dependencies": {
         "@fluentui/react": "^7.147.1",
+        "@fortawesome/fontawesome-svg-core": "^1.2.34",
+        "@fortawesome/free-brands-svg-icons": "^5.15.2",
+        "@fortawesome/free-solid-svg-icons": "^5.15.2",
+        "@primer/octicons": "^11.2.0",
         "@uifabric/fluent-theme": "^7.3.29",
+        "bootstrap-icons": "^1.3.0",
         "clean-css": "^4.2.3",
         "file-saver": "^2.0.2",
+        "lodash": "^4.17.20",
+        "luxon": "^1.25.0",
         "node-fetch": "^2.6.1",
         "prismjs": "^1.22.0"
     },
     "devDependencies": {
         "@11ty/eleventy": "^0.11.1",
+        "@11ty/eleventy-plugin-rss": "^1.1.0",
         "cypress": "^4.12.1",
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^6.13.0",

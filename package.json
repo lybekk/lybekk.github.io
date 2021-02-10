@@ -16,6 +16,7 @@
         "file-saver": "^2.0.2",
         "lodash": "^4.17.20",
         "luxon": "^1.25.0",
+        "moment": "^2.29.1",
         "node-fetch": "^2.6.1",
         "prismjs": "^1.22.0"
     },

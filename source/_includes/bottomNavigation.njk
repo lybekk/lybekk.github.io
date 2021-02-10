@@ -1,25 +1,6 @@
----
-menuProps: [
-  {
-    "text": "Email",
-    "icon": "&#128386;",
-    "href": "mailto:feedback@lybekk.tech",
-  },
-  {
-    "text": "Contact form",
-    "icon": "&#128462;",
-    "href": "https://docs.google.com/forms/d/e/1FAIpQLScdBp2iPp4vd1NCfwmAbl5NMOzYj4LaRtiPUuGK-rBfXkyUEA/viewform?usp=pp_url&entry.1456738885=None+needed",
-  },
-  {
-    text: "LinkedIn",
-    icon: "&#128188;",
-    href: "https://www.linkedin.com/in/christoffer-lybekk/",
-  },
-]
----
 <div id="bottomNavigation" class="card hidden attentionShimmer bottom-nav-container">
   <a class="icon-button" href="/" title="Home" aria-label="Home">
-    &#127968;
+    &#8962; 
   </a>
   <hr />
   <div class="dropdown dropup">
@@ -29,16 +10,14 @@ menuProps: [
     <div class="dropdown-content right">
         <span>Give feedback</span>
         <hr class="inset dense" />
-        {% for m in menuProps %}
+        {% for m in bottomNavMenuProps %}
           <a id="bottomNav{{m.text}}" href="{{ m.href }}" target="_blank" rel="noopener">
-              <span>{{ m.text }}</span>
-              <span>{{ m.icon }}</span>
+              <span style="display: inline-block;">{{ m.icon | safe }}</span>
+              <span style="display: inline-block;">{{ m.text }}</span>
           </a>
         {% endfor %}
-
-
     </div>
-    </div>
+  </div>
 </div>
 <script>
   if (location.pathname !== "/") {

@@ -19,7 +19,8 @@
     "email": "christoffer@lybekk.tech",
     "url": "https://lybekk.tech",
     "twitter": "https://twitter.com/chrislyb",
-    "github": "https://github.com/lybekk/"
+    "github": "https://github.com/lybekk/",
+    "linkedin": "https://www.linkedin.com/in/christoffer-lybekk/"
   },
   "manifest": {
     "name": "Lybekk Portfolio",

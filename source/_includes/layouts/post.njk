@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+---
+<!-- bug: does not appear in <head> -->
+{% block seo %}
+  <script type="application/ld+json">
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ title }}",
+    "name": "{{ title }}",
+    "description": "{{ description }}",
+    "editor": "Christoffer Lybekk",
+    "genre": "programming",
+    "keywords": "{{ tags }}",
+    "wordcount": "{{ content | wordCounter }}",
+    "url": "https://lybekk.tech{{ page.url }}",
+    "image": "https://lybekk.tech/lybekk.png",
+    "datePublished": "{{ date }}",
+    "dateCreated": "{{ date }}",
+    "dateModified": "{{ date }}",
+    "author": "Christoffer Lybekk",
+    "publisher": "Lybekk Tech",
+    "mainEntityOfPage": "https://lybekk.tech",
+  </script>
+{% endblock %}
+
+        <div class="slideInRightToLeft">
+          <h1>{{ title }}</h1>
+          <p style="font-style: italic;">
+            Published {{ date | dateFromNow }}: <small>{{ date }}</small>
+          </p>
+          {% if updated %}
+            <p style="font-style: italic">
+              Updated: <small>{{ updated }}</small>
+              {{ updated | dateFromNow }}
+            </p>
+          {% endif %}
+          <hr class="inset" />
+
+          <p>{{ description }}</p>
+          <!-- 
+            TODO: Toc. Table of contents
+            <Toc />
+            TODO:
+            <CheatsheetNotice tags={frontmatter.tags} />
+            TODO:
+            <CheatsheetData data={cheatsheetJson} />
+          -->
+          
+          <!-- TODO: check *.md for shortcodes
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </MDXProvider>
+          -->
+          {{ content | safe }}
+          <hr class="inset" />
+          <footer style="display: flex; flex-wrap: wrap; gap: 1.05rem;">
+            <!-- TODO:
+              <ArticleAuthor />
+            -->
+            <div class="card" style="box-shadow: var(--card-shadow); display: inline-block; padding: 1rem; margin-bottom: 2vh; height: fit-content;">
+              <p style="margin: 0">Explore more articles with similar tags</p>
+              <!-- 
+              TODO: make shortcode (eleventy) together with tags.njk
+              https://www.11ty.dev/docs/languages/nunjucks/#shortcodes
+              {frontmatter.tags.map((tag: string) => (
+                <Link
+                  to={`/tags/${kebabCase(tag)}/`}
+                  key={tag}
+                  style={{
+                    tagStyles,
+                    marginRight: `.3rem`,
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{
+                      marginRight: `.05rem`,
+                      fontSize: `large`,
+                      opacity: `.6`,
+                    }}
+                    icon={faHashtag}
+                  />
+                  {tag}
+                </Link>
+              ))}
+              -->
+            </div>
+            <div class="card" style="padding: 1vw">
+              <h4 class="dense">Article stats</h4>
+              <hr class="inset dense"></hr>
+              <!-- TODO:
+              {Object.keys(postStats).map(item => (
+                <p key={item} className="dense">
+                  <span style={{ fontSize: `large`, marginRight: `.3rem` }}>{postStats[item]}</span>
+                  {item}
+                </p>
+              ))}
+              -->
+            </div>
+          </footer>
+        </div>
+
+
+

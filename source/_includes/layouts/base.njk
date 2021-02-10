@@ -13,6 +13,10 @@
         <meta property="og:title" content="{{ title }}" />
         <meta name="title" content="{{ title }}" />
     {% endif %}
+    {% if description %}
+        <meta property="og:description" content="{{ description }}" />
+        <meta name="description" content="{{ description }}" />
+    {% endif %}
 
     {% block seo %}
     {% endblock %}

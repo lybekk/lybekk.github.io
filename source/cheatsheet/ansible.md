@@ -6,5 +6,5 @@ description: "Ansible cheatsheet"
 tags: ["Ansible", "Syntax", "Cheatsheet"]
 ---
 
-List all hosts in inventory 
+List all hosts in inventory
 `ansible --list-hosts all`

@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/react"
 title: "React cheatsheet"
 date: 2020-10-27
 description: "React cheatsheet"
-tags: ["React","Javascript","Cheatsheet"]
+tags: ["React","JavaScript","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Run function on component render

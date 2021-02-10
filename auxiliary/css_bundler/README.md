@@ -20,11 +20,15 @@ dart2native bin/css_bundler.dart -o build/css_bundler
 ```
 
 
-# Notes
+## Notes
 
 Created with `dart create -t console-full css_bundler`
 
-# Resources
+## Resources
 
 * [Dart SASS](https://sass-lang.com/dart-sass)
 * [sass CLI](https://sass-lang.com/documentation/cli/dart-sass)
+
+## TODO
+
+- [] refactor to reflect migration to eleventy

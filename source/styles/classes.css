@@ -159,3 +159,29 @@
     z-index: 1000;
     border-radius: .4rem;
 }
+
+.tag:hover {
+    outline: .15rem solid var(--secondary);
+    outline-offset: 6rem;
+}
+
+/* Experimantal
+.tag:hover::after {
+    content: "}";
+    position: absolute;
+    top: 25vh;
+    color: var(--primary);
+    font-size: 25vw;
+    right: 3vw;
+    opacity: .3;
+}
+*/
+
+.tag[data-tag]:hover::before {
+    content: attr(data-tag);
+    font-size: 5vw;
+    position: fixed;
+    top: .8rem;
+    left: 1rem;
+    opacity: .2;
+}

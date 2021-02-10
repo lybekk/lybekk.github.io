@@ -3,6 +3,7 @@ const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
 var kebabCase = require('lodash/fp/kebabCase');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const moment = require('moment');
 
 
 module.exports = function(eleventyConfig) {
@@ -37,9 +38,25 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
   });
 
+  eleventyConfig.addFilter("dateFromNow", dateString => {
+    /*
+    moment("20111031", "YYYYMMDD").fromNow(); // 9 years ago
+    moment("20120620", "YYYYMMDD").fromNow(); // 9 years ago
+    moment().startOf('day').fromNow();        // a day ago
+    moment().endOf('day').fromNow();          // in an hour
+    moment().startOf('hour').fromNow();       // 40 minutes ago
+    */
+   return moment(dateString, "YYYY-MM-DD").fromNow()
+    //return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+  });
+  
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+
+  eleventyConfig.addFilter("wordCounter", function(content) {
+    return content.split(" ").length
   });
 
   /**

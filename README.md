@@ -10,4 +10,4 @@
 
 `npm install`
 
-`gatsby develop`
+`npm run serve`

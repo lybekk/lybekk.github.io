@@ -51,6 +51,29 @@ module.exports = function(eleventyConfig) {
     return content.split(" ").length
   });
 
+  eleventyConfig.addFilter("toc", function(content) {
+    return ""
+    /* TODO:
+      <Toc>
+      const Toc = (): ReactElement => {
+        if (!tableOfContents.items) return <></>
+        return (
+          <div>
+            const tocHeader = [`In this post`, `Contents`, `Index`, `In in this article`, `Table of contents`]
+            <h3>{tocHeader[Math.floor(Math.random() * tocHeader.length)]}</h3>
+            <ul style={{ marginBottom: `1rem`, display: !tableOfContents.items ? `none` : `block` }}>
+              {tableOfContents.items.map((item: { url: string | number | null | undefined }) => (
+                <TableOfContentsItem headingItem={item} key={item.url} />
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </Toc>
+    */
+  });
+
+
   /**
    * Plugins
    */

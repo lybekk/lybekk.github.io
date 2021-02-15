@@ -38,9 +38,8 @@ layout: layouts/base.njk
           <hr class="inset" />
 
           <p>{{ description }}</p>
+          {{ content | toc }}
           <!-- 
-            TODO: Toc. Table of contents
-            <Toc />
             TODO:
             <CheatsheetNotice tags={frontmatter.tags} />
             TODO:
@@ -68,7 +67,7 @@ layout: layouts/base.njk
                   to={`/tags/${kebabCase(tag)}/`}
                   key={tag}
                   style={{
-                    tagStyles,
+                    color: `var(--primary)`,
                     marginRight: `.3rem`,
                   }}
                 >
@@ -89,6 +88,13 @@ layout: layouts/base.njk
               <h4 class="dense">Article stats</h4>
               <hr class="inset dense"></hr>
               <!-- TODO:
+                const postStats = {
+                  words: wordCount.words,
+                  sentences: wordCount.sentences,
+                  paragraphs: wordCount.paragraphs,
+                  "read time": timeToRead + (Number(timeToRead) > 1 ? ` mins` : ` min`),
+                }
+
               {Object.keys(postStats).map(item => (
                 <p key={item} className="dense">
                   <span style={{ fontSize: `large`, marginRight: `.3rem` }}>{postStats[item]}</span>

@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/markdown"
 title: "Markdown syntax"
 date: 2020-06-01
 description: ""
 tags: ["Markdown", "Syntax","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Markdown

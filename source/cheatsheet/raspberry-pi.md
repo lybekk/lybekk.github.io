@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/raspberry-pi"
 title: "Raspberry Pi"
 date: 2020-06-28
 description: ""
 tags: ["Raspberry Pi","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Misc.

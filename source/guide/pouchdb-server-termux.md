@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/pouchdb-server-termux"
 title: "Running PouchDB Server on Android"
 date: 2020-06-25
 description: "A how-to on getting PouchDB Server running on Android using Termux"

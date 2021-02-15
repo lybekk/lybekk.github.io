@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/couchdb"
 title: "CouchDB cheatsheet"
 date: 2020-09-19
 description: "Cheatsheet for CouchDB"
 tags: ["CouchDB", "Database", "Server", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 >**Assumptions for this article**

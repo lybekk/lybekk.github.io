@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/javascript"
 title: "JavaScript cheatsheet"
 date: 2020-07-13
 description: "Cheatsheet for JavaScript"
 tags: ["JavaScript", "Syntax", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Generate UUID (v4)

@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/apache-http-server"
 title: "Apache HTTP Server cheatsheet"
 date: 2019-05-29
 description: "Cheatsheet - Apache HTTP Server"
 tags: ["Apache HTTP Server", "Linux","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Config file location

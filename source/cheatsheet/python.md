@@ -1,11 +1,11 @@
 ---
-permalink: "/cheatsheet/python"
 title: "Python cheatsheet"
 firstPublished: 2020-07-09
 date: 2020-10-14
 description: "Python cheatsheet. I.E. setting up a provisionary HTTP Server."
 tags: ["Python", "Syntax", "Cheatsheet"]
 cheatsheetDataName: "python"
+layout: layouts/post.njk
 ---
 
 ## Collection types

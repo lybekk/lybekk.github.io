@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/termux-install-google-cloud-cli"
 title: "Termux: Install Google Cloud CLI"
 date: 2021-01-16
 description: "Install gcloud CLI to access Google Cloudh Shell through SSH on Android using Termux"

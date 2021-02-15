@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/syncthing"
 title: "Syncthing"
 date: 2020-06-25
 description: "Syncthing tip snippets"
 tags: ["Syncthing", "Linux","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Syncthing on a LAN

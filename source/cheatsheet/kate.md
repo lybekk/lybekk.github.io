@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/kate"
 title: "Kate"
 date: 2020-06-01
 description: "Kate, KDE's feature-filled, included text editor."
 tags: ["Kate", "KDE","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Fixing Kate's 'save session' bug

@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/python-cgi-on-apache-web-server"
 title: "Run a simple Python CGI on Apache Web Server"
 date: 2020-07-20
 description: "A how-to on running a simple Python CGI script on an Apache HTTP Web Server"

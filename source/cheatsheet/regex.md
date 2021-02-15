@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/regex"
 title: "Regex"
 date: 2020-10-14
 description: "Regex cheatsheet"
 tags: ["regex","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Use in text editors

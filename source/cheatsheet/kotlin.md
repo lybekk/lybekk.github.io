@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/kotlin"
 title: "Kotlin cheatsheet"
 date: 2020-08-22
 description: "Cheatsheet for Kotlin"
 tags: ["Kotlin", "Syntax", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Create a function

@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/windows-cmd"
 title: "Windows CMD"
 date: 2020-10-14
 description: ""
 tags: ["Windows","CMD", "Command line", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## FINDSTR

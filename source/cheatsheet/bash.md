@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/bash"
 title: "Bash cheatsheet"
 date: 2020-06-01
 description: ""
 tags: ["Bash", "Syntax", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Find files with GREP

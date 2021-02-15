@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/kde"
 title: "KDE"
 date: 2020-09-10
 description: "Notes on KDE, the desktop environment"
 tags: ["KDE","Linux","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Performance tips

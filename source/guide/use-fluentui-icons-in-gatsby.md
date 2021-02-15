@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/use-fluentui-icons-in-gatsby"
 title: "How To: Use Fluent UI Icons in Gatsby"
 date: 2020-07-26
 description: "Microsoft's Fluent UI delivers a crisp user interface. Here's a small guide on how to use the included icons with Gatsby"

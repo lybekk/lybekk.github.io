@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/html"
 title: "HTML cheatsheet"
 date: 2020-06-28
 description: ""
 tags: ["HTML", "Syntax","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## HTML

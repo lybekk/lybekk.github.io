@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/ssh"
 title: "SSH cheatsheet"
 date: 2020-07-29
 description: "Cheatsheet - Apache HTTP Server"
 tags: ["SSH", "VPS", "Linux", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 *SSH - Secure Shell*

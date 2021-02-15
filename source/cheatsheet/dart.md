@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/dart"
 title: "Dart cheatsheet"
 date: 2020-10-25
 description: "Dart cheatsheet."
 tags: ["Dart", "Flutter", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Useful libraries

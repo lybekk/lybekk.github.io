@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/css"
 title: "CSS cheatsheet"
 date: 2020-07-13
 description: "Cheatsheet for CSS"
 tags: ["CSS", "Syntax", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Centering items

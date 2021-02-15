@@ -1,10 +1,10 @@
 ---
-permalink: "/cheatsheet/termux"
 title: "Termux cheatsheet"
 firstPublished: 2019-05-29
 date: 2020-12-04
 description: "Code snippets for Termux , a brilliant terminal emulator for Android."
 tags: ["Termux", "MySQL", "MariaDB", "PostgreSQL", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Termux & MariaDB

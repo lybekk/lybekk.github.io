@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/get-netlify-bandwidth-usage"
 title: "How to: Get Netlify Bandwith Usage Programatically For Free"
 firstPublished: 2020-07-27
 date: 2020-10-14

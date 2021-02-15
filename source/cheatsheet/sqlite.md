@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/sqlite"
 title: "SQLite"
 date: 2020-06-25
 description: "SQLite tip snippets"
 tags: ["SQLite", "Database","Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Copy specific columns from one table and insert into a different table

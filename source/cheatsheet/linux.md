@@ -1,9 +1,9 @@
 ---
-permalink: "/cheatsheet/linux"
 title: "Linux cheatsheet"
 date: 2020-09-07
 description: ""
 tags: ["Linux", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Split/cut/extract clip from a video file

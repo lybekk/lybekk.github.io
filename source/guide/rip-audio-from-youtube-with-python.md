@@ -1,5 +1,4 @@
 ---
-permalink: "/guide/rip-audio-from-youtube-with-python"
 title: "How to: Rip audio from YouTube with Python"
 date: 2020-10-14
 description: ""

@@ -1,10 +1,10 @@
 ---
-permalink: "/cheatsheet/couchbase"
 title: "Couchbase cheatsheet"
 date: 2020-12-03
 firstPublished: 2020-06-01
 description: "Cheatsheet for Couchbase Server & Sync Gateway"
 tags: ["Couchbase", "Couchbase Server", "Couchbase Sync Gateway", "Cheatsheet"]
+layout: layouts/post.njk
 ---
 
 ## Couchbase Server

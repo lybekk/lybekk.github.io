@@ -15,6 +15,7 @@ eleventyComputed:
   title: Tagged - {{ tag }}
 permalink: /tags/{{ tag | kebabCase }}/
 ---
+
 {# List all posts for the requested tag #}
 {% block seo %}
   <style>
@@ -25,7 +26,7 @@ permalink: /tags/{{ tag | kebabCase }}/
   </style>
 {% endblock %}
 <section class="l-grid-center-list">
-  <div /* Extra div for left text alignment */>
+  <div>
     <h1>
       <ins style="display: inline-block;" class="zoomIn">
         {{ collections[ tag ].length }}
@@ -59,16 +60,23 @@ permalink: /tags/{{ tag | kebabCase }}/
             {{ post.data.description }}
           </small>
         </p>
-        {% for tag in post.data.tags %}
-          {%- if collections.tagList.indexOf(tag) != -1 -%}
-            {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-            <small>
-            <a href="{{ tagUrl | url }}">
-              #{{ tag }}
-            </a>
-            </small>
-          {%- endif -%}
-        {% endfor %}
+
+        {{ post.data.tags | hashTags | safe }}
+        
+        {# KEEP: eleventy creates tags pages out of collections in addition to template tagsList.njk
+          {% for tag in post.data.tags %}
+            {%- if collections.tagList.indexOf(tag) != -1 -%}
+              {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+              <small>
+              <a href="{{ tagUrl | url }}">
+                #{{ tag }}
+              </a>
+              </small>
+            {%- endif -%}
+          {% endfor %}
+        #}
+
+
       </article>
     {% endfor %}
     <hr class="inset" />

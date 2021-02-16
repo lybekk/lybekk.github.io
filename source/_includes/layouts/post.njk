@@ -59,6 +59,7 @@ layout: layouts/base.njk
             -->
             <div class="card" style="box-shadow: var(--card-shadow); display: inline-block; padding: 1rem; margin-bottom: 2vh; height: fit-content;">
               <p style="margin: 0">Explore more articles with similar tags</p>
+              {{ tags | hashTags | safe }}
               <!-- 
               TODO: make shortcode (eleventy) together with tags.njk
               https://www.11ty.dev/docs/languages/nunjucks/#shortcodes

@@ -51,6 +51,36 @@ module.exports = function(eleventyConfig) {
     return content.split(" ").length
   });
 
+  eleventyConfig.addFilter("hashTags", function(tags) {
+    const htmlList = []
+    for (let tag of tags) {
+      //{% for tag in post.data.tags %}
+      //if (this.collections.tagList.indexOf(tag) != -1) {
+        const tagUrl = `/tags/${kebabCase(tag)}/` // originally {% set tagUrl %}/tags/{{ tag }}/{% endset %} {{ tagUrl | url }}
+        const html = `
+        <small>
+          <a 
+            href="${tagUrl}"
+            class="tag"
+            data-tag="${kebabCase(tag)}"
+          >
+            #${tag}
+          </a>
+        </small>
+        `
+        htmlList.push(html)
+      //}
+      //{%- if collections.tagList.indexOf(tag) != -1 -%}
+        //{% set tagUrl %}/tags/{{ tag }}/{% endset %}
+      //{%- endif -%}
+    //{% endfor %}
+    }
+    return htmlList.join("")
+    //{% for tag in collections.tagList %}
+      //{% set tagUrl %}/tags/{{ tag | kebabCase }}/{% endset %}
+    //{% endfor %}
+  });
+
   eleventyConfig.addFilter("toc", function(content) {
     return ""
     /* TODO:
@@ -108,8 +138,11 @@ module.exports = function(eleventyConfig) {
       }
     });
 
-    // returning an array in addCollection works in Eleventy 0.5.3
-    return [...tagSet];
+    //tagSet.sort()
+    const tagList = [...tagSet]
+    tagList.sort()
+    //return [...tagSet].sort()
+    return tagList
   });
 
   eleventyConfig.setBrowserSyncConfig({

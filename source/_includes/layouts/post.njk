@@ -60,49 +60,11 @@ layout: layouts/base.njk
             <div class="card" style="box-shadow: var(--card-shadow); display: inline-block; padding: 1rem; margin-bottom: 2vh; height: fit-content;">
               <p style="margin: 0">Explore more articles with similar tags</p>
               {{ tags | hashTags | safe }}
-              <!-- 
-              TODO: make shortcode (eleventy) together with tags.njk
-              https://www.11ty.dev/docs/languages/nunjucks/#shortcodes
-              {frontmatter.tags.map((tag: string) => (
-                <Link
-                  to={`/tags/${kebabCase(tag)}/`}
-                  key={tag}
-                  style={{
-                    color: `var(--primary)`,
-                    marginRight: `.3rem`,
-                  }}
-                >
-                  <FontAwesomeIcon
-                    style={{
-                      marginRight: `.05rem`,
-                      fontSize: `large`,
-                      opacity: `.6`,
-                    }}
-                    icon={faHashtag}
-                  />
-                  {tag}
-                </Link>
-              ))}
-              -->
             </div>
             <div class="card" style="padding: 1vw">
               <h4 class="dense">Article stats</h4>
               <hr class="inset dense"></hr>
-              <!-- TODO:
-                const postStats = {
-                  words: wordCount.words,
-                  sentences: wordCount.sentences,
-                  paragraphs: wordCount.paragraphs,
-                  "read time": timeToRead + (Number(timeToRead) > 1 ? ` mins` : ` min`),
-                }
-
-              {Object.keys(postStats).map(item => (
-                <p key={item} className="dense">
-                  <span style={{ fontSize: `large`, marginRight: `.3rem` }}>{postStats[item]}</span>
-                  {item}
-                </p>
-              ))}
-              -->
+              {% postStats content, [] %}
             </div>
           </footer>
         </div>

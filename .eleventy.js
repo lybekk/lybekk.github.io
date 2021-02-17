@@ -5,8 +5,43 @@ var kebabCase = require('lodash/fp/kebabCase');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const moment = require('moment');
 
+var remark = require('remark')
+var remarkRecommended = require('remark-preset-lint-recommended')
+var remarkHtml = require('remark-html')
+var remarkReport = require('vfile-reporter')
+
+
 
 module.exports = function(eleventyConfig) {
+
+  eleventyConfig.on('beforeBuild', () => {
+    // Run me before the build starts
+    console.log("THIS BEFORE BUILD: ", this)
+  });
+
+  eleventyConfig.on('afterBuild', () => {
+    // Run me after the build ends
+    console.log("THIS AFTER BUILD: ", this)
+
+    /* TODO: Implement to check linting on markdown files and cheatsheet
+        https://unifiedjs.com/explore/package/remark/
+
+    remark()
+   .use(remarkRecommended)
+   .use(remarkHtml)
+   .process('## Hello world!', function (err, file) {
+     console.error(remarkReport(err || file))
+     console.log(String(file))
+   })
+     */
+  });
+
+  eleventyConfig.on('beforeWatch', (changedFiles) => {
+    // changedFiles is an array of files that changed
+    // to trigger the watch/serve build
+    console.log("THIS, BEFORE WATCH CHANGED FILES: ", this)
+    console.log("BEFORE WATCH CHANGED FILES: ", changedFiles)
+  });
 
   const passthroughList = [
     "google93445b09dad855a5.html",
@@ -63,8 +98,12 @@ module.exports = function(eleventyConfig) {
             href="${tagUrl}"
             class="tag"
             data-tag="${kebabCase(tag)}"
+            style="color: var(--primary); margin-right: .3rem;"
           >
-            #${tag}
+            <span style="margin-right: .05rem; font-size: large; opacity: .6;">
+              #
+            </span>
+            ${tag}
           </a>
         </small>
         `
@@ -81,6 +120,9 @@ module.exports = function(eleventyConfig) {
     //{% endfor %}
   });
 
+  /**
+   * TODO: Create TOC with remark TOC
+   */
   eleventyConfig.addFilter("toc", function(content) {
     return ""
     /* TODO:
@@ -103,6 +145,39 @@ module.exports = function(eleventyConfig) {
     */
   });
 
+  /**
+   * Shortcodes
+   * TODO: Add cheatsheet in the future
+   */
+
+  eleventyConfig.addShortcode("postStats", function(content = "", cheatsheet = []) {
+    const htmlArray = []
+
+    const postStats = {
+      words: content.split(" ").length,
+      sentences: wordCount.sentences,
+      paragraphs: wordCount.paragraphs,
+      "read time": timeToRead + (Number(timeToRead) > 1 ? ` mins` : ` min`),
+    }
+
+
+
+    /*
+    Object.keys(postStats).map(item => (
+      <p key={item} className="dense">
+        <span style={{ fontSize: `large`, marginRight: `.3rem` }}>{postStats[item]}</span>
+        {item}
+      </p>
+    ))
+
+
+    return `<div class="user">
+      <div class="user_name">${name}</div>
+      <div class="user_twitter">@${twitterUsername}</div>
+      </div>`;
+     */
+    return ""
+  });
 
   /**
    * Plugins

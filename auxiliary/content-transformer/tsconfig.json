@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ES5",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "removeComments": true,
+      "moduleResolution": "node",
+      "outDir": "dist",
+      "declaration": true
+    },
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Recommended",
+    "files": [
+        "source/index.ts",
+        "source/.d.ts"
+    ],
+    "exclude": ["node_modules", ".vscode"]
+}

@@ -1,15 +1,9 @@
 declare module 'glob';
 
 interface Content {
-	published: ParsedContent[];
-	unpublished?: string[];
-	unknowns?: string[];
-}
-
-interface ParsedContent {
-	data: {
-		public?: boolean
-	}
+	published: Post[];
+	unpublished: Post[];
+	unknowns: Post[];
 }
 
 interface ContentTransformerOptions {

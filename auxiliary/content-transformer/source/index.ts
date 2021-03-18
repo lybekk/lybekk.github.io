@@ -1,7 +1,6 @@
-import matter = require('gray-matter')
 import glob = require("glob")
 import fs = require('fs')
-
+import { Post } from './classes/Post'
 
 /**
  * Usage: 
@@ -13,14 +12,11 @@ import fs = require('fs')
  * const dataBatch: DataBatch = new DataBatch();
  */
 export class ContentTransformer {
-	content: Content = {
-		published: []
-	}
+	content: Content;
 	contentSourceDirectory: string = ""
 	developmentMode: boolean = false
 
 	/**
-	 * 
 	 * @param {ContentTransformerOptions} options takes contentSourceDirectory and development mode
 	 */
 	constructor(options: ContentTransformerOptions) {
@@ -28,6 +24,11 @@ export class ContentTransformer {
 		const envVarOrDefault = process.env.LYBEKK_TECH_CONTENT_DIR || './content'
 		this.contentSource = options.contentSourceDirectory || envVarOrDefault
 		this.isDevelopmentMode = options.developmentMode === true || false;
+		this.content = {
+			published: [],
+			unpublished: [],
+			unknowns: [],
+		}
 	}
 
 	/**
@@ -41,9 +42,9 @@ export class ContentTransformer {
 		this.contentSourceDirectory = sourceDir
 	}
 
-	get contentBatch(): Content {
-		this.contentParser()
-		if (this.isDevelopmentMode){
+	get contentBatch(): Partial<Content> {
+		this.contentParser();
+		if (this.isDevelopmentMode) {
 			return this.content
 		} else {
 			return { published: this.content.published }
@@ -54,16 +55,17 @@ export class ContentTransformer {
 	 * 
 	 * @param dirCache Pass relative path as string
 	 */
-	saveToCache(dirCache: string = './cache') {
-		if (!fs.existsSync(dirCache)){
+	saveToCache(dirCache: string = './cache'): boolean {
+		if (!fs.existsSync(dirCache)) {
 			fs.mkdirSync(dirCache)
 		}
-		Object.entries(this.contentBatch).forEach( ([key, values]) => {
+		Object.entries(this.contentBatch).forEach(([key, values]) => {
 			fs.writeFileSync(
-				`${dirCache}/${key}.json`, 
+				`${dirCache}/${key}.json`,
 				JSON.stringify(values, null, 2)
 			)
 		})
+		return true;
 	}
 
 	/**
@@ -76,48 +78,39 @@ export class ContentTransformer {
 	set isDevelopmentMode(value: boolean) {
 		if (value === true) {
 			this.developmentMode = true
-			Object.assign(this.content, {
-				unpublished: [],
-				unknowns: [],
-			});
 		} else {
 			this.developmentMode = false
 		}
 	}
 
-	/**
-	 * TODO: REFACTOR
-	 */
 	private contentParser(): void {
+		if (this.content.published.length) {
+			return
+		}
 		const options = {
 			cwd: this.contentSource,
 			realpath: true,
 		}
-		const files: string[] = glob.sync('**/*.md', options)
-		files.forEach( (fileName) => {
-			const parsedContent: ParsedContent = matter.read(fileName);
-			const isPublic = parsedContent.data.public === true;
-			const hasPublic = parsedContent.data.hasOwnProperty('public')
-			const contentStates = {
-				isPublished: hasPublic && isPublic,
-				isUnpublished: hasPublic && !isPublic,
-			}
-			if (contentStates.isPublished) {
-				this.content.published.push(parsedContent)
-			}
-			if (this.isDevelopmentMode) {
-				this.developmentModeFileHandler(fileName, parsedContent, contentStates)
-			}
-		})
-	}
-
-	developmentModeFileHandler = (fileName: string, parsedContent: ParsedContent, contentStates: ContentStates): void => {
-		if (contentStates.isUnpublished) {
-			this.content.unpublished?.push(fileName)
-		} else {
-			// TODO: more checks
-			this.content.unknowns?.push(fileName)
+		try {
+			const files: string[] = glob.sync('**/*.md', options);
+			files.forEach((fileName) => {
+				const post = new Post(fileName);
+				if (post.isPrivate) throw new TypeError(`Post marked private found in published list. File: ${fileName}`);
+				if (post.isPublished && post.isValid) {
+					this.content.published.push(post)
+				}
+				if (this.isDevelopmentMode) {
+					this.developmentModeFileHandler(post)
+				}
+			})
+		} catch (error) {
+			return error;
 		}
 	}
-	
+
+	developmentModeFileHandler = (post: Post): void => {
+		const destination = post.isUnpublished ? this.content.unpublished : this.content.unknowns;
+		destination.push(post)
+	}
+
 }

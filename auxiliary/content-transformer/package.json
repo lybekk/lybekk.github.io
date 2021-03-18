@@ -1,13 +1,14 @@
 {
   "name": "lybekk-tech-content-transformer",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "run": "ts-node index.ts",
+    "start": "npx tsc",
+    "start:ts": "ts-node index.ts",
     "build": "npx tsc --build",
-    "prepare": "npx tsc --build",
+    "prepare": "npx tsc",
     "test": "tsc;npx jest"
   },
   "author": "Christoffer Lybekk",

@@ -7,6 +7,7 @@ Used when grabbing content from external source.
 ```shell
 npm test
 ```
+
 ## TODO
 
 - [ ] Write complete test coverage

@@ -15,10 +15,9 @@ var { faLinkedin, faGithub } = require('@fortawesome/free-brands-svg-icons')
 path1 = path.resolve(__dirname, "../../node_modules/bootstrap-icons/icons/")
 const bootstrapLinkedin = fs.readFileSync(path1 + "/" + "linkedin.svg","utf-8")
 
-const iconify = (svgIcon) => {
+const iconify = svgIcon => {
     return `${svgIcon}`
 } 
-
 
 /**
  * Icons Module

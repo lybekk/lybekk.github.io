@@ -1,11 +1,6 @@
-var fs = require('fs')
 const path = require('path');
-
 path1 = path.resolve(__dirname)
-console.log("PATH IN heroBottomButtons: ", path1)
-
 var icons = require('./icons.js');
-console.log("ICONS: ", JSON.stringify(icons))
 
 const heroBottomButtons = [
     {
@@ -48,13 +43,11 @@ const button = (x, i) => {
     </a>`
 }
 
-module.exports = function() {
-    return {
+module.exports = {
         data: heroBottomButtons,
         html: heroBottomButtons.map(
             (btn, index) => (
                 button(btn, index).toString()
             )
         ).join("")
-    }
 }

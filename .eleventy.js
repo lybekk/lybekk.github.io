@@ -6,10 +6,9 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const moment = require('moment');
 
 var remark = require('remark')
-var remarkRecommended = require('remark-preset-lint-recommended')
-var remarkHtml = require('remark-html')
-var remarkReport = require('vfile-reporter')
-
+// TODO: var remarkRecommended = require('remark-preset-lint-recommended')
+// TODO: var remarkHtml = require('remark-html')
+// TODO: var remarkReport = require('vfile-reporter')
 
 
 module.exports = function(eleventyConfig) {

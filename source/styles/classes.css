@@ -1,3 +1,7 @@
+.absolute {
+    position: absolute;
+}
+
 .headline {
     color: var(--secondary); 
     letter-spacing: .6rem
@@ -6,6 +10,18 @@
 .primary {
     color: var(--surface);
     background-color: var(--primary);
+}
+
+.secondary {
+    /* TODO: Check if conflict */
+    color: var(--on-secondary);
+    background-color: var(--secondary);
+}
+
+.accent {
+    /* TODO: Check if conflict */
+    color: var(--on-accent);
+    background-color: var(--accent);
 }
 
 .info {

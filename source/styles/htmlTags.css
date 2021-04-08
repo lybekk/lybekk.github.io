@@ -15,34 +15,28 @@ body {
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale;
     color: var(--text-color);
+    background: var(--background);
     background-color: var(--background);
     margin: 0;
 }
 
+header {
+    width: 100%;
+    margin: 0;
+    background-color: var(--surface);
+    padding-top: .4rem;
+}
+
+header h1 {
+    margin-left: 2rem;
+}
+
 main {
-    max-width: 95vw;
+    max-width: 960px;
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
     width: auto;
-}
-
-@media screen and (min-width: 1216px) {
-    main {
-        max-width: 1152px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    main {
-        max-width: 960px;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    main {
-        max-width: 95vw;
-    }
 }
 
 nav {
@@ -54,16 +48,26 @@ nav * {
     color: var(--primary);
 }
 
-article {
+article {    
+    display: inline-block;
     background-color: var(--surface);
     margin-top: 1rem;
     padding: .1rem .6rem;
     box-shadow: var(--card-shadow);
-    border-radius: 4px;
+    border-radius: var(--border-radius);
+    transition: all .2s;
 }
 
 article section {
     background-color: var(--surface-secondary);
+}
+
+article ul li article {
+    background-color: var(--surface-secondary);
+}
+
+article input {
+    border-color: var(--surface-tertiary);
 }
 
 section {
@@ -77,18 +81,57 @@ section {
     display: inline-block;
 }
 
+section input {
+    border-color: var(--surface-secondary);
+}
+
+/* TODO: test transition on entry
+section {
+    opacity: 1;
+    transition: all 2.4s ease-in-out;
+}
+section:not([closed]) {
+    opacity: 1;
+    transition: all 2.4s ease-in-out;
+}
+section:not() {
+    opacity: 0;
+    transition: all 2.4s ease-in-out;
+}
+section:not([open]) {
+}
+*/
 section > button {
     margin: 2vw .5vw;
 }
 
+section input,
+section select,
+article button,
+article summary {
+    color: var(--text-color);
+    background-color: var(--surface-secondary);
+    /* KEEP FOR TESTING
+    background-color: var(--accent);
+    */
+}
+
+section input,
+section select,
+section button,
+section summary {
+    color: var(--text-color);
+    background-color: var(--surface-tertiary);
+}
+
 h1 {
-    font-size: xxx-large;
+    font-size: 3rem;
     font-weight: 400;
 }
 
 h2 {
-    font-size: xx-large;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 h3 {
@@ -111,9 +154,10 @@ h6 {
     border-color: transparent;
     border-width: medium;
     border-style: solid;
-    line-height: 1.1;
-    margin-bottom: 1.45rem;
     text-rendering: optimizeLegibility;
+    line-height: 1.2;
+    letter-spacing: -.05rem;
+    margin-bottom: .4rem;
 }
 
 p {
@@ -145,6 +189,11 @@ a::after {
     transition: all .2s ease-out;
 }
 
+a[target="_blank"]::after {
+    content: "";
+    position: absolute;
+}
+
 a[target="_blank"]:hover::after {
     content: "\1F5D4"; /* window \1F5D4 */ /* arrow \1F895 */
     position: absolute;
@@ -152,6 +201,7 @@ a[target="_blank"]:hover::after {
     color: var(--info);
     font-size: xx-large;
     transform: translateY(.7rem);
+    transition: all .2s;
     /* KEEP for arrows:
     transform: translateY(-3.5rem) translateX(.5rem) rotateZ(45deg);
     */
@@ -195,6 +245,7 @@ blockquote.error {
 
 button {
     position: relative;
+    font-family: var(--font-family);
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.0892857em;
@@ -211,7 +262,7 @@ button {
     user-select: none;
     appearance: none;
     vertical-align: middle;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     height: 36px;
     transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     flex: 1 1 auto;
@@ -225,16 +276,22 @@ button {
     transition: all 0.2s;
 }
 
+button:active {
+    color: var(--on-accent);
+    background-color: var(--accent);
+    transform: scale(.8) !important;
+}
+
 button:hover {
-    transition: all 0.2s;
-    box-shadow: 0px 2px 4px -1px var(--primary), 0px 4px 5px 0px var(--primary), 0px 1px 10px 0px var(--primary);
+    transition: all .2s;
+    box-shadow: 0 1px 4px -1px var(--primary),0 2px 2px 0 var(--primary),0 1px 5px 0 var(--primary);
     transform: scale(1.02);
 }
 
 button:after {
     content: '';
     position: absolute;
-    background-color: var(--secondary);
+    background-color: var(--accent);
     width: 0%;
     height: 100%;
     left: 0;
@@ -244,12 +301,19 @@ button:after {
 
 button:hover:after {
     content: '';
-    background-color: var(--secondary);
+    background-color: var(--accent);
     width: 100%;
     height: 100%;
     position: absolute;
     transition: all 0.2s ease-out;
     mix-blend-mode: overlay;
+}
+
+small button {
+    font-size: smaller !important;
+    min-width: unset;
+    height: unset;
+    padding: .5rem;
 }
 
 label {
@@ -265,7 +329,7 @@ input {
     background-color: var(--secondary);
     box-sizing: content-box;
     border-style: var(--input-border-style);
-    border-color: var(--secondary);
+    border-color: var(--surface);
     border-radius: 8px;
     border-width: 1px;
     outline: none;
@@ -275,7 +339,11 @@ input {
     -moz-appearance: none;
     appearance: none;
 }
-
+input:read-only {
+    background-color: inherit;
+    border: 1px solid var(--background);
+    color: var(--uncommon);
+}
 input[type="submit"],
 input[type="reset"],
 input[type="range"],
@@ -288,10 +356,28 @@ input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     opacity: .6;
 }
 
-textarea {
-    background-color: var(--surface);
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid var(--secondary);
+    -webkit-text-fill-color: var(--secondary);
+    -webkit-box-shadow: 0 0 0px 1000px var(--on-secondary) inset;
+    box-shadow: 0 0 0px 1000px var(--on-secondary) inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
+input,
+select,
+button {
+    color: var(--text-color);
+    background-color: var(--surface);
+}
 select {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -308,11 +394,21 @@ select {
 }
 
 select option {
-    font-weight:normal;
+    font-weight: 400;
     padding: 1rem;
-    line-height: 1rem;
-    color: var(--on-info);
-    background-color: var(--info);
+    line-height: 1.2rem;
+    color: var(--text-color-muted);
+    background-color: var(--surface-tertiary);
+}
+
+select:focus { /* may be too broad */
+    outline-style: auto;
+    outline-color: var(--surface);
+    outline-width: 2px;
+}
+
+textarea {
+    background-color: var(--surface);
 }
 
 b,
@@ -323,6 +419,7 @@ strong {
 pre {
     padding: 1rem 1.5rem;
     border-radius: 4px;
+    background-color: var(--text-color); /* added for matching background of code */
 }
 
 samp,
@@ -343,13 +440,16 @@ code.language-text {
 samp {
     margin-left: .25rem;
     margin-right: .25rem;
-    border-radius: .2rem;
-    background-color: var(--text-color);
-    color: var(--info);
+    border-radius: var(--border-radius);
+    background-color: inherit;
+    color: var(--uncommon);
     font-weight: lighter;
     font-size: large;
-    border-left: 1px solid var(--info);
-    border-right: 1px solid var(--info);
+    border-left: .1rem dotted var(--info);
+    border-right: .1rem dotted var(--info);
+    border-bottom-style: dotted;
+    border-bottom-width: .1rem;
+    border-bottom-color: var(--info);
 }
 
 samp.error {
@@ -401,7 +501,10 @@ time {
 }
 
 ul {
+    /* KEEP
     list-style-type: "\232A";
+    */
+    list-style-type: none;
     margin-left: 1.45rem;
     padding: 0;
     margin-bottom: 1.45rem;
@@ -409,17 +512,87 @@ ul {
     list-style-image: none;
 }
 
+ul[aria-busy="true"] {
+    animation-name: busy-ul;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+}
+
+ul[aria-busy="true"]::before {
+    content: "...";
+    position: absolute;
+    background-color: var(--on-info);
+    padding: 1vw;
+    opacity: .9;
+    color: var(--info);
+    border-radius: var(--border-radius);
+    animation-name: busy-ul-before;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+}
+
+ul::before {
+    content: "";
+    transition: all .4s ease-in-out;
+}
+
+/* 
+ul:empty {
+    KEEP, for possible loading bar
+    min-height: 2vh;
+}
+
+ul:empty::before {
+    content: "...";
+    position: absolute;
+    background-color: var(--on-info);
+    padding: 1vw;
+    opacity: .9;
+    color: var(--info);
+    border-radius: var(--border-radius);
+    animation-name: empty-ul-before;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+}
+*/
+
 li {
     margin-bottom: calc(1.45rem / 2);
 }
 
+li {
+    margin-bottom: calc(1.45rem / 2);
+    /*
+    border-left: 2px solid var(--info);
+    */
+    border-radius: var(--border-radius);
+    padding-left: 1rem;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-bottom: .5rem;
+    margin-left: 0;
+}
+
 table {
+    background-color: var(--info);
+    border: 2px dashed var(--on-info);
+    color: var(--on-info);
     line-height: 1.45rem;
     border-collapse: collapse;
     border-spacing: 0;
 }
 
+small table {
+    line-height: .1rem;
+}
+
 tr {
+    border-color: var(--on-info);
     border-top-width: 1px;
     border-top-style: solid;
 }
@@ -472,13 +645,25 @@ details[open] {
     border-bottom: 1px solid var(--info);
     box-shadow: none;
     transition: all .4s ease-in-out;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
 
 details[open] summary ~ * {
     animation: sweep .5s ease-in-out;
 }
 
+details.floating {
+    border: none;
+    width: auto;
+}
+
+details[open].floating {
+    position: absolute;
+    background-color: var(--surface-tertiary);
+    max-width: 90vw;
+    z-index: 10;
+    border: 10px solid var(--accent);
+}
 
 summary {
     cursor: pointer;

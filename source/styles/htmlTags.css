@@ -422,6 +422,10 @@ pre {
     background-color: var(--text-color); /* added for matching background of code */
 }
 
+small samp {
+    font-size: smaller;
+}
+
 samp,
 code {
     color: var(--surface);

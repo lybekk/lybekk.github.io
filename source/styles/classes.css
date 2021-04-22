@@ -1,3 +1,7 @@
+.absolute {
+    position: absolute;
+}
+
 .headline {
     color: var(--secondary); 
     letter-spacing: .6rem
@@ -6,6 +10,18 @@
 .primary {
     color: var(--surface);
     background-color: var(--primary);
+}
+
+.secondary {
+    /* TODO: Check if conflict */
+    color: var(--on-secondary);
+    background-color: var(--secondary);
+}
+
+.accent {
+    /* TODO: Check if conflict */
+    color: var(--on-accent);
+    background-color: var(--accent);
 }
 
 .info {
@@ -32,7 +48,7 @@
     background-color: var(--primary);
     color: var(--background);
     transition: all 1s ease-in-out;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--box-shadow);
     border-bottom-width: .2rem;
     border-bottom-style: solid;
     border-bottom-color: var(--primary);
@@ -44,7 +60,7 @@
 }
 
 .gatsby-highlight {
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--box-shadow);
     border-radius: 8px;
     display: inline-block;
 }
@@ -93,7 +109,7 @@
     position: absolute;
     background-color: var(--surface);
     min-width: 160px;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--box-shadow);
     z-index: 1;
 }
 
@@ -184,4 +200,10 @@
     top: .8rem;
     left: 1rem;
     opacity: .2;
+}
+
+/* TODO: Find alternative, using semantic HTML */
+.buttons {
+    text-align-last: end;
+    margin: 2.5vw;
 }

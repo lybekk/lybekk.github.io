@@ -216,3 +216,30 @@
     0%    {opacity: 0; margin-left: -10px}
     100%  {opacity: 1; margin-left: 0px}
 }
+
+@keyframes busy-ul { /* placeholder for future loading bar-ish */
+    from {
+        color: var(--error);
+    }
+    to {
+        color: var(--warning);
+    }
+}
+
+@keyframes busy-ul-before {
+    0% {
+        background-color: inherit;
+    }
+    25% {
+        background-color: var(--secondary);
+    }
+    50% {
+        background-color: var(--info);
+    }
+    75% {
+        background-color: var(--uncommon);
+    }
+    100% {
+        background-color: inherit;
+    }
+}

@@ -11,7 +11,23 @@
     scrollbar-color: var(--text-color) var(--background);
 }
 
+/* Generic pseudo-classes */
+
+::placeholder {
+    color: var(--text-color-muted);
+}
+
+::selection {
+    /* Opacity tricks
+        background-color: rgba(255, 230, 0, 0.4);
+    */
+    background-color: var(--text-color-emphasis);
+    color: var(--accent);
+    text-shadow: none;
+}
+
 /* Works on Chrome/Edge/Safari */
+
 *::-webkit-scrollbar {
     width: 1vw;
 }
@@ -23,6 +39,9 @@
     border-radius: 1rem;
 }
 
+::-webkit-input-placeholder { /* Edge */
+    color: var(--text-color-muted);
+}
 
 /* Prismjs */
 :not(pre) > code[class*="language-"], pre[class*="language-"] {

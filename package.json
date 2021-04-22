@@ -44,6 +44,7 @@
     "scripts": {
         "start": "npm run serve",
         "build": "npx @11ty/eleventy",
+        "build:css": "node source/_includes/cssBundler.js execute",
         "serve": "npx @11ty/eleventy --serve",
         "watch": "npx @11ty/eleventy --watch",
         "debug": "DEBUG=* npx @11ty/eleventy",

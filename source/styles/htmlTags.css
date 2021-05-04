@@ -105,8 +105,8 @@ section > button {
     margin: 2vw .5vw;
 }
 
-section input,
-section select,
+article input,
+article select,
 article button,
 article summary {
     color: var(--text-color);
@@ -322,6 +322,7 @@ label {
     border-bottom: 1px solid var(--info);
 }
 
+textarea,
 input {
     padding: 12.5px 14px;
     color: var(--on-surface);
@@ -330,7 +331,7 @@ input {
     box-sizing: content-box;
     border-style: var(--input-border-style);
     border-color: var(--surface);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     border-width: 1px;
     outline: none;
     font-size: medium;
@@ -388,7 +389,7 @@ select {
     padding: .6em 1.4em .5em .8em;
     border: 1px solid var(--background);
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: var(--secondary);
     color: var(--on-surface);
 }
@@ -418,8 +419,9 @@ strong {
 
 pre {
     padding: 1rem 1.5rem;
-    border-radius: 4px;
-    background-color: var(--text-color); /* added for matching background of code */
+    border-radius: var(--border-radius);
+    background-color: var(--accent);
+    color: var(--on-accent);
 }
 
 small samp {
@@ -433,7 +435,7 @@ code {
     padding: .25rem;
     margin-left: .25rem;
     margin-right: .25rem;
-    border-radius: .2rem;
+    border-radius: var(--border-radius);
     line-height: 2;
 }
 
@@ -484,7 +486,7 @@ kbd {
     padding: .2rem .4rem;
     margin-left: .25rem;
     margin-right: .25rem;
-    border-radius: .2rem;
+    border-radius: var(--border-radius);
 }
 
 mark {
@@ -499,7 +501,7 @@ time {
     font-family: monospace;
     background-color: var(--surface);
     padding: .2rem;
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     color: var( --on-surface);
     border: 1px solid var(--info);
 }
@@ -637,7 +639,7 @@ details {
     padding: .4vw;
     width: fit-content;
     transition: all .4s ease-in-out;
-    border-radius: 100px;
+    border-radius: calc(4px + var(--border-radius));
     border-left: 0px solid var(--info);
     border-bottom: 0px solid var(--info);
 }
@@ -676,7 +678,7 @@ summary {
     color: var(--surface);
     background-color: var(--primary);
     width: fit-content;
-    border-radius: .2rem;
+    border-radius: var(--border-radius);
     margin: .1rem;
 }
 
@@ -719,7 +721,7 @@ hr.inset {
 hr.vertical {
     display: inline;
     border: 2px solid var(--text-color);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: currentColor;
     margin: 0vw 1vw;
     opacity: .1;

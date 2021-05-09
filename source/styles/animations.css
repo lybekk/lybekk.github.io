@@ -225,6 +225,7 @@
         color: var(--warning);
     }
 }
+
 @keyframes busy-ul-before {
     0% {
         background-color: inherit;

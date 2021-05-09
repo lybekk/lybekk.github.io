@@ -81,6 +81,30 @@ section {
     display: inline-block;
 }
 
+
+section:empty {
+    background-color: none;
+    outline: none;
+}
+
+section:empty:before {
+    /*
+    background-color: transparent !important;
+    busy-ul-before
+    */
+    content: "...";
+    position: absolute;
+    background-color: var(--on-info);
+    padding: 1vw;
+    opacity: .9;
+    color: var(--info);
+    border-radius: var(--border-radius);
+    animation-name: busy-ul-before; /* TODO: replace with generic empty */
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+    /* transition: all 1s; TODO: Not working */ 
+}
+
 section input {
     border-color: var(--surface-secondary);
 }
@@ -161,7 +185,8 @@ h6 {
 }
 
 p {
- font-weight: 400;
+    font-weight: 400;
+    white-space: pre-wrap;
 }
 
 p:hover::after {
@@ -302,6 +327,25 @@ button:after {
 button:hover:after {
     content: '';
     background-color: var(--accent);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    mix-blend-mode: overlay;
+}
+
+button[disabled] {
+    opacity: .25;
+}
+
+button[disabled]:hover {
+    box-shadow: 0 1px 4px -1px var(--error),0 2px 2px 0 var(--error),0 1px 5px 0 var(--error);
+    transform: none;
+}
+
+button[disabled]:hover:after {
+    content: '';
+    background-color: var(--error);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -456,6 +500,7 @@ samp {
     border-bottom-style: dotted;
     border-bottom-width: .1rem;
     border-bottom-color: var(--info);
+    filter: brightness(1.2);
 }
 
 samp.error {
@@ -725,4 +770,32 @@ hr.vertical {
     background-color: currentColor;
     margin: 0vw 1vw;
     opacity: .1;
+}
+
+aside > details[open] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 15vh;
+    max-height: 65vh;
+    width: 100%;
+    overflow: overlay;
+    opacity: .985;
+    backdrop-filter: blur(10px); /* Does not work properly */
+    z-index: 10;
+}
+
+aside > details[open] > summary {
+    position: sticky;
+    top: 98.5%;
+    width: max-content;
+    background-color: var(--primary);
+    color: var(--on-primary);
+    font-size: medium;
+    left: 95vw;
+    text-align: right;
+}
+
+aside > details[open] > summary::before {
+    content: "[ Close ] ";
 }

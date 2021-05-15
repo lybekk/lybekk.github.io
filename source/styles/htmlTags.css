@@ -66,6 +66,7 @@ article ul li article {
     background-color: var(--surface-secondary);
 }
 
+article textarea,
 article input {
     border-color: var(--surface-tertiary);
 }
@@ -105,9 +106,6 @@ section:empty:before {
     /* transition: all 1s; TODO: Not working */ 
 }
 
-section input {
-    border-color: var(--surface-secondary);
-}
 
 /* TODO: test transition on entry
 section {
@@ -141,11 +139,11 @@ article summary {
 }
 
 section input,
+section textarea,
 section select,
 section button,
 section summary {
-    color: var(--text-color);
-    background-color: var(--surface-tertiary);
+    border-color: var(--surface-secondary);
 }
 
 h1 {
@@ -369,9 +367,7 @@ label {
 textarea,
 input {
     padding: 12.5px 14px;
-    color: var(--on-surface);
     caret-color: var(--on-surface);
-    background-color: var(--secondary);
     box-sizing: content-box;
     border-style: var(--input-border-style);
     border-color: var(--surface);
@@ -383,12 +379,16 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-family: var(--font-family);
 }
+
+textarea:read-only,
 input:read-only {
     background-color: inherit;
     border: 1px solid var(--background);
     color: var(--uncommon);
 }
+
 input[type="submit"],
 input[type="reset"],
 input[type="range"],
@@ -418,11 +418,13 @@ select:-webkit-autofill:focus {
 }
 
 input,
+textarea,
 select,
 button {
     color: var(--text-color);
-    background-color: var(--surface);
+    background-color: var(--secondary);
 }
+
 select {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -453,7 +455,7 @@ select:focus { /* may be too broad */
 }
 
 textarea {
-    background-color: var(--surface);
+    max-width: 80vw;
 }
 
 b,

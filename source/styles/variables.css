@@ -72,7 +72,8 @@ html[data-theme=nord] {
     --surface-secondary: var(--nord2);
     --surface-tertiary: var(--nord3);
 
-    --border-radius: 5px;
+    --border-radius: 8px;
+    --border-color: var(--accent);
     --font-family: sans-serif,arial,monospace;
 }
 
@@ -84,23 +85,24 @@ html[data-theme="cyberRenaissance"] {
     --success: #b0f3b3;
     --warning: #f5e382;
     --error: #c74546;
+    --uncommon: #a68bf8;
     --background: #1f1d1b;
-    /* --text-color: #918a71; */
-    --text-color: #555758;
     --surface: #3f3927;
     --surface-secondary: #918a71;
+    
+    /*
+    --text-color: #918a71;
+    --text-color: #555758;
+    */
+    --text-color: #fcfcf9;
+    --text-color-muted: #c8c2af;
+    --text-color-emphasis: #fcfcf9;
 
-    --text-color-muted: var(#c8c2af);
-    --text-color-emphasis: var(#fcfcf9);
-
-    --border-radius: 2px;
+    --border-radius: 2.5px;
+    --border-color: #c0b685;
 
     /* Other from palette
-    borders: c0b685
     gray: #555758
-    white: #fcfcf9;
-    offwhite: #c8c2af
-    purple/indigo: a68bf8
     */
 
 }

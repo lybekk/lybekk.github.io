@@ -48,14 +48,19 @@ nav * {
     color: var(--primary);
 }
 
-article {    
-    display: inline-block;
+article {
+    color: var(--text-color-muted);
     background-color: var(--surface);
-    margin-top: 1rem;
+    display: inline-block;
+    margin: 4vw 2vw;
     padding: .1rem .6rem;
-    box-shadow: var(--card-shadow);
     border-radius: var(--border-radius);
     transition: all .2s;
+    /*
+    border: 1px solid var(--surface);
+    */
+    border: 1px solid;
+    border-color: var(--border-color);
 }
 
 article section {
@@ -180,6 +185,14 @@ h6 {
     line-height: 1.2;
     letter-spacing: -.05rem;
     margin-bottom: .4rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin-top: .5rem;
+    margin-bottom: 1.1rem;
 }
 
 p {
@@ -466,8 +479,10 @@ strong {
 pre {
     padding: 1rem 1.5rem;
     border-radius: var(--border-radius);
-    background-color: var(--accent);
-    color: var(--on-accent);
+    /*
+    background-color: var(--on-accent);
+    color: var(--accent);
+    */
 }
 
 small samp {
@@ -476,13 +491,17 @@ small samp {
 
 samp,
 code {
-    color: var(--surface);
-    background-color: var(--text-color);
+    color: var(--on-accent);
+    background-color: var(--accent);
     padding: .25rem;
     margin-left: .25rem;
     margin-right: .25rem;
     border-radius: var(--border-radius);
     line-height: 2;
+}
+
+code:empty {
+    display: none;
 }
 
 code.language-text {
@@ -697,12 +716,12 @@ details[open] {
     border-left: 1px solid var(--info);
     border-bottom: 1px solid var(--info);
     box-shadow: none;
-    transition: all .4s ease-in-out;
+    transition: all .2s ease-in-out;
     border-radius: var(--border-radius);
 }
 
 details[open] summary ~ * {
-    animation: sweep .5s ease-in-out;
+    animation: sweep .2s ease-in-out;
 }
 
 details.floating {

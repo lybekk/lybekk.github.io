@@ -10,6 +10,7 @@ const fileNameArray = [
   "htmlTags",
   "classes",
   "animations",
+  "ariaLabels",
 ]
 
 function printResults(output) {

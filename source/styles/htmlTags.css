@@ -18,6 +18,7 @@ body {
     background: var(--background);
     background-color: var(--background);
     margin: 0;
+    text-shadow: var(---text-shadow);
 }
 
 header {
@@ -46,6 +47,10 @@ nav {
 
 nav * {
     color: var(--primary);
+}
+
+nav > a {
+    margin: .5vw;
 }
 
 article {
@@ -375,6 +380,10 @@ label {
     display: inline-block;
     margin: .6rem 0rem;
     border-bottom: 1px solid var(--info);
+}
+
+fieldset {
+    border-color: var(--accent);
 }
 
 textarea,

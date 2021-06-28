@@ -40,9 +40,11 @@
     --on-surface: var(--nord1);
 
     --border-radius: 5px;
+    --border-style: solid;
     --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
     --font-family: sans-serif, arial, monospace;
     --input-border-style: inset;
+    --text-shadow: none;
 }
 
 html[data-theme=nord] {
@@ -109,7 +111,7 @@ html[data-theme="cyberRenaissance"] {
 
 /* Inspired by https://cat-street.github.io/deus-ex-ebook/# */
 html[data-theme="cyberPunk"] { /* work in progress */
-    --primary: #133333;    
+    --primary: #133333;
     --secondary: #a6c9c9;
     --text-color: #fff;
     --text-shadow: 0 0 1rem #14c1c1, 0 0 1rem #189494, 0 0 1rem #134848;
@@ -176,7 +178,36 @@ html[data-theme="kde"] { /* work in progress */
     --text-color: #eff0f1!important;
 }
 
+/* Inspo
+    https://css-tricks.com/old-timey-terminal-styling/
+*/
+html[data-theme="oldSchool"] {
+    --primary: lime;
+    --accent: forestgreen;
+    --secondary: green;
+    --info: green;
+    --success: green;
+    --warning: greenyellow;
+    --error: orangered;
+    --uncommon: springgreen;
+    --background: radial-gradient(rgb(0 42 0 / 93%), #000000ed 120%);
+    --surface: #1f1d1b;
+    --surface-secondary: #1f1d1b;
+    
+    --text-color: lime;
+    --text-color-muted: darkolivegreen;
+    --text-color-emphasis: green;
+    --text-shadow: 0 0 5px #C8C8C8;
 
+    --border-radius: 0px;
+    --border-color: forestgreen;
+    --border-style: dashed;
+
+    /* Other from palette
+    gray: #555758
+    */
+
+}
 
 /*
  * Suggested:

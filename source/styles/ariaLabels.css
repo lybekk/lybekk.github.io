@@ -1,0 +1,41 @@
+/*
+    Todo?: Add unicode on warning & error?
+*/
+
+[role="alert"] {
+    /*
+    background: var(--surface);
+    color: white;
+    */
+    padding: .8vw 1.2vw;
+    border-width: 1px;
+    border-color: var(--accent);
+    border-radius: 2px;
+    border-style: solid;
+    display: inline-block;
+}
+
+[role="alert"].error {
+    border-color: var(--on-error);
+}
+
+[role="alert"].success {
+    border-color: var(--on-success);
+}
+
+[role="alert"].info {
+    border-color: var(--on-info);
+}
+
+[role="alert"].warning {
+    border-color: var(--on-warning);
+}
+
+[role="alert"]:empty {
+    /*
+    display: none;
+    */
+    border-radius: 50%;
+    width: 2vw;
+    height: 2vw;
+}

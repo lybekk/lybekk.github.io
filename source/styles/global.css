@@ -23,6 +23,7 @@
     */
     background-color: var(--text-color-emphasis);
     color: var(--accent);
+    text-shadow: none;
 }
 
 /* Works on Chrome/Edge/Safari */

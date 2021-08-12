@@ -203,10 +203,15 @@ html[data-theme="oldSchool"] {
     --border-color: forestgreen;
     --border-style: dashed;
 
+    --font-family: 'Courier New', monospace;
+
     /* Other from palette
     gray: #555758
     */
+}
 
+html[data-theme="oldSchool"] hr {
+    border-style: dashed;
 }
 
 /* Microsoft Fluent UI

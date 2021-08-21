@@ -1,6 +1,13 @@
+/**
+ * Bundles and minifies CSS files in source/styles
+ * 
+ * TODO: Consider going back to SASS
+ */
 const fs = require("fs").promises
 const path = require("path")
 const CleanCSS = require("clean-css")
+
+const outputBaseDir = "_site"
 
 const stylesPath = path.join(__dirname, "..", "styles")
 const fileNameArray = [
@@ -13,6 +20,9 @@ const fileNameArray = [
   "ariaLabels",
 ]
 
+/**
+ * Not in use at the moment
+ */
 function printResults(output) {
   console.log(`
   Errors: ${output.errors}
@@ -32,6 +42,7 @@ const writeToFile = (outputPath, outputContents) => {
     \n${outputContents}`,
     "utf-8"
   )
+  console.log(`[OK] File written to ${outputPath}`)
 }
 
 async function generate() {
@@ -45,8 +56,18 @@ async function generate() {
 
   const minified = new CleanCSS().minify(joinedStrings)
 
-  writeToFile("_site/lybekk.css", joinedStrings)
-  writeToFile("_site/lybekk.min.css", minified.styles)
+  try {
+    await fs.mkdir(outputBaseDir)
+  } catch (error) {
+    if (error.code == "EEXIST") {
+      console.log(`[OK] ${outputBaseDir} directory exists`)
+    } else {
+      console.log(error)
+    }
+  }
+
+  writeToFile(`${outputBaseDir}/lybekk.css`, joinedStrings)
+  writeToFile(`${outputBaseDir}/lybekk.min.css`, minified.styles)
 }
 
 if (process.argv.includes("execute")) {

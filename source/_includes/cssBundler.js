@@ -38,8 +38,7 @@ function printResults(output) {
 const writeToFile = (outputPath, outputContents) => {
   fs.writeFile(
     outputPath,
-    `/* Generated with cssBundler.js at https://github.com/lybekk/lybekk.github.io */
-    \n${outputContents}`,
+    outputContents,
     "utf-8"
   )
   console.log(`[OK] File written to ${outputPath}`)

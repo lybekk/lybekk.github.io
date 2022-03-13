@@ -1,5 +1,7 @@
 ## Lybekk portfolio site source repository
 
+[![CodeFactor](https://www.codefactor.io/repository/github/lybekk/lybekk.github.io/badge)](https://www.codefactor.io/repository/github/lybekk/lybekk.github.io)
+
 [See it here](https://lybekk.tech/)
 
 **Stack:**

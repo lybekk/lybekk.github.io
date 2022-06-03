@@ -22,7 +22,7 @@
         "gatsby-plugin-feed": "^2.5.16",
         "gatsby-plugin-manifest": "^2.4.35",
         "gatsby-plugin-matomo": "^0.8.3",
-        "gatsby-plugin-mdx": "^1.2.48",
+        "gatsby-plugin-mdx": "^2.14.1",
         "gatsby-plugin-offline": "^3.2.34",
         "gatsby-plugin-react-helmet": "^3.3.14",
         "gatsby-plugin-robots-txt": "^1.5.3",

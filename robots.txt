@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://lybekk.tech/sitemap.xml
-Host: https://lybekk.tech

@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+# Local preview toolchain only. GitHub Pages builds the live site with its own pinned gems, ignoring the Gemfile.
+# 
+# These render the same site locally.
+gem "jekyll", "~> 4.3"
+gem "minima", "~> 2.5"
+
+group :jekyll_plugins do
+  gem "jekyll-seo-tag"
+  gem "jekyll-feed"
+end
+
+# For `jekyll serve`. Ruby 3+ doesn't bundle it.
+gem "webrick", "~> 1.9"
+

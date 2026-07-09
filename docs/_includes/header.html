@@ -1,0 +1,11 @@
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    {%- comment -%}
+      Overrides minima's header.html to drop the nav. minima builds the nav from
+      site.header_pages | default: all-pages, and Liquid's `default` filter
+      treats an empty list as unset, so `header_pages: []` can't hide it. This
+      is a redirect stub with nothing to navigate to, so just show the title.
+    {%- endcomment -%}
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  </div>
+</header>

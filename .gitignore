@@ -1,0 +1,10 @@
+# Jekyll build output & caches
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+docs/.sass-cache/
+
+# Bundler
+docs/.bundle/
+docs/vendor/
+

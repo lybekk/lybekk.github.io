@@ -1,0 +1,16 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- comment -%}
+    Overrides minima's head.html to add a no-JS meta refresh on redirect pages.
+    The countdown script in each page handles JS visitors; canonical comes from
+    the page's canonical_url via jekyll-seo-tag above.
+  {%- endcomment -%}
+  {%- if page.redirect_to -%}
+  <meta http-equiv="refresh" content="3; url={{ page.redirect_to }}">
+  {%- endif -%}
+</head>

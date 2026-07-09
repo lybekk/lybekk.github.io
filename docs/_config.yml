@@ -1,0 +1,15 @@
+title: Lybekk
+description: >-
+  The site has moved to Codeberg.
+url: https://lybekk.github.io
+
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - color-functions
